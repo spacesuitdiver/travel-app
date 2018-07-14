@@ -1,4 +1,6 @@
 # travel-app
+A travel app that helps you pick your flight, hotel, activities, and outfit!
+
 
 ![new wireframe 1](https://user-images.githubusercontent.com/34491285/42727581-4fccd546-876f-11e8-9e3a-745e86a3ee69.png)
 
