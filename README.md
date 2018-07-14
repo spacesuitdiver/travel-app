@@ -16,6 +16,45 @@ A travel app that helps you pick your flight, hotel, activities, and outfit!
 
 ![new wireframe 1 copy 7](https://user-images.githubusercontent.com/34491285/42727579-4fb1c4b8-876f-11e8-9891-11ce22854f8b.png)
 
+# Timeline
+## Phase 1 Where are you going? What Dates?
+
+
+- What you should wear if you are headed to Paris— pair with Weather
+
+
+- Like what you see??
+
+## Phase 2
+
+- Ready to book your trip? — hotel, air, restaurants, experiences
+
+- Is this fashionista ready to fly away?
+
+
+### Step 1
+
+- Where are you going to go? When are you going to go?
+
+
+### Step 2
+
+- Book your flight
+- Book your hotel
+
+### Step 3
+
+- What are you going to wear?
+
+### Step 4
+
+
+- What are you to do/eat?
+
+- airbnb for experiences and food
+- trip advisor
+
+
 # Roles
 - Lesie Server, Javascript, Models, Routes
 - Mayra Lead Back End Pintrest API Server, Javascript, Models, Routes
