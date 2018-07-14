@@ -16,3 +16,9 @@ A travel app that helps you pick your flight, hotel, activities, and outfit!
 
 ![new wireframe 1 copy 7](https://user-images.githubusercontent.com/34491285/42727579-4fb1c4b8-876f-11e8-9891-11ce22854f8b.png)
 
+# Roles
+- Lesie Server, Javascript, Models, Routes
+- Mayra Lead Back End Pintrest API Server, Javascript, Models, Routes
+- Andrea Hotel/ Flight APi,  API User Authentation 
+- Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation 
+
