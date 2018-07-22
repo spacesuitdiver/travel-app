@@ -51,5 +51,4 @@ Phase 2 Airbnb
 - Lesie Server, Javascript, Models, Routes
 - Mayra Lead Back End Pintrest API Server, Javascript, Models, Routes
 - Andrea Hotel/ Flight APi,  API User Authentation 
-- Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation 
-
+- Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation
