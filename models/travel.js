@@ -17,7 +17,7 @@ const travelSchema = new Schema({
           flightNumber: '',
           hotelNumber: '',
           averageTemperature: 98,
-          weatherDesciptions: ['rainy', 'cloudy'],
+          weatherDescriptions: ['rainy', 'cloudy'],
           days: [{
               date: new Date(),
               // imageURL: '',
