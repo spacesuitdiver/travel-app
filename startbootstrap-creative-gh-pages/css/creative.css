@@ -35,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Playfair Display', serif;
  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
 
@@ -46,19 +46,13 @@ h6 {
 }
 
 .bg-dark {
-  background-color: #212529 !important;
+  background-color: coral !important;
 }
 
 .text-faded {
   font-size: 15px;
   color: black;
  
-}
-
-#subheader {
-  font-size: 25px;
-  font-weight: bold;
-  color: black; 
 }
 
 section {
