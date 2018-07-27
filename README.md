@@ -1,6 +1,5 @@
 # travel-app
-A travel app that helps you pick your for each day of your trip according to the weather and location. We will also help plan your activities. 
-Phase 2 Airbnb
+A travel app that helps you pick your flight, hotel, activities, and outfit!
 
 ![new wireframe 1](https://user-images.githubusercontent.com/34491285/42727904-50dd0cd0-8774-11e8-9e3c-4cb186a0f6f4.png)
 ![new wireframe 1 copy](https://user-images.githubusercontent.com/34491285/42727903-50d0d000-8774-11e8-85de-d39d5ad2988f.png)
@@ -51,4 +50,5 @@ Phase 2 Airbnb
 - Lesie Server, Javascript, Models, Routes
 - Mayra Lead Back End Pintrest API Server, Javascript, Models, Routes
 - Andrea Hotel/ Flight APi,  API User Authentation 
-- Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation
+- Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation 
+
