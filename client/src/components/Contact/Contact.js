@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import"./About.css";
+import"./Contact.css";
 
-class About extends Component {
+class Contact extends Component {
     render() {
         return (
             <section id="contact">
@@ -9,7 +9,7 @@ class About extends Component {
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-heading">Let's Stay In Touch!</h2>
-                    <hr class="my-4"> </hr>
+                    {/* <hr class="my-4"> </hr> */}
                     <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                     </div>
                 </div>
@@ -31,4 +31,4 @@ class About extends Component {
     }
 }
 
-export default Navbar;
+export default Contact;
