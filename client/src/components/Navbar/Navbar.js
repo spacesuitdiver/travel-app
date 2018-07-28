@@ -6,30 +6,32 @@ import"./Navbar.css";
 class Navbar extends Component {
     render() {
         return (
+          <body id="page-top">
             <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-              <a class="navbar-brand js-scroll-trigger" href="/page-top">Get Started </a>
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <div className="container">
+              <a id="navbar-brand" className="navbar-brand js-scroll-trigger" href="/page-top">Get Started </a>
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
+              <div className="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/about">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/services">Services</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/portfolio">Portfolio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/contact">Contact</a>
-                  </li>
+                  
+                    <a className="nav-link js-scroll-trigger" href="/about">About</a>
+                  
+                
+                    <a className="nav-link js-scroll-trigger" href="/services">Services</a>
+                  
+                 
+                    <a className="nav-link js-scroll-trigger" href="/portfolio">Portfolio</a>
+                  
+                  
+                    <a className="nav-link js-scroll-trigger" href="/contact">Contact</a>
+          
                 </ul>
               </div>
             </div>
           </nav>
+        </body>
         );
     }
 }
