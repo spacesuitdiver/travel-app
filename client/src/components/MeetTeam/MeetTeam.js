@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import"./Portfolio.css";
+import"./MeetTeam.css";
 
-class Portfolio extends Component {
+class MeetTeam extends Component {
     render() {
         return (
           <section class="p-0" id="portfolio">
@@ -104,4 +104,4 @@ class Portfolio extends Component {
     }
 }
 
-export default Navbar;
+export default MeetTeam;
