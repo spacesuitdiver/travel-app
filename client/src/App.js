@@ -5,7 +5,8 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import MeetTeam from './components/MeetTeam/MeetTeam';
 import HowWorks from './components/HowWorks/HowWorks';
-
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 
 class App extends Component {
   render() {
@@ -14,10 +15,10 @@ class App extends Component {
 
       <Navbar/>
       <Header/>
+      <About/>
       <HowWorks/>
       <MeetTeam/>
-    
-  
+      <Contact/>
 
       </div>
     );
