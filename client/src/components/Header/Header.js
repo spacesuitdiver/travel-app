@@ -24,4 +24,4 @@ class Header extends Component {
     }
 }
 
-export default Navbar;
+export default Header;
