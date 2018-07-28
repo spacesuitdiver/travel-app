@@ -19,7 +19,7 @@ hr.light {
 }
 
 a {
-  color: white;
+  color: #F05F40;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -174,7 +174,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../../images/planner.jpg");
+  /* background-image: url("../img/planner.jpg"); */
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -287,8 +287,7 @@ header.masthead p {
 }
 
 .text-primary {
-
-  color: coral !important;
+  color: #F05F40 !important;
 }
 
 .btn {
@@ -304,7 +303,6 @@ header.masthead p {
 }
 
 .btn-primary {
-  color: white;
   background-color: coral;
   border-color: coral;
 }
@@ -317,4 +315,3 @@ header.masthead p {
 .btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
 }
-  
