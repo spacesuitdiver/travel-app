@@ -11,15 +11,13 @@ import Contact from './components/Contact/Contact';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-      <Navbar/>
-      <Header/>
-      <About/>
-      <HowWorks/>
-      <MeetTeam/>
-      <Contact/>
-
+      <div>
+        <Navbar />
+        <Header />
+        <About />
+        <HowWorks />
+        <MeetTeam />
+        <Contact />
       </div>
     );
   }

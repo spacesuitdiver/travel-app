@@ -38,8 +38,10 @@ h6 {
   font-family: 'Playfair Display', serif;
  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
+  text-align: center;
 
 }
+
 
 .bg-primary {
   background-color: coral !important;
@@ -52,6 +54,7 @@ h6 {
 .text-faded {
   font-size: 15px;
   color: black;
+  text-align: center;
  
 }
 
@@ -195,6 +198,10 @@ header.masthead p {
   font-weight: 300;
 }
 
+#subheader {
+    margin-top: 10%;
+}
+
 @media (min-width: 768px) {
   header.masthead p {
     font-size: 1.15rem;
@@ -307,6 +314,9 @@ header.masthead p {
   color: white;
   background-color: coral;
   border-color: coral;
+  margin-left: 45%;
+  
+  
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

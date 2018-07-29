@@ -20,6 +20,7 @@ hr.light {
 
 a {
   color: #F05F40;
+  font-size: 20px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -96,9 +97,11 @@ img::-moz-selection {
 
 #mainNav .navbar-brand {
   font-weight: 700;
+  font-size: 20px;
   text-transform: uppercase;
   color: #F05F40;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {

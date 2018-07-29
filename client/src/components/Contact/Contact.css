@@ -129,6 +129,23 @@ img::-moz-selection {
   background-color: transparent;
 }
 
+#contact {
+    background-color: coral;
+}
+
+.mb-5 {
+    text-align: center;
+}
+
+#phone {
+    text-align: center;
+}
+
+#email {
+    text-align: center;
+    color: white;
+}
+
 @media (min-width: 992px) {
   #mainNav {
     border-color: transparent;
