@@ -61,6 +61,7 @@ section {
 
 .section-heading {
   margin-top: 0;
+  font-size: 50px;
 }
 
 ::-moz-selection {
@@ -221,6 +222,15 @@ header.masthead p {
 
 .service-box {
   max-width: 400px;
+  color: coral;
+  max-height: 400px;
+  margin-top: 10px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 5%;
+  border-radius: 0px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .portfolio-box {

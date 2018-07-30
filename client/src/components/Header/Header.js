@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.css";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 
 class Header extends Component {
     render() {
@@ -27,7 +27,7 @@ class Header extends Component {
                             <div className="col-lg-8 mx-auto">
                                 <p className="text-faded mb-5">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
                                 <br />
-                                <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about">Get Styled</a>
+                                <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about"> Get Styled</a>
                             </div>
                         </div>
                     </div>

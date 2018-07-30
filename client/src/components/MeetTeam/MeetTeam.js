@@ -8,8 +8,8 @@ class MeetTeam extends Component {
               <div class="container-fluid p-0">
                 <div class="row no-gutters popup-gallery">
                     <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-                        <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt=""></img>
+                    <a class="portfolio-box" href="../../images/portfolio/fullsize/1.jpg">
+                        <img class="img-fluid" src="../../images/portfolio/thumbnail.1.jpg" alt=""></img>
                         <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
                             <div class="project-category text-faded">

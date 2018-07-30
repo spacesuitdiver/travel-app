@@ -52,10 +52,9 @@ h6 {
 }
 
 .text-faded {
-  font-size: 15px;
   color: black;
   text-align: center;
- 
+ text-shadow: black;
 }
 
 section {
@@ -198,9 +197,6 @@ header.masthead p {
   font-weight: 300;
 }
 
-#subheader {
-    margin-top: 10%;
-}
 
 @media (min-width: 768px) {
   header.masthead p {
@@ -313,10 +309,7 @@ header.masthead p {
 .btn-primary {
   color: white;
   background-color: coral;
-  border-color: coral;
-  margin-left: 45%;
-  
-  
+  border-color: coral; 
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
