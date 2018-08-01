@@ -19,8 +19,8 @@ hr.light {
 }
 
 a {
-  color: #F05F40;
-  font-size: 20px;
+  color: #f05f40;
+  font-size: 25px;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -84,6 +84,10 @@ img::selection {
 img::-moz-selection {
   color: #fff;
   background: transparent;
+}
+
+#navbar-brand {
+    color: coral;
 }
 
 #mainNav {
@@ -152,6 +156,11 @@ img::-moz-selection {
   #mainNav  a.nav-link {
     float: right;
     padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: coral;    
+    margin-top: 3%;
+    text-emphasis: bold;
+    margin-right: 3%;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -298,6 +307,7 @@ header.masthead p {
 
 .text-primary {
   color: #F05F40 !important;
+  text-decoration: none;
 }
 
 .btn {
@@ -306,6 +316,8 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  text-decoration: none;
+
 }
 
 .btn-xl {
@@ -315,6 +327,7 @@ header.masthead p {
 .btn-primary {
   background-color: coral;
   border-color: coral;
+
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

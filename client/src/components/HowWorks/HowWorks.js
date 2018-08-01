@@ -14,38 +14,34 @@ class HowWorks extends Component {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
       <div className="container">
         <div className="row">
           <div className="col-lg-3 col-md-6 text-center">
             <div className="service-box mt-5 mx-auto">
               <i className="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
               <h3 className="mb-3">Destination</h3>
-              <p className="text-muted mb-0">Our templates are updated <br />regularly so they don't break.</p>
+              <p className="text-muted mb-0">Where are you off to?</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 text-center">
             <div className="service-box mt-5 mx-auto">
               <i className="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
               <h3 className="mb-3">Pick Your Dates</h3>
-              <p className="text-muted mb-0">You can use this theme as is, <br /> or you can make changes!</p>
+              <p className="text-muted mb-0">Oooo when you are going?</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 text-center">
             <div className="service-box mt-5 mx-auto">
               <i className="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
               <h3 className="mb-3">Whats the Weather?</h3>
-              <p className="text-muted mb-0">We update dependencies <br /> to keep things fresh.</p>
+              <p className="text-muted mb-0">We want to make you dress accordingly.</p>
             </div>
           </div>
           <div className="col-lg-3 col-md-6 text-center">
             <div className="service-box mt-5 mx-auto">
               <i className="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
               <h3 className="mb-3">Here is Your Outfit!</h3>
-              <p className="text-muted mb-0">You have to make your <br /> websites with love these days!</p>
+              <p className="text-muted mb-0">You are ready to dress<br /> for your destination!</p>
             </div>
           </div>
         </div>

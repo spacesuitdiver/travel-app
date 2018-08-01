@@ -11,10 +11,10 @@ class About extends Component {
                         <h1 class="section-heading text-white">We've got what you need!</h1>
                         <hr class="light my-4"></hr>
                         <br />
-                        <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                        <p class="text-faded mb-4">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit sccording to your destination.</p>
                         <br />
                         <br />
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+    
                         </div>
                     </div>
                 </div>
