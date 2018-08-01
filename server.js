@@ -1,42 +1,44 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
 const app = express();
+const passport = require("passport");
+const session = require('express-session');
 const PORT = process.env.PORT || 3001;
+const models = require("./models");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// Static assets
+app.use(express.static("client/build"));
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+// For Passport
+app.use(session({ secret: 'coders', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport.js')(passport, models.User);
+
+const routes = require("./routes")(passport);
+app.use('/', routes);
+
+mongoose.Promise = global.Promise;
+if (process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect('mongodb://localhost/travelData');
 }
-// Add routes, both API and view
-// app.use(routes);
+var db = mongoose.connection;
 
-// Connect to the Mongo DB
-//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/travelData");
-
-var mongoURI;
-
-mongoose.connection.on("open", function(ref) {
-  console.log("Connected to mongo server.");
-//   return start_up();
+db.on('error', function (error) {
+	console.log('Mongoose Error: ', error);
 });
 
-mongoose.connection.on("error", function(err) {
-  console.log("Could not connect to mongo server!");
-  return console.log(err);
+db.once('open', function () {
+	console.log('Mongoose connection successful.');
 });
-
-mongoURI = process.env.MONGODB_URI || "mongodb://localhost/travelData";
-
-// config.MONGOOSE = 
-mongoose.connect(mongoURI);
 
 // Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.listen(PORT, function () {
+	console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
