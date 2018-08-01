@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import"./HowWorks.css";
 
-class HowWorks extends Component {
-    render() {
-        return (
+const HowWorks = () => (
 
 <section id="services">
       <div className="container">
@@ -47,9 +45,6 @@ class HowWorks extends Component {
         </div>
       </div>
     </section>
-
         );
-    }
-}
 
 export default HowWorks;

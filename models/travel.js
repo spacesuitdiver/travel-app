@@ -19,21 +19,13 @@ const travelSchema = new Schema({
     type: Date,
     required: true
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> afc61b3082f0205f6409c8dddb6c408e1b2a5229
   state: {
     type: String,
     required: false,
   },
   country: {
     type: String,
-<<<<<<< HEAD
-    required: false,
-=======
     required: true,
->>>>>>> afc61b3082f0205f6409c8dddb6c408e1b2a5229
   },
   flightNumber: {
     type: String,

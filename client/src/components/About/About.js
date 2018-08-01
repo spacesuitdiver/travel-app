@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import"./About.css";
 
-class About extends Component {
-    render() {
-        return (
+const About = () => (
             <section class="bg-primary" id="about">
                 <div class="container">
                     <div class="row">
@@ -20,6 +18,4 @@ class About extends Component {
                 </div>
             </section>
         );
-    }
-}
 export default About;
