@@ -1,6 +1,6 @@
 import React from "react";
 
-const Weather = props => (
+const WeatherData = props => (
 	<div className="weather__info">
 	 {	
 	 	props.city && props.country && <p className="weather__key"> Location: 
@@ -28,4 +28,4 @@ const Weather = props => (
 	</div>
 );
 
-export default Weather;
+export default WeatherData;

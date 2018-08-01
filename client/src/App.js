@@ -6,7 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import HowWorks from './components/HowWorks/HowWorks';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-
+import Weather from './components/Weather'
 class App extends Component {
   render() {
     return (
@@ -16,6 +16,7 @@ class App extends Component {
         <About />
         <HowWorks />
         <Contact />
+        <Weather/>
       </div>
     );
   }
