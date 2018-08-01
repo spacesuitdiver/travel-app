@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Input, FormBtn } from "../../components/Travel Form";
+import { Input, FormBtn } from "../../components/TravelForm";
 import { List, ListItem } from "../../components/List";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";

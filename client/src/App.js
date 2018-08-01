@@ -7,8 +7,9 @@ import Navbar from './components/Navbar/Navbar';
 import HowWorks from './components/HowWorks/HowWorks';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import Weather from './components/Weather'
+import Weather from './components/Weather';
 import inputtravel from "./pages/inputtravel/";
+import Input from "./components/TravelForm/Input";
 
 // class App extends Component {
 //   render() {
@@ -33,10 +34,12 @@ const App = () => (
       <About />
       <HowWorks />
       <Contact />
+      <Input />
       <Weather />
       <Switch>
         <Route exact path="/test" component={inputtravel} />
-      </Switch>
+        <Route exact path="/Input" component={Input} />
+      </Switch> 
     </div>
   </Router>
 );
