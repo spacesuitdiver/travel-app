@@ -13,7 +13,7 @@ const travelSchema = new Schema({
   },
   city: {
     type: String,
-    required: false,
+    required: true,
   },
   endDate: {
     type: Date,

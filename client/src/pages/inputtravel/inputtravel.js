@@ -20,19 +20,19 @@ class inputtravel extends Component {
         imageObject: {}
     };
 
-    // componentDidMount() {
-    //     this.loadTravel();
-    // }
+    componentDidMount() {
+        this.loadTravel();
+    }
 
-    // loadTravel = () => {
-    //     API.findAllTravel()
-    //         .then(res =>
-    //             this.setState({ trips: res.data, city: "" })
-    //         )
-    //     console.log("data:" + this.state.city)
+    loadTravel = () => {
+        API.findAllTravel()
+            .then(res =>
+                this.setState({ trips: res.data})
+            )
+        console.log(this.state.trips)
 
-    //     // .catch(err => console.log(err));
-    // }
+        // .catch(err => console.log(err));
+    }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -55,7 +55,6 @@ class inputtravel extends Component {
     render() {
         return (
             <Container>
-
                 <form>
                     <Input
                         value={this.state.city}
@@ -67,28 +66,28 @@ class inputtravel extends Component {
                         value={this.state.startDate}
                         onChange={this.handleInputChange}
                         name="startDate"
-                        placeholder="When are you going?"
+                        placeholder="When are you leaving?"
                     />
                     <Input
                         value={this.state.country}
                         onChange={this.handleInputChange}
                         name="country"
-                        placeholder="When are you going?"
+                        placeholder="What country are you going to?"
                     />
                     <Input
                         value={this.state.endDate}
                         onChange={this.handleInputChange}
                         name="endDate"
-                        placeholder="When are you going?"
+                        placeholder="When are you getting back?"
                     />
                     <Input
                         value={this.state.weatherDescriptions}
                         onChange={this.handleInputChange}
                         name="weatherDescriptions"
-                        placeholder="When are you going?"
+                        placeholder="WEATHER?"
                     />
                     <FormBtn
-                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country && this.state.weatherDescriptions)}
                         onClick={this.handleFormSubmit}
                     >
                         SUBMIT

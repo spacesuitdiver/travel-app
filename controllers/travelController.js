@@ -23,6 +23,7 @@ const fetchWeatherData = travel => {
         }
       })
   }
+}
 
 
   const fetchTumblrData = (travelAndWeather) => {
@@ -82,4 +83,3 @@ const fetchWeatherData = travel => {
         .catch(err => res.status(422).json(err));
     }
   }
-}
