@@ -2,31 +2,55 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const travelSchema = new Schema({
-  user: {
-      username: '',
-      password: '',
-      loggedIn: true
-  },
-  trips: [
-      {
-          startDate: new Date(),
-          endDate: new Date(),
-          city: '',
-          state: '',
-          country: '',
-          flightNumber: '',
-          hotelNumber: '',
-          averageTemperature: 98,
-          weatherDescriptions: ['rainy', 'cloudy'],
-          days: [{
-              date: new Date(),
-              // imageURL: '',
-              pinterestObject: {}
-          }]
-      }
-  ],
-});
 
+  _userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  startDate: {
+    type: Date,
+    required: true
+  },
+  city: {
+    type: String,
+    required: false,
+  },
+  endDate: {
+    type: Date,
+    required: true
+  },
+  state: {
+    type: String,
+    required: false,
+  },
+  country: {
+    type: String,
+    required: false,
+  },
+  flightNumber: {
+    type: String,
+    required: false,
+  },
+  hotel: {
+    type: String,
+    required: false,
+  },
+  averageTemperature: {
+    type: String,
+    required: false,
+  },
+  weatherDescriptions: {
+    type: String,
+    required: true,
+    description: []
+  },
+  days: [{
+    date: Date
+  }],
+
+  imageObject: {}
+}
+)
 
 
 const Travel = mongoose.model("Travel", travelSchema);

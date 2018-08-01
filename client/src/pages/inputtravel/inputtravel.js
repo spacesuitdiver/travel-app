@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 class inputtravel extends Component {
     state = {
-        trips: [],
-        _id: "",
         startDate: "",
         endDate: "",
         city: "",
@@ -22,19 +20,19 @@ class inputtravel extends Component {
         imageObject: {}
     };
 
-    componentDidMount() {
-        this.loadTravel();
-      }
+    // componentDidMount() {
+    //     this.loadTravel();
+    // }
 
-    loadTravel = () => {
-        API.findAllTravel()
-            .then(res =>
-                this.setState({ trips: res.data, city: "" })
-            )
-        console.log(this.state.city)
+    // loadTravel = () => {
+    //     API.findAllTravel()
+    //         .then(res =>
+    //             this.setState({ trips: res.data, city: "" })
+    //         )
+    //     console.log("data:" + this.state.city)
 
-        // .catch(err => console.log(err));
-    }
+    //     // .catch(err => console.log(err));
+    // }
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -45,11 +43,11 @@ class inputtravel extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        API.createTravel({
-            city: this.state.where
-        })
+        API.createTravel(
+            this.state
+        )
             .then(res =>
-                this.loadTravel())
+              console.log(res))
             .catch(err => console.log(err));
     }
 
@@ -60,25 +58,43 @@ class inputtravel extends Component {
 
                 <form>
                     <Input
-                        value={this.state.where}
+                        value={this.state.city}
                         onChange={this.handleInputChange}
-                        name="where"
+                        name="city"
                         placeholder="Where are you going?"
                     />
                     <Input
-                        value={this.state.when}
+                        value={this.state.startDate}
                         onChange={this.handleInputChange}
-                        name="when"
+                        name="startDate"
+                        placeholder="When are you going?"
+                    />
+                    <Input
+                        value={this.state.country}
+                        onChange={this.handleInputChange}
+                        name="country"
+                        placeholder="When are you going?"
+                    />
+                    <Input
+                        value={this.state.endDate}
+                        onChange={this.handleInputChange}
+                        name="endDate"
+                        placeholder="When are you going?"
+                    />
+                    <Input
+                        value={this.state.weatherDescriptions}
+                        onChange={this.handleInputChange}
+                        name="weatherDescriptions"
                         placeholder="When are you going?"
                     />
                     <FormBtn
-                        disabled={!(this.state.where && this.state.when)}
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
                         onClick={this.handleFormSubmit}
                     >
                         SUBMIT
               </FormBtn>
                 </form>
-                {this.state.trips.length ? (
+                {/* {this.state.trips.length ? (
                     <List>
                         {this.state.trips.map(trip => (
                             <ListItem key={trip._id}>
@@ -92,7 +108,7 @@ class inputtravel extends Component {
                     </List>
                 ) : (
                         <h3>No Results to Display</h3>
-                    )}
+                    )} */}
             </Container>
 
         );
