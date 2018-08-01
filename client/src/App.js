@@ -7,7 +7,7 @@ import MeetTeam from './components/MeetTeam/MeetTeam';
 import HowWorks from './components/HowWorks/HowWorks';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-
+import Weather from './components/Weather'
 class App extends Component {
   render() {
     return (
@@ -18,6 +18,7 @@ class App extends Component {
         <HowWorks />
         <MeetTeam />
         <Contact />
+        <Weather/>
       </div>
     );
   }
