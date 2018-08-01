@@ -22,10 +22,9 @@ class Header extends Component {
                                 <h1 className="text-uppercase">
                                     <strong>The Best Way to Travel is in Style</strong>
                                 </h1>
-                                <hr></hr>
                             </div>
                             <div className="col-lg-8 mx-auto">
-                                <p className="text-faded mb-5">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
+                               <p className="text-faded mb-5">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
                                 <br />
                                 <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about"> Get Styled</a>
                             </div>

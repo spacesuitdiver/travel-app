@@ -87,6 +87,8 @@ img::-moz-selection {
   background: transparent;
 }
 
+
+
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: #fff;
@@ -137,10 +139,10 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    color: coral;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: #fff;
+    color: coral;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;

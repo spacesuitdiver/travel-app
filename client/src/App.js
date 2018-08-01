@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import MeetTeam from './components/MeetTeam/MeetTeam';
 import HowWorks from './components/HowWorks/HowWorks';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
@@ -16,7 +15,6 @@ class App extends Component {
         <Header />
         <About />
         <HowWorks />
-        <MeetTeam />
         <Contact />
         <Weather/>
       </div>
