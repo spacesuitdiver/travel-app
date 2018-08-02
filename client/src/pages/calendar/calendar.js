@@ -8,17 +8,13 @@ import { Col, Container } from "../../components/Grid";
 
 class calendar extends Component {
     state = {
-        travel: {}    
+        trip: {},
+        weather: {}    
     };
 
     componentDidMount() {
-        this.loadUserTrip();
-    }
-
-    loadUserTrip () {
         API.findOneTravel(this.props.match.params.travelId)
-        .then(res => this.setState({ travel: res.data }))
-        .then(console.log(this.state))
+        .then(res => this.setState({ trip: res.data.travel, weather: res.data.weather.weather }))
         .catch(err => console.log(err));
     }
 
@@ -52,33 +48,16 @@ class calendar extends Component {
 
         return (
             <Container>
-                {/* <Col size="md-12 sm-12">
-                
-                    <div className="mainContainer">
-                       <List>Your trip</List>
-                        {/* <div className="calendarContainer">
-                        <Calendar events={this.state.travel} />
-                        </div> */}
+               
+                        <h3><strong>Your trip details</strong></h3>
+                        City: {this.state.trip.city}<br/>
+                        Country: {this.state.trip.country}<br/>
+                        Start Date: {this.state.trip.startDate}<br/>
+                        End Date: {this.state.trip.endDate}<br/>
+                        {/* <strong>Weather</strong><br/>
+                        Forecast: {this.state.weather.weather.coord.lon}<br/>
+                        Temp (Celcius): {this.state.weather.weather}<br/> */}
 
-                    {/* </div> */}
-
-                {/* </Col> */}
-
-                 {this.state.travel.length ? (
-                    <List>Your trips
-                        {this.state.travel.map(trav => (
-                            <ListItem key={trav._id}>
-                                {/* <Link to={"/calendar/" + trip._id}> */}
-                                    <strong>
-                                        {trav.city}
-                                    </strong>
-                                {/* </Link> */}
-                            </ListItem>
-                        ))}
-                    </List>
-                ) : (
-                        <h3>No Results to Display</h3>
-                    )}
 
             </Container>
 

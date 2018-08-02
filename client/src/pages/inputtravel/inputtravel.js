@@ -6,7 +6,7 @@ import { Input, FormBtn } from "../../components/Travel Form";
 import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
-
+import Jumbotron from "../../components/Jumbotron";
 
 class inputtravel extends Component {
     state = {
@@ -31,13 +31,15 @@ class inputtravel extends Component {
             .then(res =>
                 this.setState({ trips: res.data })
             )
+        console.log(this.state.trips)
+        // .catch(err => console.log(err));
     }
 
     deleteTravel = travelId => {
         API.deleteTravel(travelId)
-          .then(res => this.loadTravel())
-          .catch(err => console.log(err));
-      };
+            .then(res => this.loadTravel())
+            .catch(err => console.log(err));
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -49,12 +51,15 @@ class inputtravel extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         API.createTravel(
-            this.state
+            {
+                startDate: this.state.startDate,
+                endDate: this.state.endDate,
+                city: this.state.city,
+                country: this.state.country,
+            }
         )
             .then(res => this.loadTravel()
-        )
-        .then(console.log(this.state))
-
+            )
             .catch(err => console.log(err));
     }
 
@@ -76,51 +81,50 @@ class inputtravel extends Component {
                         placeholder="When are you leaving?"
                     />
                     <Input
-                        value={this.state.country}
-                        onChange={this.handleInputChange}
-                        name="country"
-                        placeholder="What country are you going to?"
-                    />
-                    <Input
                         value={this.state.endDate}
                         onChange={this.handleInputChange}
                         name="endDate"
                         placeholder="When are you getting back?"
                     />
                     <Input
-                        value={this.state.weatherDescriptions}
+                        value={this.state.country}
                         onChange={this.handleInputChange}
-                        name="weatherDescriptions"
-                        placeholder="WEATHER?"
+                        name="country"
+                        placeholder="What country are you going to?"
                     />
+                    
                     <FormBtn
-                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country && this.state.weatherDescriptions)}
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
                         onClick={this.handleFormSubmit}
                     >
                         SUBMIT
               </FormBtn>
                 </form>
-                {this.state.trips.length ? (
-                    <List>Your trips
-                        {this.state.trips.map(trip => (
-                            <ListItem key={trip._id}>
-                                {/* <Link to={"/calendar/" + trip._id}> */}
-                                    <strong>
-                                        {trip.city}
-                                    </strong>
-                                {/* </Link> */}
-                                <Link to={"/travel/" + trip._id}>
-                                
-                                <TripButton id={trip._id} onClick={this.getCalendar} />
-                                </Link>
 
-                                <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
-                            </ListItem>
-                        ))}
-                    </List>
-                ) : (
-                        <h3>No Results to Display</h3>
-                    )}
+                <Jumbotron>
+                    {this.state.trips.length ? (
+                        <List>Your trips
+                        {this.state.trips.map(trip => (
+                                <ListItem key={trip._id}>
+                                    {/* <Link to={"/calendar/" + trip._id}> */}
+                                    <Link to={"/travel/" + trip._id}>
+
+                                        <strong>
+                                            {trip.city}
+                                        </strong>
+                                        {/* </Link> */}
+                                        {/*                                 
+                                <TripButton id={trip._id} onClick={this.getCalendar} /> */}
+                                    </Link>
+
+                                    <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
+                                </ListItem>
+                            ))}
+                        </List>
+                    ) : (
+                            <h3>No Results to Display</h3>
+                        )}
+                </Jumbotron>
             </Container>
 
         );

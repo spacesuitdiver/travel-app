@@ -41,7 +41,7 @@ const travelSchema = new Schema({
   },
   weatherDescriptions: {
     type: String,
-    required: true,
+    required: false,
     description: []
   },
   days: [{
