@@ -2,7 +2,6 @@ module.exports = function (passport) {
 	const path = require("path");
 	const router = require("express").Router();
 
-
 	// router.use("/auth",require("./authRoutes.js")(passport));
 	router.use("/api", require("./travelRoutes.js")(passport));
 

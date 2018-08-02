@@ -19,7 +19,6 @@ const travelSchema = new Schema({
     type: Date,
     required: true
   },
-
   state: {
     type: String,
     required: false,
