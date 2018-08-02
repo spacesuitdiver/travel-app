@@ -9,49 +9,21 @@ import Calendar from '../../components/Calendar';
 
 class calendar extends Component {
     state = {
-        startDate: "",
-        endDate: "",
-        city: "",
-        state: "",
-        country: "",
-        flightNumber: "",
-        hotel: "",
-        weatherDescriptions: "",
-        days: [],
-        imageObject: {}
+        travel: {}    
     };
 
-    // componentDidMount() {
-    //     this.loadTravel();
-    // }
-
-    // loadTravel = () => {
-    //     API.findAllTravel()
-    //         .then(res =>
-    //             this.setState({ trips: res.data, city: "" })
-    //         )
-    //     console.log("data:" + this.state.city)
-
-    //     // .catch(err => console.log(err));
-    // }
-
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
-        });
-    };
-
-    handleFormSubmit = event => {
-        event.preventDefault();
-        API.createTravel(
-            this.state
+    componentDidMount() {
+        API.findOneTravel(this.props.match.params.id)
+        .then(res => this.setState({ travel: res.data }
         )
-            .then(res =>
-                console.log(res))
-            .catch(err => console.log(err));
+    )
+    console.log(this.state.travel)
+
+        // .catch(err => console.log(err));
     }
 
+
+    
 
     render() {
         return (
@@ -61,7 +33,7 @@ class calendar extends Component {
                     <div className="mainContainer">
                         <h2>Your trip</h2>
                         <div className="calendarContainer">
-                        <Calendar calendarTrips={this.props.travel.trip} viewTripDetails={this.viewTripDetails} />
+                        <Calendar events={this.state.travel} />
                         </div>
                     </div>
 

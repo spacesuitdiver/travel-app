@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 // import About from './components/About/About';
 // import Contact from './components/Contact/Contact';
 // import Weather from './components/Weather'
-// import Calendar from "./pages/Calendar/";
+import calendar from "./pages/calendar/";
 import inputtravel from "./pages/inputtravel/";
 import intro from "./pages/intro/";
 
@@ -20,6 +20,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={intro} />
         <Route exact path="/travel" component={inputtravel} />
+        <Route exact path="/calendar" component={calendar} />
       </Switch>
     </div>
   </Router>

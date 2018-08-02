@@ -16,7 +16,7 @@ class inputtravel extends Component {
         flightNumber: "",
         hotel: "",
         weatherDescriptions: "",
-        days: [],
+        trips: [],
         imageObject: {}
     };
 
@@ -27,11 +27,9 @@ class inputtravel extends Component {
     loadTravel = () => {
         API.findAllTravel()
             .then(res =>
-                this.setState({ trips: res.data})
+                this.setState({ trips: res.data })
             )
-        console.log(this.state.trips)
-
-        // .catch(err => console.log(err));
+           .then( console.log(this.state.trips))
     }
 
     handleInputChange = event => {
@@ -46,8 +44,7 @@ class inputtravel extends Component {
         API.createTravel(
             this.state
         )
-            .then(res =>
-              console.log(res))
+            .then(res => this.loadTravel())
             .catch(err => console.log(err));
     }
 
@@ -93,11 +90,11 @@ class inputtravel extends Component {
                         SUBMIT
               </FormBtn>
                 </form>
-                {/* {this.state.trips.length ? (
-                    <List>
+                {this.state.trips.length ? (
+                    <List>Your trips
                         {this.state.trips.map(trip => (
                             <ListItem key={trip._id}>
-                                <Link to={"/alltravel/" + trip._id}>
+                                <Link to={"/calendar/" + trip._id}>
                                     <strong>
                                         {trip.city}
                                     </strong>
@@ -107,7 +104,7 @@ class inputtravel extends Component {
                     </List>
                 ) : (
                         <h3>No Results to Display</h3>
-                    )} */}
+                    )}
             </Container>
 
         );
