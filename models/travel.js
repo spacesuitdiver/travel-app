@@ -13,7 +13,7 @@ const travelSchema = new Schema({
   },
   city: {
     type: String,
-    required: false,
+    required: true,
   },
   endDate: {
     type: Date,
@@ -41,7 +41,7 @@ const travelSchema = new Schema({
   },
   weatherDescriptions: {
     type: String,
-    required: true,
+    required: false,
     description: []
   },
   days: [{
