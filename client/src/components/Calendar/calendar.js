@@ -7,18 +7,24 @@ import dates from '../../utils/dates'
 
 BigCalendar.momentLocalizer(moment);
 
-let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
-
-let Calendar = ({ localizer, props }) => (
+const Calendar = props => (
+  
   <BigCalendar
-    events={props.trips}
-    views={allViews}
-    step={60}
+    selectable
+    events={props.travel}
+    defaultView="month"
+    views={['month', 'week', 'day']}
+    startAccessor={((e) => {return new Date(e.start)})}
+    endAccessor={((e) => {return new Date(e.end)})}
+    onSelectEvent={event => {
+      props.travel(event);
+      }
+    }
     showMultiDayTimes
-    max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
-    defaultDate={new Date(2015, 3, 1)}
-    localizer={localizer}
+    defaultDate={new Date()}
+
   />
+
 )
 
 export default Calendar;

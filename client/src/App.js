@@ -20,7 +20,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={intro} />
         <Route exact path="/travel" component={inputtravel} />
-        <Route exact path="/calendar" component={calendar} />
+        <Route exact path="/travel/:id" component={calendar} />
       </Switch>
     </div>
   </Router>

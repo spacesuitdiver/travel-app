@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import TripButton from "../../components/TripButton";
 import { Input, FormBtn } from "../../components/Travel Form";
 import { List, ListItem } from "../../components/List";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 
 
@@ -29,7 +30,6 @@ class inputtravel extends Component {
             .then(res =>
                 this.setState({ trips: res.data })
             )
-           .then( console.log(this.state.trips))
     }
 
     handleInputChange = event => {
@@ -44,7 +44,10 @@ class inputtravel extends Component {
         API.createTravel(
             this.state
         )
-            .then(res => this.loadTravel())
+            .then(res => this.loadTravel()
+        )
+        .then(console.log(this.state))
+
             .catch(err => console.log(err));
     }
 
@@ -94,11 +97,12 @@ class inputtravel extends Component {
                     <List>Your trips
                         {this.state.trips.map(trip => (
                             <ListItem key={trip._id}>
-                                <Link to={"/calendar/" + trip._id}>
+                                {/* <Link to={"/calendar/" + trip._id}> */}
                                     <strong>
                                         {trip.city}
                                     </strong>
-                                </Link>
+                                {/* </Link> */}
+                                <Link to={"/travel/" + trip._id}><TripButton id={trip._id} onClick={this.getCalendar} /></Link>
                             </ListItem>
                         ))}
                     </List>
