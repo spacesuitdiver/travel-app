@@ -102,7 +102,10 @@ class inputtravel extends Component {
                                         {trip.city}
                                     </strong>
                                 {/* </Link> */}
-                                <Link to={"/travel/" + trip._id}><TripButton id={trip._id} onClick={this.getCalendar} /></Link>
+                                <Link to={"/travel/" + trip._id}>
+                                
+                                <TripButton id={trip._id} onClick={this.getCalendar} />
+                                </Link>
                             </ListItem>
                         ))}
                     </List>

@@ -12,13 +12,14 @@ class calendar extends Component {
     };
 
     componentDidMount() {
-        API.findOneTravel(this.props.match.params.id)
-        .then(res => this.setState({ travel: res.data }
-        )
-    )
-    console.log(this.state.travel)
+        this.loadUserTrip();
+    }
 
-        // .catch(err => console.log(err));
+    loadUserTrip () {
+        API.findOneTravel(this.props.match.params.travelId)
+        .then(res => this.setState({ travel: res.data }))
+        .then(console.log(this.travel))
+        .catch(err => console.log(err));
     }
 
     // getCalendar = (event) => {
