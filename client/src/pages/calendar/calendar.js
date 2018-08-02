@@ -18,7 +18,7 @@ class calendar extends Component {
     loadUserTrip () {
         API.findOneTravel(this.props.match.params.travelId)
         .then(res => this.setState({ travel: res.data }))
-        .then(console.log(this.travel))
+        .then(console.log(this.state))
         .catch(err => console.log(err));
     }
 

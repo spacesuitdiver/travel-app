@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import DeleteBtn from "../../components/DeleteBtn";
 import TripButton from "../../components/TripButton";
 import { Input, FormBtn } from "../../components/Travel Form";
 import { List, ListItem } from "../../components/List";
@@ -31,6 +32,12 @@ class inputtravel extends Component {
                 this.setState({ trips: res.data })
             )
     }
+
+    deleteTravel = travelId => {
+        API.deleteTravel(travelId)
+          .then(res => this.loadTravel())
+          .catch(err => console.log(err));
+      };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -106,6 +113,8 @@ class inputtravel extends Component {
                                 
                                 <TripButton id={trip._id} onClick={this.getCalendar} />
                                 </Link>
+
+                                <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
                             </ListItem>
                         ))}
                     </List>

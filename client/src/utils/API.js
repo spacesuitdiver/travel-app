@@ -28,10 +28,9 @@ export default {
 
     editTravel: (travelData, userId) => {
         return (axios.patch(`/api/travel/${userId}`, travelData))
-    }
+    },
 
-    //notfinished
-    // deleteTravel: (travelData, userId) => {
-    //     return (axios.patch(`/api/travel/${userId}`, travelData))
-    // }
+    deleteTravel: (travelId) => {
+    return (axios.delete(`/api/travel/${travelId}`))
+    }
 }
