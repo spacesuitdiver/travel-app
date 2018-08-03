@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+<<<<<<< HEAD
+import { Input, FormBtn } from "../../components/TravelForm";
+=======
 import DeleteBtn from "../../components/DeleteBtn";
 import TripButton from "../../components/TripButton";
 import { Input, FormBtn } from "../../components/Travel Form";
+>>>>>>> 5af0727e79401c97c75635a46cd854d2436f4b14
 import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";

@@ -6,3 +6,5 @@ export const FormBtn = props => (
     {props.children}
   </button>
 );
+
+export default FormBtn;
