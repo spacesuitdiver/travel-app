@@ -13,9 +13,9 @@ class CalendarApp extends React.Component {
         <header>
           <div id="logo">
             <span className="icon">date_range</span>
-            <span>
+            {/* <span>
               react<b>calendar</b>
-            </span>
+            </span> */}
           </div>
         </header>
         <main>

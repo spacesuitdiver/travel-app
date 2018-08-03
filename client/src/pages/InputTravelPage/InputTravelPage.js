@@ -7,7 +7,7 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
-import "./Inputtravel.css";
+import "./InputTravelPage.css";
 
 class InputTravelPage extends Component {
     state = {
