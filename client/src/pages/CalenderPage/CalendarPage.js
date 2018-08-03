@@ -6,7 +6,7 @@ import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
 
 
-class calendar extends Component {
+class CalendarPage extends Component {
     state = {
         trip: null,
         weather: null,
@@ -70,7 +70,8 @@ class calendar extends Component {
                             <List>
                                 {this.state.tumblr.map(tum => (
                                         <ListItem key={tum._id}>
-                                         <img src={tum.photos[0].original_size.url}/>
+                                         {/* <img src={tum.photos[0].original_size.url}/>
+                                         <img src={tum.photos[0].original_size.url}/> */}
                                         </ListItem>
                                     ))}
                             </List>
@@ -86,5 +87,5 @@ class calendar extends Component {
     }
 }
 
-export default calendar;
+export default CalendarPage;
 

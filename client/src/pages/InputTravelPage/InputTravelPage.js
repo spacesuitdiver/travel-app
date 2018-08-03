@@ -8,7 +8,7 @@ import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
 
-class inputtravel extends Component {
+class InputTravelPage extends Component {
     state = {
         startDate: "",
         endDate: "",
@@ -132,4 +132,4 @@ class inputtravel extends Component {
 }
 
 
-export default inputtravel;
+export default InputTravelPage;
