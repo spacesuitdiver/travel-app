@@ -14,6 +14,8 @@ class CalendarPage extends Component {
         weather: null,
         tumblr: null,
         isLoading: true,
+        start: "",
+        end: ""
     };
 
     componentDidMount() {
@@ -33,21 +35,15 @@ class CalendarPage extends Component {
     //     // .then(console.log("hey"))
     //   };
 
-    // viewTripDetails = clickedEvent => {
-    // 	// console.log("event clicked! - before formatting:", clickedEvent);
-    // 	API.findOneTravel(this.props.match.params.id).then(response => {
-    // 		const selectedTrip = { ...response.data, }
+    // addToCalender = clickedEvent => {
+    //     // console.log("event clicked! - before formatting:", clickedEvent);
+    //     API.findOneTravel(clickedEvent._id).then(response => {
+    // 		const selectedTrip = { ...this.state.trip }
     // 		selectedTrip.start = moment(selectedTrip.start).format("dddd, MMMM, D, YYYY,  h:mm A"); 
     // 		selectedTrip.end = moment(selectedTrip.end).format("dddd, MMMM, D, YYYY,  h:mm A");
-    // 		// selectedSession.newStudyBuddyInfo = { email:"", studyBuddyEmailMsg: ""};
-    // 		// console.log("selectedSession after formatting:", selectedSession);
-
-    // 		// this.setState({
-    // 		// 	selectedSession: selectedSession,
-    // 		// 	showSessionDetailModal: true
-    // 		// })
-    // 	})
-    // };
+    		
+    //     })
+    // }
 
     render() {
 
