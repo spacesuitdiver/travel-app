@@ -7,6 +7,7 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
+import "./Inputtravel.css";
 
 class InputTravelPage extends Component {
     state = {
@@ -66,7 +67,9 @@ class InputTravelPage extends Component {
 
     render() {
         return (
+       
             <Container>
+            <section id="form">
                 <form>
                     <Input
                         value={this.state.city}
@@ -100,6 +103,7 @@ class InputTravelPage extends Component {
                         SUBMIT
               </FormBtn>
                 </form>
+                </section>
 
                 <Jumbotron>
                     {this.state.trips.length ? (
@@ -126,7 +130,7 @@ class InputTravelPage extends Component {
                         )}
                 </Jumbotron>
             </Container>
-
+         
         );
     }
 }
