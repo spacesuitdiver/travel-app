@@ -6,7 +6,7 @@ import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
 
 
-class calendar extends Component {
+class Calendar extends Component {
     state = {
         trip: null,
         weather: null,
@@ -86,5 +86,5 @@ class calendar extends Component {
     }
 }
 
-export default calendar;
+export default Calendar;
 

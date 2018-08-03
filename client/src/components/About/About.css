@@ -50,18 +50,17 @@ h6 {
 }
 
 .text-faded {
-  font-size: 30px;
+  font-size: 15px;
   color: black;
-  text-align: center;
  
 }
-
 
 section {
   padding: 8rem 0;
 }
 
 .section-heading {
+  font-size: 45px;
   margin-top: 0;
 }
 
@@ -86,8 +85,6 @@ img::-moz-selection {
   color: #fff;
   background: transparent;
 }
-
-
 
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
@@ -139,10 +136,10 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: coral;
+    color: rgba(255, 255, 255, 0.7);
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: coral;
+    color: #fff;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
@@ -178,7 +175,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../../images/planner.jpg");
+  background-image: url("/client/src/images/planner.jpg");
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -300,12 +297,6 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-    color: coral;
-    background-color: white;
-    border-color: white;
-    margin-left: 44%;
-    
-
 }
 
 .btn-xl {
@@ -313,13 +304,9 @@ header.masthead p {
 }
 
 .btn-primary {
-    color: white;
-    background-color: coral;
-    border-color: coral;
-    margin-left: 45%;
-    
-    
-  }
+  background-color: coral;
+  border-color: coral;
+}
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;

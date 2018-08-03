@@ -1,14 +1,15 @@
 import React from "react";
-import"./HowWorks.css";
+import "./Services.css";
 
-const HowWorks = () => (
+const Services = () => (
+
 
 <section id="services">
 <div class="container">
   <div class="row">
     <div class="col-lg-12 text-center">
       <h2 class="section-heading">How it Works</h2>
-      <hr class="my-4" />
+      <hr class="my-4"> </hr>
     </div>
   </div>
 </div>
@@ -45,6 +46,7 @@ const HowWorks = () => (
   </div>
 </div>
 </section>
-        );
+);
 
-export default HowWorks;
+
+export default Header;

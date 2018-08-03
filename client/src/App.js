@@ -8,9 +8,9 @@ import Navbar from './components/Navbar/Navbar';
 // import About from './components/About/About';
 // import Contact from './components/Contact/Contact';
 // import Weather from './components/Weather'
-import calendar from "./pages/calendar/";
-import inputtravel from "./pages/inputtravel/";
-import intro from "./pages/intro/";
+import Calendar from "./pages/Calendar/";
+import Inputtravel from "./pages/Inputtravel/";
+import Intro from "./pages/Intro/";
 
 
 const App = () => (
@@ -18,9 +18,9 @@ const App = () => (
     <div>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={intro} />
-        <Route exact path="/travel" component={inputtravel} />
-        <Route exact path="/travel/:travelId" component={calendar} />
+        <Route exact path="/" component={Intro} />
+        <Route exact path="/travel" component={Inputtravel} />
+        <Route exact path="/travel/:travelId" component={Calendar} />
       </Switch>
     </div>
   </Router>

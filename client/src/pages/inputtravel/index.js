@@ -1,1 +1,1 @@
-export { default } from "./inputtravel.js";
+export { default } from "./Inputtravel.js";

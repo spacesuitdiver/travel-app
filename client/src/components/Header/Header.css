@@ -8,14 +8,21 @@ body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
 
+hr {
+  max-width: 50px;
+  border-width: 3px;
+  border-color: #F05F40;
+}
+
+hr.light {
+  border-color: #fff;
+}
 
 a {
-  color: coral;
+  color: #F05F40;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  font-size: 30px;
-
 }
 
 a:hover {
@@ -31,10 +38,8 @@ h6 {
   font-family: 'Playfair Display', serif;
  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
-  text-align: center;
 
 }
-
 
 .bg-primary {
   background-color: coral !important;
@@ -45,9 +50,9 @@ h6 {
 }
 
 .text-faded {
+  font-size: 15px;
   color: black;
-  text-align: center;
- text-shadow: black;
+ 
 }
 
 section {
@@ -130,21 +135,21 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: coral;
+    color: rgba(255, 255, 255, 0.7);
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: coral;
+    color: #fff;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: coral;
+    color: rgba(255, 255, 255, 0.7);
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: coral;
+    color: #fff;
   }
   #mainNav.navbar-shrink {
     border-bottom: 1px solid rgba(33, 37, 41, 0.1);
@@ -169,7 +174,8 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../../images/planner.jpg");
+  background-image: url("/client/src/images/planner.jpg");
+  background-color: lightblue;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -189,7 +195,6 @@ header.masthead h1 {
 header.masthead p {
   font-weight: 300;
 }
-
 
 @media (min-width: 768px) {
   header.masthead p {
@@ -283,8 +288,7 @@ header.masthead p {
 }
 
 .text-primary {
-
-  color: coral !important;
+  color: #F05F40 !important;
 }
 
 .btn {
@@ -293,7 +297,6 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-decoration: none;
 }
 
 .btn-xl {
@@ -301,10 +304,8 @@ header.masthead p {
 }
 
 .btn-primary {
-  color: white;
   background-color: coral;
-  border-color: coral; 
-  float: center;
+  border-color: coral;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -315,4 +316,3 @@ header.masthead p {
 .btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
 }
-  
