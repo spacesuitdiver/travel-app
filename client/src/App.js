@@ -7,6 +7,7 @@ import MeetTeam from './components/MeetTeam/MeetTeam';
 import HowWorks from './components/HowWorks/HowWorks';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
+// import Modal from './components/Modal/Modal';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
 
       <Navbar/>
       <Header/>
+      {/* <Modal/> */}
       <About/>
       <HowWorks/>
       <MeetTeam/>
