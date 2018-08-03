@@ -4,9 +4,11 @@ import API from "../../utils/API";
 import { List, ListItem } from "../../components/List";
 import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
+import TripButton from "../../components/TripButton";
 
 
-class Calendar extends Component {
+
+class CalendarPage extends Component {
     state = {
         trip: null,
         weather: null,
@@ -60,7 +62,7 @@ class Calendar extends Component {
                         End Date: {this.state.trip.endDate}<br />
                         <h3><strong>Weather details</strong></h3>
                         <p>{this.state.weather.weather[0].description}</p>
-                        <h3><strong>Temperature (celius)</strong></h3>
+                        <h3><strong>Temperature (celcius)</strong></h3>
                         <p>{this.state.weather.main.temp}</p>
                         <h3>Your fashion pics</h3>
                         
@@ -70,7 +72,8 @@ class Calendar extends Component {
                             <List>
                                 {this.state.tumblr.map(tum => (
                                         <ListItem key={tum._id}>
-                                         <img src={tum.photos[0].original_size.url}/>
+                                         {/* {/* <img src={tum.photos[0].original_size.url}/> */}
+                                         {/* <img src={tum.photos[0].original_size.url}/> */}
                                         </ListItem>
                                     ))}
                             </List>
@@ -78,6 +81,7 @@ class Calendar extends Component {
                                 <h3>No Results to Display</h3>
                             )}
 
+                            <TripButton id={this.state.trip._id} onClick={this.addToCalendar} />         
                     </div>
                 }
             </Container>
@@ -86,5 +90,5 @@ class Calendar extends Component {
     }
 }
 
-export default Calendar;
+export default CalendarPage;
 

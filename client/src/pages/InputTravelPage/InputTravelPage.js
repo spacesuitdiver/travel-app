@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
 import "./Inputtravel.css";
 
-class Inputtravel extends Component {
+class InputTravelPage extends Component {
     state = {
         startDate: "",
         endDate: "",
@@ -136,4 +136,4 @@ class Inputtravel extends Component {
 }
 
 
-export default Inputtravel;
+export default InputTravelPage;
