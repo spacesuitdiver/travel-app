@@ -1,14 +1,10 @@
 const User = require("../models").User;
-const passport = require('passport');
-const User = require('./models/User');
 const authController = require("../controllers/authController");
+const router = require("express").Router();
+const path = require("path");
+   
 
-
-
-module.exports = function (router, passport) {
-    const path = require("path");
-    const router = require("express").Router();
-
+module.exports = function (passport)  {
     router.get('/', function(req, res) {
         res.render('index', {user: req.user});
     });
@@ -31,12 +27,10 @@ module.exports = function (router, passport) {
         });
       });
       
-      router.get('/login', function(req, res) {
-        res.render('login', {user: req.user});
-      });
-      
       router.post('/login', passport.authenticate('local'), function(req, res) {
-        res.redirect('/travel');
+        console.log(req.user);
+        res.json(req.user);
+        // res.redirect('/travel');
       });
       
       router.get('/logout', function(req, res) {
@@ -44,11 +38,9 @@ module.exports = function (router, passport) {
         res.redirect('/');
       });
       
-    return router;
- 
-};
+      return router
+}
 
-module.exports = router;
 
   
 

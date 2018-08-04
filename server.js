@@ -2,16 +2,16 @@
 // =============================================================
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
 const passport = require("passport");
-const session = require('express-session');
-const PORT = process.env.PORT || 3000;
+// const session = require('express-session');
+const PORT = process.env.PORT || 3003;
 const models = require("./models");
 const express = require('express');
 const LocalStrategy = require('passport-local').Strategy;
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-// const session = require('cookie-session');
+const path = require('path');
+const session = require('cookie-session');
 const app = express();
 // Sets up the Express app to handle data parsing - AZ
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,20 +29,16 @@ app.use(session({ secret: 'coders', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(models.User.serializeUser());
+passport.deserializeUser(models.User.deserializeUser());
 
 // Configure passport-local to use account model for authentication
-const User = require('./models/User');
-passport.use(new LocalStrategy(User.authenticate()));
 
+passport.use(new LocalStrategy(models.User.authenticate()));
 // Register routes
+
+app.use('/auth', require("./routes/authRoutesCopy")(passport));
 app.use('/', require('./routes'));
-require("./routes/authRoutesCopy")(router,passport); 
-
-require('./config/passport.js')(passport, models.User);
-
-
 
 
 mongoose.Promise = global.Promise;

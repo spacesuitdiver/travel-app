@@ -5,53 +5,44 @@ const passportLocalMongoose = require('passport-local-mongoose');
 // define the User model schema
 const User = new mongoose.Schema({
 
-  _userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
-  },
-  firstname: {
-    type: string,
-    notEmpty: true
-},
 
-lastname: {
-    type: string,
+  firstname: {
+    type: String,
     notEmpty: true
-},
+  },
+
+  lastname: {
+    type: String,
+    notEmpty: true
+  },
 
   email: {
-      type: String, 
-      index: { unique: true }
-    },
-    password: {
-      type: String,
-      required: true,
-      validate: {
-        notEmpty: true
-      }
-    },
-    logged_in: {
-      type: Boolean,
-      default: true,
-    }
+        type: String, 
+        index: { unique: true }
+  },
+
+  logged_in: {
+    type: Boolean,
+    default: true,
+  }
 });
 
 
-// /**
-//  * Compare the passed password with the value in the database. A model method.
-//  *
-//  * @param {string} password
-//  * @returns {object} callback
-//  */
-// UserSchema.methods.comparePassword = function comparePassword(password, callback) {
+/**
+ * Compare the passed password with the value in the database. A model method.
+ *
+ * @param {string} password
+ * @returns {object} callback
+ */
+// User.methods.comparePassword = function comparePassword(password, callback) {
 //   bcrypt.compare(password, this.password, callback);
 // };
 
 
-// /**
-//  * The pre-save hook method.
-//  */
-// UserSchema.pre('save', function saveHook(next) {
+/**
+ * The pre-save hook method.
+ */
+// User.pre('save', function saveHook(next) {
 //   const user = this;
 
 //   // proceed further only if the password is modified or the user is new
@@ -77,15 +68,3 @@ User.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', User);
 
-
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-
-
-// const User = new Schema({
-// 	name: String
-// });
-
-// User.plugin(passportLocalMongoose);
-
-// module.exports = mongoose.model('User', User);
