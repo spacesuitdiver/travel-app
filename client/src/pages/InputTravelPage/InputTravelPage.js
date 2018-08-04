@@ -56,29 +56,16 @@ class InputTravelPage extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        API.findAllTravel(this.state
+        API.createTravel(
+            {
+                startDate: this.state.startDate,
+                endDate: this.state.endDate,
+                city: this.state.city,
+                country: this.state.country,
+            }
         )
-            .then(res =>
-                this.setState({
-                    trips: res.data
-                })
+            .then(res => this.loadTravel()
             )
-
-        const searchData = (this.state.trips.filter(element => element._id === event.target.id)[0]);
-
-        API.createTravel({
-            startDate: this.state.startDate,
-            endDate: this.state.endDate,
-            city: this.state.city,
-            country: this.state.country,
-            // imageObject: searchData.tumblr.photos[0].original_size.url
-        })
-            .then(res =>
-                this.setState({
-                    trips: res.data
-                })
-            )
-            .then(console.log(this.state.trips))
             .catch(err => console.log(err));
     }
 
@@ -127,15 +114,15 @@ class InputTravelPage extends Component {
                         <List>Your trips
                         {this.state.trips.map(trip => (
                                 <ListItem key={trip._id}>
-                                    
+
                                     <strong>
-                                            City: {trip.city}<br/>
-                                            Country: {trip.country}<br/>
-                                          Start Date: {trip.startDate}<br/>
-                                      End Date: {trip.endDate}<br/>
+                                        City: {trip.city}<br />
+                                        Country: {trip.country}<br />
+                                        Start Date: {trip.startDate}<br />
+                                        End Date: {trip.endDate}<br />
                                     </strong>
-                                                               
-                                {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
+
+                                    {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
                                     {/* <EditBtn onClick={() => this.editTravel(trip._id)} /> */}
                                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
                                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
