@@ -135,8 +135,8 @@ class InputTravelPage extends Component {
                                       End Date: {trip.endDate}<br/>
                                     </strong>
                                                                
-                                <TripButton id={trip._id} onClick={this.getCalendar} /> */}
-                                    <EditBtn onClick={() => this.editTravel(trip._id)} />
+                                {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
+                                    {/* <EditBtn onClick={() => this.editTravel(trip._id)} /> */}
                                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
                                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
                                 </ListItem>
