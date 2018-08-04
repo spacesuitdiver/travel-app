@@ -8,7 +8,7 @@ import CalendarButton from "../../components/CalendarButton";
 
 
 
-class CalendarPage extends Component {
+class TravelAgenda extends Component {
     state = {
         trip: null,
         weather: null,
@@ -87,5 +87,5 @@ class CalendarPage extends Component {
     }
 }
 
-export default CalendarPage;
+export default TravelAgenda;
 
