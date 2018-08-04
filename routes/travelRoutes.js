@@ -4,8 +4,6 @@ module.exports = function (passport) {
 
 //Get all travel from user 
 router.get("/travel", travelController.findAllTravel);
-//Get all travel for calendar 
-router.get("/travel/calendar", travelController.findAllTravel);
 //When one travel log is clicked
 router.get("/travel/:travelId", travelController.findOneTravel);
 //When submit new travel is clicked

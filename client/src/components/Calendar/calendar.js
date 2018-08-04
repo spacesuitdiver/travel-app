@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
@@ -6,24 +8,39 @@ import events from './eventslist'
 
 BigCalendar.momentLocalizer(moment);
 
-const Selectable = props => (
-    
-    <BigCalendar
-      selectable
-      events={[events]}
-      defaultView="month"
-      views={['month', 'week', 'day']}
-      scrollToTime={new Date(1970, 1, 1, 6)}
-      defaultDate={new Date(2018, 8, 4)}
-      onSelectEvent={event => alert(event.title)}
-      onSelectSlot={slotInfo =>
+const Selectable = props => {
+  const formattedTrips = props.trips.map((trip) => {
+    console.log(trip)
+    return {
+      ...trip,
+      start: new Date(moment(trip.startDate)),
+      end: new Date(moment(trip.endDate)),
+      title: trip.city
+    }
+  }
+  )
+  console.log(formattedTrips)
+
+
+  return < BigCalendar
+    style={{height: 500}}
+    selectable
+    events={formattedTrips}
+    defaultView="month"
+    views={['month', 'week', 'day']}
+    scrollToTime={new Date(1970, 1, 1, 6)}
+    onSelectEvent={event => {
+      props.history.push("/travel/" + event._id) 
+    }}
+    onSelectSlot={
+      slotInfo =>
         alert(
           `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
-            `\nend: ${slotInfo.end.toLocaleString()}` +
-            `\naction: ${slotInfo.action}`
+          `\nend: ${slotInfo.end.toLocaleString()}` +
+          `\naction: ${slotInfo.action}`
         )
-      }
-    />
-)
+    }
+  />
+}
 
 export default Selectable

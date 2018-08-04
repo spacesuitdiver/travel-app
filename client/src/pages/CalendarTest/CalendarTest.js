@@ -10,18 +10,19 @@ class Calendar extends Component {
     trips: []
   };
 
-// componentDidMount() {
-//   this.loadTravel();
-// }
+componentDidMount() {
+  console.log(this.props);
+  this.loadTravel();
+}
 
-// loadTravel = () => {
-//   API.findAllTravelCalendar()
-//     .then(res =>
-//       this.setState({ trips: res.data })
-//     )
-//   console.log(this.state.trips)
-//   // .catch(err => console.log(err));
-// }
+loadTravel = () => {
+  API.findAllTravel()
+    .then(res =>
+      this.setState({ trips: res.data })
+    )
+  console.log(this.state.trips)
+  // .catch(err => console.log(err));
+}
 
 
 render() {
@@ -36,7 +37,8 @@ render() {
           <p>Get Stylin'!</p>
         </div>
       </div>
-      <Selectable/>
+      <Selectable trips={this.state.trips}
+      history={this.props.history} />
     </div>
   )
 }

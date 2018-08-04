@@ -34,9 +34,9 @@ export default {
     return (axios.delete(`/api/travel/${travelId}`))
     },
 
-    //Get all travel for calendar
-    findAllTravelCalendar: () =>{
-        return (axios.get("/api/travel/calendar"))
-    }
+    // //Get all travel for calendar
+    // findAllTravelCalendar: () =>{
+    //     return (axios.get("/api/calendar"))
+    // }
 
 }

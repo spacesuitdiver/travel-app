@@ -68,8 +68,9 @@ class CalendarPage extends Component {
                             <List>
                                 {this.state.tumblr.map(tum => (
                                         <ListItem key={tum._id}>
-                                         {/* {/* <img src={tum.photos[0].original_size.url}/> */}
-                                         {/* <img src={tum.photos[0].original_size.url}/> */}
+                                        {tum.photos && tum.photos.length ? (
+                                         <img src={tum.photos[0].original_size.url}/>
+                                        ) : false}
                                         </ListItem>
                                     ))}
                             </List>

@@ -64,7 +64,7 @@ class InputTravelPage extends Component {
                 country: this.state.country,
             }
         )
-            .then(res => this.loadTravel()
+            .then(res => this.props.history.push("/calendar")
             )
             .catch(err => console.log(err));
     }
@@ -123,7 +123,7 @@ class InputTravelPage extends Component {
                                     </strong>
 
                                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
-                                    {/* <EditBtn onClick={() => this.editTravel(trip._id)} /> */}
+                                    <EditBtn onClick={() => this.editTravel(trip._id)} />
                                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
                                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
                                 </ListItem>
