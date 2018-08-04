@@ -50,10 +50,12 @@ h6 {
 }
 
 .text-faded {
-  font-size: 15px;
+  font-size: 30px;
   color: black;
+  text-align: center;
  
 }
+
 
 section {
   padding: 8rem 0;
@@ -84,6 +86,8 @@ img::-moz-selection {
   color: #fff;
   background: transparent;
 }
+
+
 
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
@@ -135,10 +139,10 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    color: coral;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: #fff;
+    color: coral;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
@@ -296,6 +300,12 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: coral;
+    background-color: white;
+    border-color: white;
+    margin-left: 44%;
+    
+
 }
 
 .btn-xl {
@@ -303,9 +313,13 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: coral;
-  border-color: coral;
-}
+    color: white;
+    background-color: coral;
+    border-color: coral;
+    margin-left: 45%;
+    
+    
+  }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;

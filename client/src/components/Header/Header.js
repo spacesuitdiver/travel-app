@@ -2,19 +2,7 @@ import React, { Component } from "react";
 import ReactModalLogin from 'react-modal-login';
 import "./Header.css";
 
-// react-modal-login.js
 
-// import PropTypes from "prop-types";
-
-// Components Needed
-// import Tabs from "./components/Tabs";
-// import CloseBtn from "./components/Close";
-
-// import SubmitError from "./components/SubmitError";
-
-// import Separator from "./components/Separator";
-// import Loader from "./components/Loader";
-// import FormWrap from "./components/FormWrap";
 
 
 
@@ -57,20 +45,22 @@ class Header extends Component {
 
       onRegister() { //
         console.log('__onRegister__');
-        console.log('login: ' + document.querySelector('#login').value);
+        console.log('first name: ' + document.querySelector('#firstname').value);
+        console.log('last name: ' + document.querySelector('#lastname').value);
         console.log('email: ' + document.querySelector('#email').value);
         console.log('password: ' + document.querySelector('#password').value);
     
-        const login = document.querySelector('#login').value;
+        const firstname = document.querySelector('#firstname').value;
+        const lastname = document.querySelector('#lastname').value;
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
     
-        if (!login || !email || !password) {
+        if (!firstname|| !lastname || !email || !password) {
           this.setState({
             error: true
           })
         } else {
-          this.onLoginSuccess('');
+          this.onLoginSuccess();
         }
       }
     
@@ -113,9 +103,19 @@ class Header extends Component {
     //     console.log('logged successfully with ' + method);
     //   }
      
+    //   onRegisterSuccess(initialTab) {
+    //     this.setState({
+    //         initialTab: initialTab
+    //     }, () => {
+    //         this.setState({
+    //             showModal:true
+    //         })
+    //     });
+    //   }
         onLoginSuccess(method, response) {
 
             this.closeModal();
+            // this.openModal();
             this.setState({
             loggedIn: method,
             loading: false
@@ -250,47 +250,67 @@ class Header extends Component {
                                         label: "Forgot your password?"
                                         },
                                         loginBtn: {
-                                        label: "Sign in"
+                                        label: "Sign in",
+                                        method: 'post',
+                                        action: '/travel',
+                                        type: 'submit'
+                                        //href: "#login" // 
                                         },
                                         registerBtn: {
-                                        label: "Sign up"
+                                        label: "Sign up",
+                                        method: 'post',
+                                        action: '/login',
+                                        type: 'submit'
+                                        //href: "#register" //
                                         },
                                         recoverPasswordBtn: {
                                         label: "Send new password"
                                         },
                                         loginInputs: [
                                         {
+                                            
                                             containerClass: 'RML-form-group',
-                                            label: 'Email',
+                                            label: 'email',
                                             type: 'email',
                                             inputClass: 'RML-form-control',
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
+                                          
+
                                         },
                                         {
                                             containerClass: 'RML-form-group',
-                                            label: 'Password',
+                                            label: 'password',
                                             type: 'password',
                                             inputClass: 'RML-form-control',
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
                                         }
-                                        ],
+                                        ], // <form id="signup" name="signup" method="post" action="/signup">
                                         registerInputs: [
                                         {
                                             containerClass: 'RML-form-group',
-                                            label: 'Nickname',
+                                            label: 'First Name',
                                             type: 'text',
                                             inputClass: 'RML-form-control',
-                                            id: 'login',
-                                            name: 'login',
-                                            placeholder: 'Nickname',
+                                            id: 'firstname',
+                                            name: 'firstname',
+                                            placeholder: 'First Name',
                                         },
                                         {
                                             containerClass: 'RML-form-group',
-                                            label: 'Email',
+                                            label: 'Last Name',
+                                            type: 'text',
+                                            inputClass: 'RML-form-control',
+                                            id: 'lastname',
+                                            name: 'lastname',
+                                            placeholder: 'Last Name',
+                                        },
+                                        {
+                                            containerClass: 'RML-form-group',
+                                            label: 'email',
                                             type: 'email',
                                             inputClass: 'RML-form-control',
                                             id: 'email',
@@ -299,7 +319,7 @@ class Header extends Component {
                                         },
                                         {
                                             containerClass: 'RML-form-group',
-                                            label: 'Password',
+                                            label: 'password',
                                             type: 'password',
                                             inputClass: 'RML-form-control',
                                             id: 'password',
@@ -310,7 +330,7 @@ class Header extends Component {
                                         recoverPasswordInputs: [
                                         {
                                             containerClass: 'RML-form-group',
-                                            label: 'Email',
+                                            label: 'email',
                                             type: 'email',
                                             inputClass: 'RML-form-control',
                                             id: 'email',

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import"./Contact.css";
 
-class Contact extends Component {
-    render() {
-        return (
+const Contact = () => (
             <section id="contact">
               <div class="container">
                 <div class="row">
@@ -14,11 +12,11 @@ class Contact extends Component {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 ml-auto text-center">
+                    <div id="phone" class="col-lg-4 ml-auto text-center">
                     <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
                     <p>123-456-6789</p>
                     </div>
-                    <div class="col-lg-4 mr-auto text-center">
+                    <div id="email" class="col-lg-4 mr-auto text-center">
                     <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
                     <p>
                         <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
@@ -28,7 +26,5 @@ class Contact extends Component {
               </div>
           </section>
         );
-    }
-}
 
 export default Contact;

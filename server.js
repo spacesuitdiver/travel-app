@@ -2,102 +2,66 @@
 // =============================================================
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const session = require ("express-session");
-const env = require('dotenv').load();
-const PORT = process.env.PORT || 3001;
-// const routes = require("./routes");
 const app = express();
-
-// PASSPORT - AZ
+const passport = require("passport");
+const session = require('express-session');
+const PORT = process.env.PORT || 3000;
+const models = require("./models");
 const express = require('express');
-const passport = require('passport');
-const config = require ('')
-
-
-// For Passport 
-// =============================================================
-app.use(session({secret:'keyboard cat', resave: true, saveUninitialized:true})); // session secret
-
-app.use(passport.initialize());
- 
-app.use(passport.session()); // persistent login sessions
-
-
-// Requiring our models for syncing - AZ
-// var db = require("./models");
-
+const LocalStrategy = require('passport-local').Strategy;
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('cookie-session');
 
 // Sets up the Express app to handle data parsing - AZ
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(logger('dev')); //
+app.use(cookieParser()); // 
+app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));// 
+app.use(express.static(path.join(__dirname, 'public')));//
+
+// Static assets
+app.use(express.static("client/build"));
+
+// For Passport
+app.use(session({ secret: 'coders', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Configure passport-local to use account model for authentication
+const User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+
+// Register routes
+app.use('/', require('./routes'));
+require("./routes/authRoutesCopy")(router,passport); 
+
+require('./config/passport.js')(passport, models.User);
 
 
-// Tell the app to look for static files in these directories - AZ
-
-app.use(express.static('./server/static/'));
-app.use(express.static('./client/dist/'));
-
-// load passport strategies   - AZ
-
-const localSignUpStrategy = require('./client/passport/local-signup'); 
-const localLoginStrategy = require('./client/passport/local-login');
-passport.use('local-signup', localSignUpStrategy);
-passport.use('local-login', localLoginStrategy);
 
 
-// pass the authentication checker middleware
-
-const authCheckMiddleware = require('./client/passport/auth-check');
-app.use('/api', authCheckMiddleware);
-
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+mongoose.Promise = global.Promise;
+if (process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect('mongodb://localhost/travelData');
 }
+var db = mongoose.connection;
 
-// MODELS 
-// =============================================================
-
-var models = require("./models");
-
-// Routes
-// =============================================================
-const apiRoutes = require("./routes/api.js")(app,passport);  // change the routes! AZ CHANGE
-const authRoutes = require('./routes/auth.js')(app, passport); // 
-
-app.use('/auth', authRoutes);
-app.use('/api', apiRoutes);
-
-// Load passport strategies from passport.js
-// =============================================================
-require("./client/passport")(passport, models.UserSchema); // or just .User
-
-
-// Add routes, both API and view
-// app.use(routes);
-
-// Connect to the Mongo DB
-//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/travelData");
-
-var mongoURI;
-
-mongoose.connection.on("open", function(ref) {
-  console.log("Connected to mongo server.");
-//   return start_up();
+db.on('error', function (error) {
+	console.log('Mongoose Error: ', error);
 });
 
-mongoose.connection.on("error", function(err) {
-  console.log("Could not connect to mongo server!");
-  return console.log(err);
+db.once('open', function () {
+	console.log('Mongoose connection successful.');
 });
-
-mongoURI = process.env.MONGODB_URI || "mongodb://localhost/travelData";
-
-// config.MONGOOSE = 
-mongoose.connect(mongoURI);
 
 // Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+app.listen(PORT, function () {
+	console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
