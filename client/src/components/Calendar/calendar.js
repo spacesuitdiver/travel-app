@@ -14,7 +14,7 @@ const Selectable = props => (
       defaultView="month"
       views={['month', 'week', 'day']}
       scrollToTime={new Date(1970, 1, 1, 6)}
-      defaultDate={new Date(2015, 3, 12)}
+      defaultDate={new Date(2018, 8, 4)}
       onSelectEvent={event => alert(event.title)}
       onSelectSlot={slotInfo =>
         alert(

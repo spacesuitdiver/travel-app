@@ -2,7 +2,7 @@ import React from "react";
 import "./Input.css";
 
 
-export const Input = props => (
+export const Form = props => (
 <section id="form">
       <div className="container">
         <div className="row">
@@ -16,4 +16,4 @@ export const Input = props => (
 </section>
 );
 
-export default Input;
+export default Form;
