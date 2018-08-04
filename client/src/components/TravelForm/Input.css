@@ -1,5 +1,6 @@
 .form-control:valid {
-    background-color: #000000;
+    background-color:white;
+    color: black;
 }
 *::-webkit-input-placeholder {
     color: #dc6f68!important;
@@ -19,4 +20,9 @@
 
 .form-control {
     color: #dc6f68!important;
+}
+
+input.form-control {
+    color: black;
+    background-color: white;
 }

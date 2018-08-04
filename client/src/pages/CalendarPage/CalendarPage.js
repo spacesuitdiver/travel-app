@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { List, ListItem } from "../../components/List";
 import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
-import TripButton from "../../components/TripButton";
+import CalendarButton from "../../components/CalendarButton";
 
 
 
@@ -14,6 +14,8 @@ class CalendarPage extends Component {
         weather: null,
         tumblr: null,
         isLoading: true,
+        start: "",
+        end: ""
     };
 
     componentDidMount() {
@@ -33,21 +35,15 @@ class CalendarPage extends Component {
     //     // .then(console.log("hey"))
     //   };
 
-    // viewTripDetails = clickedEvent => {
-    // 	// console.log("event clicked! - before formatting:", clickedEvent);
-    // 	API.findOneTravel(this.props.match.params.id).then(response => {
-    // 		const selectedTrip = { ...response.data, }
+    // addToCalender = clickedEvent => {
+    //     // console.log("event clicked! - before formatting:", clickedEvent);
+    //     API.findOneTravel(clickedEvent._id).then(response => {
+    // 		const selectedTrip = { ...this.state.trip }
     // 		selectedTrip.start = moment(selectedTrip.start).format("dddd, MMMM, D, YYYY,  h:mm A"); 
     // 		selectedTrip.end = moment(selectedTrip.end).format("dddd, MMMM, D, YYYY,  h:mm A");
-    // 		// selectedSession.newStudyBuddyInfo = { email:"", studyBuddyEmailMsg: ""};
-    // 		// console.log("selectedSession after formatting:", selectedSession);
-
-    // 		// this.setState({
-    // 		// 	selectedSession: selectedSession,
-    // 		// 	showSessionDetailModal: true
-    // 		// })
-    // 	})
-    // };
+    		
+    //     })
+    // }
 
     render() {
 
@@ -62,7 +58,7 @@ class CalendarPage extends Component {
                         End Date: {this.state.trip.endDate}<br />
                         <h3><strong>Weather details</strong></h3>
                         <p>{this.state.weather.weather[0].description}</p>
-                        <h3><strong>Temperature (celcius)</strong></h3>
+                        <h3><strong>Temperature (celsius)</strong></h3>
                         <p>{this.state.weather.main.temp}</p>
                         <h3>Your fashion pics</h3>
                         
@@ -72,8 +68,9 @@ class CalendarPage extends Component {
                             <List>
                                 {this.state.tumblr.map(tum => (
                                         <ListItem key={tum._id}>
-                                         {/* {/* <img src={tum.photos[0].original_size.url}/> */}
-                                         {/* <img src={tum.photos[0].original_size.url}/> */}
+                                        {tum.photos && tum.photos.length ? (
+                                         <img src={tum.photos[0].original_size.url}/>
+                                        ) : false}
                                         </ListItem>
                                     ))}
                             </List>
@@ -81,7 +78,7 @@ class CalendarPage extends Component {
                                 <h3>No Results to Display</h3>
                             )}
 
-                            <TripButton id={this.state.trip._id} onClick={this.addToCalendar} />         
+                            <CalendarButton id={this.state.trip._id} onClick={this.addToCalendar} />         
                     </div>
                 }
             </Container>

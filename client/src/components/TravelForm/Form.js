@@ -2,16 +2,13 @@ import React from "react";
 import "./Input.css";
 
 
-export const Input = props => (
+export const Form = props => (
 <section id="form">
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="form-group">
-              <input className="form-control" 
-              // {...props} 
-              {...props}
-              />
+              <input className="form-control" />
             </div>       
           </div>
         </div>
@@ -19,4 +16,4 @@ export const Input = props => (
 </section>
 );
 
-export default Input;
+export default Form;

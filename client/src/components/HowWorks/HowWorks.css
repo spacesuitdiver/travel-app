@@ -61,7 +61,6 @@ section {
 
 .section-heading {
   margin-top: 0;
-  font-size: 50px;
 }
 
 ::-moz-selection {
@@ -100,12 +99,10 @@ img::-moz-selection {
   text-transform: uppercase;
   color: #F05F40;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-decoration: none;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
   color: #f05f40;
-  text-decoration: none;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link,
@@ -114,7 +111,6 @@ img::-moz-selection {
   font-weight: 700;
   text-transform: uppercase;
   color: #212529;
-  text-decoration: none;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
@@ -178,7 +174,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  /* background-image: url("../img/planner.jpg"); */
+  background-image: url("/client/src/images/planner.jpg");
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -225,20 +221,7 @@ header.masthead p {
 
 .service-box {
   max-width: 400px;
-  color: coral;
-  max-height: 400px;
-  margin-top: 50px;
-  float: left;
-  margin-left: 6%;
-  border-radius: 0px;
-  text-align: center;
-  font-size: 25px;
 }
-
-#services {
-  height: 200px;
-}
-
 
 .portfolio-box {
   position: relative;

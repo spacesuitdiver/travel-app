@@ -2,7 +2,7 @@
 // =============================================================
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const app = express();
+
 const passport = require("passport");
 const session = require('express-session');
 const PORT = process.env.PORT || 3000;
@@ -11,8 +11,8 @@ const express = require('express');
 const LocalStrategy = require('passport-local').Strategy;
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
-const session = require('cookie-session');
-
+// const session = require('cookie-session');
+const app = express();
 // Sets up the Express app to handle data parsing - AZ
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
