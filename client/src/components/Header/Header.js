@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactModalLogin from 'react-modal-login';
 import "./Header.css";
-
+import axios from "axios";
 
 
 
@@ -12,20 +12,70 @@ import "./Header.css";
 
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-     
-        this.state = {
-          showModal: false,
-          loading: false,
-          error: null,
-          initialTab: null, //
-          loggedIn: null, //
-          recoverPasswordSuccess: null, //
-        };
-     
-      }
-     
+        constructor(props) {
+
+            super(props);
+        
+            this.state = {
+            showModal: false,
+            loading: false,
+            error: null,
+            initialTab: null, //
+            loggedIn: null, //
+            recoverPasswordSuccess: null, //
+            };
+        
+        } 
+        
+        handleSubmit = event => {
+            event.preventDefault();
+            var loginURL = "http://localhost:3003/auth/";
+            var registerURL = "http://localhost:3003/auth/";
+         
+            const login = {
+                "email": this.state.email,
+                "password": this.state.password
+
+            }
+
+            const register = {
+                "firstname": this.state.firstname,
+                "lastname": this.state.lastname,
+                "email": this.state.email,
+                "password": this.state.password
+
+            }
+        
+            axios.post(loginURL + "/login", { login })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                console.log(res.body);
+
+                if (res.data.code == 200) {
+                    console.log("login succesful");
+       
+                }
+            }).catch(function(error){
+                console.log(error);
+            });
+
+            axios.post(registerURL + "/register", { register })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                console.log(res.body);
+                
+                if (res.data.code == 200) {
+                    console.log("login succesful");
+   
+                }
+                
+            }).catch(function(error){
+                console.log(error);
+            });
+        }
+    
       onLogin() { //
         console.log('__onLogin__');
         console.log('email: ' + document.querySelector('#email').value);
@@ -99,19 +149,6 @@ class Header extends Component {
       }
      
 
-    //   onLoginSuccess(method, response) {
-    //     console.log('logged successfully with ' + method);
-    //   }
-     
-    //   onRegisterSuccess(initialTab) {
-    //     this.setState({
-    //         initialTab: initialTab
-    //     }, () => {
-    //         this.setState({
-    //             showModal:true
-    //         })
-    //     });
-    //   }
         onLoginSuccess(method, response) {
 
             this.closeModal();
@@ -119,15 +156,13 @@ class Header extends Component {
             this.setState({
             loggedIn: method,
             loading: false
+
+
             })
         }
 
-    //   onLoginFail(method, response) {
-    //     console.log('logging failed with ' + method);
-    //     this.setState({
-    //       error: response
-    //     })
-    //   }
+
+
 
         onLoginFail(method, response) {
 
@@ -150,11 +185,6 @@ class Header extends Component {
         })
       }
      
-    //   afterTabsChange() {
-    //     this.setState({
-    //       error: null
-    //     });
-    //   }
 
         afterTabsChange() {
             this.setState({
@@ -163,12 +193,6 @@ class Header extends Component {
             });
         }
 
-        // closeModal() {
-        //     this.setState({
-        //       showModal: false,
-        //       error: null
-        //     });
-        //   }
 
         closeModal() {
             this.setState({
@@ -237,6 +261,7 @@ class Header extends Component {
                                     }}
 
                                     form={{
+                                        // onSubmit: { this.handleSubmit },
                                         onLogin: this.onLogin.bind(this),
                                         onRegister: this.onRegister.bind(this),
                                         onRecoverPassword: this.onRecoverPassword.bind(this),
@@ -254,14 +279,14 @@ class Header extends Component {
                                         method: 'post',
                                         action: '/travel',
                                         type: 'submit'
-                                        //href: "#login" // 
+                                      
                                         },
                                         registerBtn: {
                                         label: "Sign up",
                                         method: 'post',
                                         action: '/login',
                                         type: 'submit'
-                                        //href: "#register" //
+                   
                                         },
                                         recoverPasswordBtn: {
                                         label: "Send new password"
@@ -276,6 +301,7 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
+                                            // onChange: { this.handleChange }
                                           
 
                                         },
@@ -287,6 +313,7 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
+                                            // onChange: { this.handleChange }
                                         }
                                         ], // <form id="signup" name="signup" method="post" action="/signup">
                                         registerInputs: [
@@ -298,6 +325,7 @@ class Header extends Component {
                                             id: 'firstname',
                                             name: 'firstname',
                                             placeholder: 'First Name',
+                                            // onChange: { this.handleChange }
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -307,6 +335,7 @@ class Header extends Component {
                                             id: 'lastname',
                                             name: 'lastname',
                                             placeholder: 'Last Name',
+                                            // onChange: { this.handleChange }
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -316,6 +345,7 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
+                                            // onChange: { this.handleChange }
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -325,6 +355,7 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
+                                            // onChange: { this.handleChange }
                                         }
                                         ],
                                         recoverPasswordInputs: [

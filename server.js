@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 // const session = require('express-session');
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 const models = require("./models");
 const express = require('express');
 const LocalStrategy = require('passport-local').Strategy;
@@ -37,7 +37,7 @@ passport.deserializeUser(models.User.deserializeUser());
 passport.use(new LocalStrategy(models.User.authenticate()));
 // Register routes
 
-app.use('/auth', require("./routes/authRoutesCopy")(passport));
+app.use('/auth', require("./routes/authRoutes")(passport)); // userAutheticated?
 app.use('/', require('./routes'));
 
 

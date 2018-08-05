@@ -1,17 +1,20 @@
 const User = require("../models").User;
 const authController = require("../controllers/authController");
+const path = require("path");
+const router = require('express').Router();
+
 
 module.exports = function (passport) {
-	const path = require("path");
 
-	const router = require('express').Router();
-
+    router.get('/', function(req, res) {
+		res.render('index', {user: req.user});
+	  });
 	//Receives request when App.js mounts
-	router.get("/userAuthenticated", authController.getAuthentication);
+	router.get("/auth", authController.getAuthentication);
 
-	router.post("/signup", authController.createNewUser);
+	router.post("/register", authController.createNewUser);
 
-	router.post("/signin", (req, res) => {
+	router.post("/login", (req, res) => {
 		passport.authenticate('local', (err, user, info) => {
 			if (!user) {
 				res.json(info);
