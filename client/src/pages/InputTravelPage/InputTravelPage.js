@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Jumbotron from "../../components/Jumbotron";
 import "./Inputtravel.css";
 
+
 class InputTravelPage extends Component {
     state = {
         startDate: "",
@@ -70,30 +71,19 @@ class InputTravelPage extends Component {
        
             <Container>
             <section id="form">
+            <div className="page">
                 <form>
-                    <Input
-                        value={this.state.city}
-                        onChange={this.handleInputChange}
-                        name="city"
-                        placeholder="Where are you going?"
+                    <Input 
+                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
                     />
                     <Input
-                        value={this.state.startDate}
-                        onChange={this.handleInputChange}
-                        name="startDate"
-                        placeholder="When are you leaving?"
+                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
                     />
                     <Input
-                        value={this.state.endDate}
-                        onChange={this.handleInputChange}
-                        name="endDate"
-                        placeholder="When are you getting back?"
+                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
                     />
                     <Input
-                        value={this.state.country}
-                        onChange={this.handleInputChange}
-                        name="country"
-                        placeholder="What country are you going to?"
+                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
                     />
                     
                     <FormBtn
@@ -103,8 +93,9 @@ class InputTravelPage extends Component {
                         SUBMIT
               </FormBtn>
                 </form>
+                </div>
                 </section>
-
+                
                 <Jumbotron>
                     {this.state.trips.length ? (
                         <List>Your trips
