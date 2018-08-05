@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(logger('dev')); //
 app.use(cookieParser()); // 
 app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));// 
-app.use(express.static(path.join(__dirname, 'public')));//
+// app.use(express.static(path.join(__dirname, 'public')));//
 
 // Static assets
 app.use(express.static("client/build"));
@@ -37,6 +37,8 @@ passport.deserializeUser(models.User.deserializeUser());
 passport.use(new LocalStrategy(models.User.authenticate()));
 // Register routes
 
+const routes = require("./routes")(passport);
+app.use('/', routes);
 app.use('/auth', require("./routes/authRoutes")(passport)); // userAutheticated?
 app.use('/', require('./routes'));
 
