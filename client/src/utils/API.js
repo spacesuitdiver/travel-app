@@ -16,7 +16,7 @@ export default {
 
 //TRAVEL
     findAllTravel: () =>{
-        return (axios.get("/api/travel/"))
+        return (axios.get("/api/travel"))
     },
     createTravel: (travelData) => {
         return (axios.post("/api/travel", travelData))
@@ -26,11 +26,12 @@ export default {
         return (axios.get(`/api/travel/${travelId}`))
     },
 
-    editTravel: (travelData, userId) => {
-        return (axios.patch(`/api/travel/${userId}`, travelData))
+    editTravel: (id, travelData) => {
+        return (axios.put(`/api/travel/${id}`, travelData))
     },
 
     deleteTravel: (travelId) => {
     return (axios.delete(`/api/travel/${travelId}`))
     }
+
 }

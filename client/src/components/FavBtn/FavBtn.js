@@ -1,12 +1,12 @@
 import React from "react";
-import "./DeleteBtn.css";
+import "./FavBtn.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-const DeleteBtn = props => (
-  <span className="delete-btn" {...props}>
-    DELETE
+const FavBtn = props => (
+  <span className="fave-button btn" {...props}>
+    FAVORITE ❤️
   </span>
 );
 
-export default DeleteBtn;
+export default FavBtn;
