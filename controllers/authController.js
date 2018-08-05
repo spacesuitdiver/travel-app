@@ -8,7 +8,7 @@ module.exports = {
 		if (req.isAuthenticated()) {
 			res.json({
 				userId: req.user._id,
-				username: req.user.username,
+				email: req.user.email,
 				isAuthenticated: true
 			});
 		} else { //if user is not authenticated: sends back falsy values for userId, username, authentication false
@@ -33,7 +33,7 @@ module.exports = {
 			}
 			res.json({
 				userId: user._id,
-				username: user.username,
+				email: user.email,
 				isAuthenticated: true
 			});
 		});
@@ -45,7 +45,7 @@ module.exports = {
 	signInUser: (req, res) => {
 		res.json({
 			userId: req._id,
-			username: req.username,
+			email: req.email,
 			isAuthenticated: true
 		});
 	},
