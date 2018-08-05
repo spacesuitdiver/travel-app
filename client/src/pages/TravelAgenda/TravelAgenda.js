@@ -11,15 +11,11 @@ import DeleteBtn from "../../components/DeleteBtn";
 
 class TravelAgenda extends Component {
     state = {
-        trip: null,
+        trip: {
+            imageObjects: []
+            },
         weather: null,
-        tumblr: [],
         isLoading: true,
-        start: "",
-        end: "",
-        tumblrObjects: [],
-        image: "",
-        imageObjects: []
     };
 
     componentDidMount() {
@@ -33,37 +29,28 @@ class TravelAgenda extends Component {
             .then(res => this.setState({
                 trip: res.data.travel,
                 weather: res.data.weather,
-                tumblr: res.data.tumblr
+                tumblr: res.data.tumblr,
+                imageObjects: res.data.travel.imageObjects
             }))
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
     }
-
-    // clickFunction = id => {
-    //     if (this.state.imageObjects === -1) {
-    //         this.setState(
-    //             {
-    //                 ifClicked: this.state.ifClicked.concat(id)
-    //             })
-    //     }
-    //     console.log(this.ifClicked)
-    // }
 
     deleteImages = travelId => {
         API.deleteTravel(travelId)
             .catch(err => console.log(err));
     };
 
-    saveImages = (id, tumblrObject) => {
+    saveImages = (tumblrObject) => {
 
-        const image = this.state.imageObjects.concat(tumblrObject);  
+        const image = this.state.trip.imageObjects.concat(tumblrObject);  
 
-        this.setState({imageObjects: image})
+        this.setState({trip:{imageObjects: image}})
         
-        API.editTravel(id, {imageObjects: this.state})
+        API.editTravel(this.props.match.params.travelId, {imageObjects: image})
         console.log(this.state)
 
-        this.loadUserTravel();
+        // this.loadUserTravel();
 
         }
 
@@ -110,7 +97,7 @@ class TravelAgenda extends Component {
                                         ) : false}
 
                                         
-                                        <FavBtn onClick={() => this.saveImages(tum._id,tum.photos[0].original_size.url)} />
+                                        <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
 
                                     </ListItem>
                                 ))}
@@ -123,9 +110,9 @@ class TravelAgenda extends Component {
                             )}
 
                         <div className="savedArea"><h3>Saved fashion pics</h3></div>
-                        {this.state.imageObjects.length ? (
+                        {this.state.trip.imageObjects.length ? (
                             <List>
-                                {this.state.imageObjects.map(clicked => (
+                                {this.state.trip.imageObjects.map(clicked => (
 
                                     <ListItem key={clicked._id}>
                                         <img src={clicked}/>
