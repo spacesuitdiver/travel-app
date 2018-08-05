@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import DeleteBtn from "../../components/DeleteBtn";
-import TripButton from "../../components/TripButton";
-import EditBtn from "../../components/EditBtn";
 import { Input, FormBtn, Form } from "../../components/TravelForm";
-import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
-import { Link } from "react-router-dom";
-import Jumbotron from "../../components/Jumbotron";
 import "./InputTravelPage.css";
 
 class InputTravelPage extends Component {
@@ -21,7 +15,6 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
-        imageObject: {}
     };
 
     componentDidMount() {
@@ -57,12 +50,7 @@ class InputTravelPage extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         API.createTravel(
-            {
-                startDate: this.state.startDate,
-                endDate: this.state.endDate,
-                city: this.state.city,
-                country: this.state.country
-            }
+                this.state
         )
             .then(res => this.props.history.push("/calendar")
             )

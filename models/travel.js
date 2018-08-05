@@ -44,11 +44,10 @@ const travelSchema = new Schema({
     required: false,
     description: []
   },
-
-  imageObject: {
+  imageObjects: [{
     type: String,
     required: false,
-  }
+  }]
 }
 )
 

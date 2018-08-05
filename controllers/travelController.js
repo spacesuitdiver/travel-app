@@ -55,15 +55,11 @@ const fetchWeatherData = travel => {
         .catch(err => res.status(422).json(err));
     },
     createTravel: function (req, res) {
-      db.Travel.
-        create(req.body)
-        .then(fetchWeatherData)
-        .then(fetchTumblrData)
-        .then(({ travel, weather, tumblr }) => res.json({
-          travel, weatherDescriptions: weather, imageObject: tumblr
-        }))
+      db.Travel
+        .create(req.body)
+        .then(travel => res.json(travel))
         .catch(err => res.status(422).json(err));
-    },
+    },  
     findOneTravel: function (req, res) {
       db.Travel
         .findOne({ _id: req.params.travelId })
@@ -76,13 +72,13 @@ const fetchWeatherData = travel => {
     },
     editTravel: function(req, res) {
       db.Travel
-        .findOneAndUpdate({ _id: req.params.travelId }, req.body)
-        .then(travel => res.json(travel))
+        .findOneAndUpdate({ id: req.params.id })
+        .then(tumblr => res.json(tumblr))
         .catch(err => res.status(422).json(err));
     },
     deleteTravel: function (req, res) {
       db.Travel
-        .findById({ _id: req.params.travelId })
+        .findById({ id: req.params.id })
         .then(travel => travel.remove())
         .then(travel => res.json(travel))
         .catch(err => res.status(422).json(err));

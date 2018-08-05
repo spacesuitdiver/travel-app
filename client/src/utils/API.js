@@ -26,17 +26,12 @@ export default {
         return (axios.get(`/api/travel/${travelId}`))
     },
 
-    editTravel: (travelId) => {
-        return (axios.put(`/api/travel/${travelId}`))
+    editTravel: (id, travelData) => {
+        return (axios.put(`/api/travel/${id}`, travelData))
     },
 
     deleteTravel: (travelId) => {
     return (axios.delete(`/api/travel/${travelId}`))
-    },
-
-    // //Get all travel for calendar
-    // findAllTravelCalendar: () =>{
-    //     return (axios.get("/api/calendar"))
-    // }
+    }
 
 }
