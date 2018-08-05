@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import DeleteBtn from "../../components/DeleteBtn";
-import TripButton from "../../components/TripButton";
-import EditBtn from "../../components/EditBtn";
 import { Input, FormBtn, Form } from "../../components/TravelForm";
-import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
-import { Link } from "react-router-dom";
-import Jumbotron from "../../components/Jumbotron";
 import "./InputTravelPage.css";
 
 class InputTravelPage extends Component {
@@ -21,7 +15,6 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
-        imageObject: {}
     };
 
     componentDidMount() {
@@ -57,12 +50,7 @@ class InputTravelPage extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         API.createTravel(
-            {
-                startDate: this.state.startDate,
-                endDate: this.state.endDate,
-                city: this.state.city,
-                country: this.state.country,
-            }
+                this.state
         )
             .then(res => this.props.history.push("/calendar")
             )
@@ -99,6 +87,18 @@ class InputTravelPage extends Component {
                             name="country"
                             placeholder="What country are you going to?"
                         />
+                        <Input
+                            value={this.state.flightNumber}
+                            onChange={this.handleInputChange}
+                            name="flightNumber"
+                            placeholder="What's your flight number?"
+                        />
+                        <Input
+                            value={this.state.hotel}
+                            onChange={this.handleInputChange}
+                            name="hotel"
+                            placeholder="What hotel are you staying in?"
+                        />
 
                         <FormBtn
                             disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
@@ -109,7 +109,7 @@ class InputTravelPage extends Component {
                     </form>
                 </section>
 
-                <Jumbotron>
+                {/* <Jumbotron>
                     {this.state.trips.length ? (
                         <List>Your trips
                         {this.state.trips.map(trip => (
@@ -123,16 +123,16 @@ class InputTravelPage extends Component {
                                     </strong>
 
                                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
-                                    <EditBtn onClick={() => this.editTravel(trip._id)} />
+                                    {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
                                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
                                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
-                                </ListItem>
-                            ))}
-                        </List>
-                    ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                </Jumbotron>
+                                </ListItem> */}
+                           {/* ))} */}
+                       {/* </List> */}
+                     {/* ) : ( */}
+                            {/* <h3>No Results to Display</h3> */}
+                        {/* )} */}
+                {/* </Jumbotron> */}
             </Container>
 
         );
