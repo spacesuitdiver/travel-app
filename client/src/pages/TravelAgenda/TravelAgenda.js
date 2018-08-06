@@ -21,7 +21,7 @@ class TravelAgenda extends Component {
             flightNumber: null,
         },
         weather: null,
-        isLoading: true,
+        isLoading: true
     };
 
     componentDidMount() {
@@ -31,11 +31,10 @@ class TravelAgenda extends Component {
     loadUserTravel = () => {
         API.findOneTravel(this.props.match.params.travelId)
             .then(res => this.setState({
-                trip: res.data.travel,
                 weather: res.data.weather,
                 tumblr: res.data.tumblr,
-                trip: { imageObjects: [{ id: res.data.travel.imageObjects.id }, { tumblrImage: res.data.travel.imageObjects.tumblrImage }, { notes: [res.data.travel.imageObjects.notes] }] }
-            }))
+                trip: res.data.travel}))
+                // trip: res.data.travel { imageObjects: [{ id: res.data.travel.imageObjects.id }, { tumblrImage: res.data.travel.imageObjects.tumblrImage }, { notes: [res.data.travel.imageObjects.notes] }
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
         console.log(this.state)
@@ -43,12 +42,13 @@ class TravelAgenda extends Component {
     }
 
     deleteImages = id => {
-        id = id.toString();
-        API.deleteTravel(id)
-        // .then(res =>this.loadUserTravel());
 
-        console.log(id)
-        // .catch(err => console.log(err));
+        const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo.id !== id);
+
+        this.setState({ trip: { imageObjects: featuredPhotos } })
+
+        API.editTravel(this.props.match.params.travelId, {featuredPhotos})
+        .then(() => this.setState({ isLoading: false }))
     };
 
     saveImages = (id, tumblrImage) => {
@@ -58,22 +58,18 @@ class TravelAgenda extends Component {
         this.setState({ trip: { imageObjects: details } })
         console.log(this.state)
 
-        API.editTravel(this.props.match.params.travelId, { trip: { imageObjects: [details] } })
+        API.editTravel(this.props.match.params.travelId, {trip: {...this.state}})
 
-        // this.loadUserTravel();
-
+        // .then(res =>
+        //     this.loadUserTravel())
+        //   .catch(err => console.log(err));
+        
     }
-
-    // window.location.reload();
-    // this.clickFunction();
-    // .then(this.loadUserTravel())
-    // .catch(err => console.log(err));
-
+    
     handleFormSubmit = event => {
         event.preventDefault()
-        .then(res =>
         API.createTravel({
-            trip: { imageObjects: [{ notes: [], id: res.data, tumblrImage: {} }]}}))
+            trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
     console.log(this.state)
 
     // .then(this.loadUserTravel())

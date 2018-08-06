@@ -18,6 +18,7 @@ class Header extends Component {
                 initialTab: null, 
                 loggedIn: null, 
                 recoverPasswordSuccess: null, 
+
                 
                 
                 firstname: " ", //*
