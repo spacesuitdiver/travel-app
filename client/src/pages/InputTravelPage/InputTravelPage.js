@@ -4,6 +4,7 @@ import { Input, FormBtn, Form } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
 
+
 class InputTravelPage extends Component {
     state = {
         startDate: "",
@@ -61,55 +62,34 @@ class InputTravelPage extends Component {
         return (
 
             <Container>
-                <section id="form">
-                    <form>
-                        <Input
-                            value={this.state.city}
-                            onChange={this.handleInputChange}
-                            name="city"
-                            placeholder="Where are you going?"
-                        />
-                        <Input
-                            value={this.state.startDate}
-                            onChange={this.handleInputChange}
-                            name="startDate"
-                            placeholder="When are you leaving?"
-                        />
-                        <Input
-                            value={this.state.endDate}
-                            onChange={this.handleInputChange}
-                            name="endDate"
-                            placeholder="When are you getting back?"
-                        />
-                        <Input
-                            value={this.state.country}
-                            onChange={this.handleInputChange}
-                            name="country"
-                            placeholder="What country are you going to?"
-                        />
-                        <Input
-                            value={this.state.flightNumber}
-                            onChange={this.handleInputChange}
-                            name="flightNumber"
-                            placeholder="What's your flight number?"
-                        />
-                        <Input
-                            value={this.state.hotel}
-                            onChange={this.handleInputChange}
-                            name="hotel"
-                            placeholder="What hotel are you staying in?"
-                        />
-
-                        <FormBtn
-                            disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
-                            id={this.state._id} onClick={this.handleFormSubmit}
-                        >
-                            SUBMIT
+            <section id="form">
+            <div className="page">
+                <form>
+                    <Input 
+                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
+                    />
+                    <Input
+                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
+                    />
+                    <Input
+                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
+                    />
+                    <Input
+                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
+                    />
+                    
+                    <FormBtn
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+                        onClick={this.handleFormSubmit}
+                    >
+                        SUBMIT
               </FormBtn>
-                    </form>
+                </form>
+                </div>
                 </section>
-
-                {/* <Jumbotron>
+                </Container>
+                
+                <Jumbotron>
                     {this.state.trips.length ? (
                         <List>Your trips
                         {this.state.trips.map(trip => (
@@ -121,7 +101,8 @@ class InputTravelPage extends Component {
                                         Start Date: {trip.startDate}<br />
                                         End Date: {trip.endDate}<br />
                                     </strong>
-
+                                    
+                
                                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
                                     {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
                                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
@@ -133,7 +114,7 @@ class InputTravelPage extends Component {
                             {/* <h3>No Results to Display</h3> */}
                         {/* )} */}
                 {/* </Jumbotron> */}
-            </Container>
+         
 
         );
     }

@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import { List, ListItem } from "../../components/List";
 import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
-import SaveBtn from "../../components/SaveBtn";
+import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
 
 
@@ -110,7 +110,7 @@ class TravelAgenda extends Component {
                                         ) : false}
 
                                         
-                                        <SaveBtn onClick={() => this.saveImages(tum._id,tum.photos[0].original_size.url)} />
+                                        <FavBtn onClick={() => this.saveImages(tum._id,tum.photos[0].original_size.url)} />
 
                                     </ListItem>
                                 ))}
