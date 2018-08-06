@@ -25,9 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));//
 app.use(express.static("client/build"));
 
 // For Passport
-app.use(cookieSession({ secret: 'coders', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'coders', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.cookieSession());
+app.use(passport.session());
 
 passport.serializeUser(models.User.serializeUser());
 passport.deserializeUser(models.User.deserializeUser());
@@ -37,6 +37,8 @@ passport.deserializeUser(models.User.deserializeUser());
 passport.use(new LocalStrategy(models.User.authenticate()));
 // Register routes
 
+const routes = require("./routes")(passport);
+app.use('/', routes);
 app.use('/auth', require("./routes/authRoutes")(passport)); // userAutheticated?
 app.use('/', require('./routes'));
 

@@ -14,7 +14,7 @@ module.exports = {
 		} else { //if user is not authenticated: sends back falsy values for userId, username, authentication false
 			res.json({
 				userId: null,
-				username: null,
+				email: null,
 				isAuthenticated: false
 			});
 		}
@@ -33,6 +33,8 @@ module.exports = {
 			}
 			res.json({
 				userId: user._id,
+				firstname: user.firstname,
+				lastname: user.lastname,
 				email: user.email,
 				isAuthenticated: true
 			});

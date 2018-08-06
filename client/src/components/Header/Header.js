@@ -27,54 +27,7 @@ class Header extends Component {
         
         } 
         
-        handleSubmit = event => {
-            event.preventDefault();
-            var loginURL = "http://localhost:3003/auth/";
-            var registerURL = "http://localhost:3003/auth/";
-         
-            const login = {
-                "email": this.state.email,
-                "password": this.state.password
-
-            }
-
-            const register = {
-                "firstname": this.state.firstname,
-                "lastname": this.state.lastname,
-                "email": this.state.email,
-                "password": this.state.password
-
-            }
-        
-            axios.post(loginURL + "/login", { login })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(res.body);
-
-                if (res.data.code == 200) {
-                    console.log("login succesful");
-       
-                }
-            }).catch(function(error){
-                console.log(error);
-            });
-
-            axios.post(registerURL + "/register", { register })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(res.body);
-                
-                if (res.data.code == 200) {
-                    console.log("login succesful");
-   
-                }
-                
-            }).catch(function(error){
-                console.log(error);
-            });
-        }
+ 
     
       onLogin() { //
         console.log('__onLogin__');
@@ -91,7 +44,10 @@ class Header extends Component {
         } else {
           this.onLoginSuccess('');
         }
-      }
+ 
+
+
+      } 
 
       onRegister() { //
         console.log('__onRegister__');
@@ -110,7 +66,7 @@ class Header extends Component {
             error: true
           })
         } else {
-          this.onLoginSuccess();
+          this.onRegisterSuccess();
         }
       }
     
@@ -149,18 +105,85 @@ class Header extends Component {
       }
      
 
-        onLoginSuccess(method, response) {
-
-            this.closeModal();
-            // this.openModal();
-            this.setState({
-            loggedIn: method,
-            loading: false
-
-
+        onLoginSuccess() {
+            // event.preventDefault();
+            var loginURL = "http://localhost:3000/auth";
+ 
+            const login = {
+                "email": this.state.email,
+                "password": this.state.password
+        
+            }
+        
+            axios.post(loginURL + "/login", { 
+                
+                email: this.state.email,
+                password: this.state.password
+                
             })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                console.log(res.body);       
+                if (res.status === 200) {
+                    // update App.js state 
+                    this.props.updateUser ({
+                        loggedIn: true,
+                        email: res.data.email
+                    }) // update the state to redirect to 
+                    
+                    this.setState({
+                        redirectTo: '/travel'
+                    })
+                } 
+            }).catch(error => {
+                console.log(error);
+                window.location = "/"
+            });
+    
         }
 
+        onRegisterSuccess() {
+            // event.preventDefault();
+            var registerURL = "http://localhost:3000/auth";
+         
+            const register = {
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                password: this.state.password
+        
+            }
+        
+            axios.post(registerURL + "/register", { 
+
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                password: this.state.password
+
+            })
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    console.log(res.body);
+            
+                    if (res.data) {
+                        // window.location = "/login"
+                        this.setState({
+                            // redirectTo: '/login'
+                            
+                        })
+                    } else if (res.data.redirect === '/login') {
+                        // window.location = "/login"
+                        
+                    }
+                }).catch(error => {
+                    console.log(error);
+                    // window.location = "/login"
+                    
+                });
+        }
 
 
 
@@ -205,12 +228,12 @@ class Header extends Component {
         render() {
 
             const loggedIn = this.state.loggedIn
-            // ? <div>
-            //     <p>You are signed in with: {this.state.loggedIn}</p>
-            //   </div>
-            // : <div>
-            //     <p>You are signed out</p>
-            // </div>;
+            ? <div>
+                <p>You are signed in with: {this.state.loggedIn}</p>
+              </div>
+            : <div>
+                <p>You are signed out</p>
+            </div>;
       
             const isLoading = this.state.loading;
             
@@ -261,11 +284,10 @@ class Header extends Component {
                                     }}
 
                                     form={{
-                                        // onSubmit: { this.handleSubmit },
+                                
                                         onLogin: this.onLogin.bind(this),
                                         onRegister: this.onRegister.bind(this),
                                         onRecoverPassword: this.onRecoverPassword.bind(this),
-
                                         recoverPasswordSuccessLabel: this.state.recoverPasswordSuccess
                                         ? {
                                             label: "New password has been sent to your mailbox!"
@@ -274,17 +296,18 @@ class Header extends Component {
                                         recoverPasswordAnchor: {
                                         label: "Forgot your password?"
                                         },
+
                                         loginBtn: {
                                         label: "Sign in",
                                         method: 'post',
-                                        action: '/travel',
+                                        // action: '/login',
                                         type: 'submit'
                                       
                                         },
                                         registerBtn: {
                                         label: "Sign up",
                                         method: 'post',
-                                        action: '/login',
+                                        // action: '/register',
                                         type: 'submit'
                    
                                         },
@@ -295,25 +318,27 @@ class Header extends Component {
                                         {
                                             
                                             containerClass: 'RML-form-group',
+                                            action: "/login",
                                             label: 'email',
                                             type: 'email',
                                             inputClass: 'RML-form-control',
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
-                                            // onChange: { this.handleChange }
+                                        
                                           
 
                                         },
                                         {
                                             containerClass: 'RML-form-group',
+                                            action: "/register",
                                             label: 'password',
                                             type: 'password',
                                             inputClass: 'RML-form-control',
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
-                                            // onChange: { this.handleChange }
+                                            
                                         }
                                         ], // <form id="signup" name="signup" method="post" action="/signup">
                                         registerInputs: [
@@ -325,7 +350,7 @@ class Header extends Component {
                                             id: 'firstname',
                                             name: 'firstname',
                                             placeholder: 'First Name',
-                                            // onChange: { this.handleChange }
+                                           
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -335,7 +360,7 @@ class Header extends Component {
                                             id: 'lastname',
                                             name: 'lastname',
                                             placeholder: 'Last Name',
-                                            // onChange: { this.handleChange }
+                                           
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -345,7 +370,7 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
-                                            // onChange: { this.handleChange }
+                                            
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -355,7 +380,7 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
-                                            // onChange: { this.handleChange }
+                                            
                                         }
                                         ],
                                         recoverPasswordInputs: [

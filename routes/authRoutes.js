@@ -1,7 +1,9 @@
+const router = require('express').Router();
 const User = require("../models").User;
 const authController = require("../controllers/authController");
 const path = require("path");
-const router = require('express').Router();
+
+
 
 
 module.exports = function (passport) {
@@ -14,17 +16,37 @@ module.exports = function (passport) {
 
 	router.post("/register", authController.createNewUser);
 
-	router.post("/login", (req, res) => {
-		passport.authenticate('local', (err, user, info) => {
-			if (!user) {
-				res.json(info);
-			}
-			else{
-				authController.signInUser(user, res)
-			}
+	// router.post("/login", (req, res, next) => {
 
-	})(req, res)});
+	// 	passport.authenticate('local', (err, user, info) => {
+	// 		if (!user) {
+	// 			res.json(info);
+	// 		}
 
+	// 		else{
+	// 			authController.signInUser(user, res)
+	// 			var redir = { redirect: '/travel'}
+	// 		}
+	// 	})
+	//  (req, res)
+	// });
+
+	router.post("/login", (req, res, next) => {
+			console.log(req.body)
+			next();
+		}, 
+
+		passport.autheticate('local'), 
+		(req, res) => {
+			console.log('logged in', req.user);
+				var userInfo = {
+					email: req.user.email
+				};
+				
+			res.send(userInfo);
+		}
+	)
+	  
 	router.get('/logout', authController.logoutUser);
 
 	return router;
