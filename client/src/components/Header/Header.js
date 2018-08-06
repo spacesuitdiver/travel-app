@@ -18,10 +18,13 @@ class Header extends Component {
                 initialTab: null, 
                 loggedIn: null, 
                 recoverPasswordSuccess: null, 
-                email: email, //*
-                password: password, //*
-                firstname: firstname, //*
-                lastname: lastname //*
+                
+                
+                firstname: " ", //*
+                lastname: " ", //*
+                email: " ", //*
+                password: "  ", //*
+                
 
             };
         
@@ -45,34 +48,35 @@ class Header extends Component {
         // }
         
 
-        handleRegister(event) { //* REG
+        handleInputChange(event) { //* REG
             this.setState({
-                [event.target.name]: event.target.value
+                firstname: event.target.value,
+                lastname: event.target.value,
+                email: event.target.value,
+                password: event.target.value
+
             })
         }
         
-        handleLogin(event) { //* Log In
-            this.setState({
-                [event.target.name]: event.target.value
-            })
-        }
- 
+            
     
       onLogin() { //
         console.log('__onLogin__');
         console.log('email: ' + document.querySelector('#email').value);
         console.log('password: ' + document.querySelector('#password').value);
     
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
+        // const email = document.querySelector('#email').value;
+        // const password = document.querySelector('#password').value;
     
-        if (!email || !password) {
-          this.setState({
-            error: true
-          })
-        } else {
-          this.onLoginSuccess('');
-        }
+        // if (!email || !password) {
+        //   this.setState({
+        //     error: true
+        //   })
+        // } else {
+        //   this.onLoginSuccess('');
+        // }
+
+        this.onLoginSuccess('');
         
 
 
@@ -86,18 +90,20 @@ class Header extends Component {
         console.log('email: ' + document.querySelector('#email').value);
         console.log('password: ' + document.querySelector('#password').value);
     
-        const firstname = document.querySelector('#firstname').value;
-        const lastname = document.querySelector('#lastname').value;
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
+        // const firstname = document.querySelector('#firstname').value;
+        // const lastname = document.querySelector('#lastname').value;
+        // const email = document.querySelector('#email').value;
+        // const password = document.querySelector('#password').value;
     
-        if (!firstname|| !lastname || !email || !password) {
-          this.setState({
-            error: true
-          })
-        } else {
-          this.onRegisterSuccess();
-        }
+        // if (!firstname|| !lastname || !email || !password) {
+        //   this.setState({
+        //     error: true
+        //   })
+        // } else {
+        //   this.onRegisterSuccess();
+        // }
+        
+        this.onRegisterSuccess();
       }
     
       onRecoverPassword() { //
@@ -135,7 +141,7 @@ class Header extends Component {
       }
      
 
-        onLoginSuccess(event) {
+        onLoginSuccess() {
             // event.preventDefault();
             var loginURL = "/auth";
             // http://localhost:3000
@@ -299,9 +305,9 @@ class Header extends Component {
                                     // componentDidMount = {this.compHEonentDidMount.bind(this)}
                                     // updateUser = {this.updateUser.bind(this)}
                                     onLoginSuccess = {this.onLoginSuccess.bind(this)} //*  LogIn handleSubmit
-                                    handleLogin = {this.handleRegister.bind(this)}
+                                    handleInputChange = {this.handleInputChange.bind(this)}
                                     onRegisterSuccess = {this.onRegisterSuccess.bind(this)} // * REG handleSubmit
-                                    handleRegister = {this.handleRegister.bind(this)} //*  REG
+                                    handleInputChange = {this.handleInputChange.bind(this)} //*  REG
 
 
 
@@ -350,7 +356,8 @@ class Header extends Component {
                                         loginBtn: {
                                         label: "Log in",
                                         method: 'post',
-                                        onClick: this.onLoginSuccess,
+                                        // onClick: this.onLoginSuccess,
+                                        onClick: this.onLogin,
                                         type: 'submit'
                                       
                                         },
@@ -358,6 +365,7 @@ class Header extends Component {
                                         label: "Register",
                                         method: 'post',
                                         onClick: this.onRegisterSuccess,
+                                        onClick: this.onRegister,
                                         type: 'submit'
                                         
                                         },
@@ -377,10 +385,11 @@ class Header extends Component {
                                             name: 'email',
                                             placeholder: 'Email',
                                             value: this.state.email,
-                                            onChange: this.state.onLoginSuccess
-                                        
-                                          
+                                            // onChange: this.onLoginSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
 
+
+                                        
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -392,7 +401,8 @@ class Header extends Component {
                                             name: 'password',
                                             placeholder: 'Password',
                                             value: this.state.password,
-                                            onChange: this.state.onLoginSuccesss
+                                            // onChange: this.onLoginSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
                                             
                                         }
                                         ], // <form id="signup" name="signup" method="post" action="/signup">
@@ -405,8 +415,9 @@ class Header extends Component {
                                             id: 'firstname',
                                             name: 'firstname',
                                             placeholder: 'First Name',
-                                            value: this.state.firstname,
-                                            onChange: this.state.onRegisterSuccess
+                                            value: this. state.firstname,
+                                            // onChange: this.onRegisterSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
                             
                                           
                                         },
@@ -419,7 +430,8 @@ class Header extends Component {
                                             name: 'lastname',
                                             placeholder: 'Last Name',
                                             value: this.state.lastname,
-                                            onChange: this.state.onRegisterSuccess
+                                            // onChange: this.onRegisterSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
                                            
                                         },
                                         {
@@ -431,7 +443,8 @@ class Header extends Component {
                                             name: 'email',
                                             placeholder: 'Email',
                                             value: this.state.email,
-                                            onChange: this.state.onRegisterSuccess
+                                            // onChange: this.onRegisterSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
                                             
                                         },
                                         {
@@ -443,7 +456,8 @@ class Header extends Component {
                                             name: 'password',
                                             placeholder: 'Password',
                                             value: this.state.password,
-                                            onChange: this.state.onRegisterSuccess
+                                            // onChange: this.onRegisterSuccess.bind(this)
+                                            onChange: this.handleInputChange.bind(this)
                                             
                                         }
                                         ],
@@ -461,9 +475,7 @@ class Header extends Component {
                                         },
                                         ],
                                     }}
-                                    // separator={{
-                                    //     label: "or"
-                                    // }}
+                                
                                     />
                                     {loggedIn}
                                 </div>
