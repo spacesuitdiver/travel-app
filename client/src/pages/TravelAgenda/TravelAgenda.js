@@ -42,11 +42,15 @@ class TravelAgenda extends Component {
     }
 
     deleteImages = id => {
-        id = id.toString();
-        API.deleteTravel(id)
-        // .then(res =>this.loadUserTravel());
+        // Filter through the array with the id not equal to the id being removed
 
-        console.log(id)
+        const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo.id !== id);
+
+        this.setState({ trip: { imageObjects: featuredPhotos } })
+
+        API.editTravel(this.props.match.params.travelId, {featuredPhotos})
+
+        console.log(featuredPhotos)
     };
 
     saveImages = (id, tumblrImage) => {
@@ -56,17 +60,13 @@ class TravelAgenda extends Component {
         this.setState({ trip: { imageObjects: details } })
         console.log(this.state)
 
-        API.editTravel(this.props.match.params.travelId, { trip: { imageObjects: [details] } })
-
-        // .then(res => this.loadUserTravel())
-
+        API.editTravel(this.props.match.params.travelId, {...this.state.trip})
     }
-
+    
     handleFormSubmit = event => {
         event.preventDefault()
-        .then(res =>
         API.createTravel({
-            trip: { imageObjects: [{ notes: [], id: res.data, tumblrImage: {} }]}}))
+            trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
     console.log(this.state)
 
     // .then(this.loadUserTravel())
