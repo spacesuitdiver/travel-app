@@ -165,10 +165,10 @@ class Header extends Component {
                 console.log(res.body);       
                 if (res.status === 200) {
                     // update App.js state 
-                    this.props.updateUser ({
-                        loggedIn: true,
-                        email: res.data.email
-                    }) // update the state to redirect to 
+                    // this.props.updateUser ({
+                    //     loggedIn: true,
+                    //     email: res.data.email
+                    // }) // update the state to redirect to 
                     
                     this.setState({
                         redirectTo: '/travel'
