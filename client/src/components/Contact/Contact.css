@@ -1,32 +1,49 @@
+@font-face {
+
+  font-family: tokyoMerged;
+  src: url(../../Font/TTF/TokyoMerged-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoMerged-Regular.otf); */
+
+  font-family: tokyoOutline;
+  src: url(../../Font/TTF/TokyoOutline-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoOutline-Regular.otf); */
+
+  font-family: tokyoRegular;
+  src: url(../../Font/TTF/TokyoRegular-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoRegular-Regular.otf); */
+
+
+}
+
 body,
 html {
   width: 100%;
   height: 100%;
 }
 
-body {
+/* body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
-}
+} */
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: #c6baba;
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: #c6baba;
 }
 
 a {
-  color: #F05F40;
+  color: #ffccbb;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 a:hover {
-  color: coral;
+  color: #ffccbb;
 }
 
 h1,
@@ -35,23 +52,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', serif;
- /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: tokyoRegular; */
+  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
 
 }
 
 .bg-primary {
-  background-color: coral !important;
+  background-color: #ffccbb !important;
 }
 
 .bg-dark {
-  background-color: coral !important;
+  background-color: #ffccbb !important;
 }
 
 .text-faded {
   font-size: 15px;
-  color: black;
+  color: #f87956;
  
 }
 
@@ -61,10 +79,12 @@ section {
 
 .section-heading {
   margin-top: 0;
+  color: #f87956 !important;
+
 }
 
 #contact{
-  background-color: coral;
+  background-color: #ffccbb;
 }
 
 
@@ -102,12 +122,12 @@ img::-moz-selection {
 #mainNav .navbar-brand {
   font-weight: 700;
   text-transform: uppercase;
-  color: #F05F40;
+  color: #ffccbb;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #f05f40;
+  color: #ffccbb;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link,
@@ -120,12 +140,12 @@ img::-moz-selection {
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-  color: #F05F40;
+  color: #ffccbb;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-  color: #F05F40 !important;
+  color: #ffccbb !important;
   background-color: transparent;
 }
 
@@ -161,10 +181,10 @@ img::-moz-selection {
     background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #F05F40;
+    color: #ffccbb;
   }
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f05f40;
+    color: #ffccbb;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -172,7 +192,7 @@ img::-moz-selection {
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #F05F40;
+    color: #ffccbb;
   }
 }
 
@@ -292,7 +312,7 @@ header.masthead p {
 }
 
 .text-primary {
-  color: #F05F40 !important;
+  color: #ffccbb !important;
 }
 
 .btn {
@@ -308,8 +328,8 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: coral;
-  border-color: coral;
+  background-color: #ffccbb;
+  border-color: #ffccbb;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

@@ -1,21 +1,38 @@
+@font-face {
+
+  font-family: tokyoMerged;
+  src: url(../../Font/TTF/TokyoMerged-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoMerged-Regular.otf); */
+
+  font-family: tokyoOutline;
+  src: url(../../Font/TTF/TokyoOutline-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoOutline-Regular.otf); */
+
+  font-family: tokyoRegular;
+  src: url(../../Font/TTF/TokyoRegular-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoRegular-Regular.otf); */
+
+
+}
+
 body,
 html {
   width: 100%;
   height: 100%;
 }
-
+/* 
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
-}
+} */
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: black !important;
+  border-color: #c6baba !important;
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: #c6baba;
 }
 
 a {
@@ -39,7 +56,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
 
@@ -55,7 +72,7 @@ h6 {
 
 .text-faded {
   font-size: 15px;
-  color: black;
+  color: #f87956;
  
 }
 
@@ -64,7 +81,10 @@ section {
 }
 
 .section-heading {
+  color: #907878 !important;
   margin-top: 0;
+  font-family: tokyoRegular;
+  
 }
 
 ::-moz-selection {
