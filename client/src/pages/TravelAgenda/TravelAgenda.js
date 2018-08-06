@@ -21,7 +21,7 @@ class TravelAgenda extends Component {
             flightNumber: null,
         },
         weather: null,
-        isLoading: true,
+        isLoading: true
     };
 
     componentDidMount() {
@@ -42,15 +42,13 @@ class TravelAgenda extends Component {
     }
 
     deleteImages = id => {
-        // Filter through the array with the id not equal to the id being removed
 
         const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo.id !== id);
 
         this.setState({ trip: { imageObjects: featuredPhotos } })
 
         API.editTravel(this.props.match.params.travelId, {featuredPhotos})
-
-        console.log(featuredPhotos)
+        .then(() => this.setState({ isLoading: false }))
     };
 
     saveImages = (id, tumblrImage) => {
@@ -60,7 +58,12 @@ class TravelAgenda extends Component {
         this.setState({ trip: { imageObjects: details } })
         console.log(this.state)
 
-        API.editTravel(this.props.match.params.travelId, {...this.state.trip})
+        API.editTravel(this.props.match.params.travelId, {trip: {...this.state}})
+
+        // .then(res =>
+        //     this.loadUserTravel())
+        //   .catch(err => console.log(err));
+        
     }
     
     handleFormSubmit = event => {
