@@ -78,7 +78,7 @@ const fetchWeatherData = travel => {
     },
     deleteTravel: function (req, res) {
       db.Travel
-        .findById({ id: req.params.id })
+        .findById({ _id: req.params.travelId })
         .then(travel => travel.remove())
         .then(travel => res.json(travel))
         .catch(err => res.status(422).json(err));

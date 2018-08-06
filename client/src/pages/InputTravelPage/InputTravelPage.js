@@ -15,6 +15,7 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
+        imageObjects: []
     };
 
     componentDidMount() {

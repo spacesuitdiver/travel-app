@@ -6,22 +6,26 @@ import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
-
+import { Input, FormBtn, Form } from "../../components/TravelForm";
 
 
 class TravelAgenda extends Component {
     state = {
         trip: {
-            imageObjects: []
-            },
+            imageObjects: [],
+            city: null,
+            country: null,
+            startDate: null,
+            endDate: null,
+            hotel: null,
+            flightNumber: null,
+        },
         weather: null,
         isLoading: true,
     };
 
     componentDidMount() {
         this.loadUserTravel();
-        console.log(this.state)
-
     }
 
     loadUserTravel = () => {
@@ -30,109 +34,148 @@ class TravelAgenda extends Component {
                 trip: res.data.travel,
                 weather: res.data.weather,
                 tumblr: res.data.tumblr,
-                imageObjects: res.data.travel.imageObjects
+                trip: { imageObjects: [{ id: res.data.travel.imageObjects.id }, { tumblrImage: res.data.travel.imageObjects.tumblrImage }, { notes: [res.data.travel.imageObjects.notes] }] }
             }))
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
+        console.log(this.state)
+
     }
 
-    deleteImages = travelId => {
-        API.deleteTravel(travelId)
-            .catch(err => console.log(err));
+    deleteImages = id => {
+        id = id.toString();
+        API.deleteTravel(id)
+        // .then(res =>this.loadUserTravel());
+
+        console.log(id)
+        // .catch(err => console.log(err));
     };
 
-    saveImages = (tumblrObject) => {
+    saveImages = (id, tumblrImage) => {
+        const notes = [];
+        const details = this.state.trip.imageObjects.concat([{ id, tumblrImage, notes }]);
 
-        const image = this.state.trip.imageObjects.concat(tumblrObject);  
-
-        this.setState({trip:{imageObjects: image}})
-        
-        API.editTravel(this.props.match.params.travelId, {imageObjects: image})
+        this.setState({ trip: { imageObjects: details } })
         console.log(this.state)
+
+        API.editTravel(this.props.match.params.travelId, { trip: { imageObjects: [details] } })
 
         // this.loadUserTravel();
 
-        }
+    }
 
     // window.location.reload();
     // this.clickFunction();
     // .then(this.loadUserTravel())
     // .catch(err => console.log(err));
 
+    handleFormSubmit = event => {
+        event.preventDefault()
+        .then(res =>
+        API.createTravel({
+            trip: { imageObjects: [{ notes: [], id: res.data, tumblrImage: {} }]}}))
+    console.log(this.state)
+
+    // .then(this.loadUserTravel())
+};
+
+handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+        trip: {
+            imageObjects: [{
+                [name]: value
+            }]
+        }
+    });
+};
+
+render() {
+
+    return (
+        <Container>
+            {!this.state.isLoading &&
+                <div>
+                    <h3><strong>Your trip details</strong></h3>
+                    City: {this.state.trip.city}<br />
+                    Country: {this.state.trip.country}<br />
+                    Start Date: {this.state.trip.startDate}<br />
+                    End Date: {this.state.trip.endDate}<br />
+                    Flight: {this.state.trip.flightNumber}<br />
+                    Hotel: {this.state.trip.hotel}<br />
+                    <h3><strong>Weather details</strong></h3>
+                    <p>{this.state.weather.weather[0].description}</p>
+                    <h3><strong>Temperature (celsius)</strong></h3>
+                    <p>{this.state.weather.main.temp}</p>
+                    <h3>Fashion pics</h3>
 
 
-    render() {
+                    {this.state.tumblr.length ? (
 
-        return (
-            <Container>
-                {!this.state.isLoading &&
-                    <div>
-                        <h3><strong>Your trip details</strong></h3>
-                        City: {this.state.trip.city}<br />
-                        Country: {this.state.trip.country}<br />
-                        Start Date: {this.state.trip.startDate}<br />
-                        End Date: {this.state.trip.endDate}<br />
-                        Flight: {this.state.trip.flightNumber}<br />
-                        Hotel: {this.state.trip.hotel}<br />
-                        <h3><strong>Weather details</strong></h3>
-                        <p>{this.state.weather.weather[0].description}</p>
-                        <h3><strong>Temperature (celsius)</strong></h3>
-                        <p>{this.state.weather.main.temp}</p>
-                        <h3>Fashion pics</h3>
+                        <List>
+                            {this.state.tumblr.map(tum => (
+
+                                <ListItem key={tum.id}>
 
 
-                        {this.state.tumblr.length ? (
+                                    {tum.photos && tum.photos.length ? (
 
-                            <List>
-                                {this.state.tumblr.map(tum => (
+                                        <img src={tum.photos[0].original_size.url} />
 
-                                    <ListItem key={tum.id}>
+                                    ) : false}
 
+                                    <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
 
-                                        {tum.photos && tum.photos.length ? (
+                                </ListItem>
+                            ))}
 
-                                            <img src={tum.photos[0].original_size.url} />
+                        </List>
+                    )
+                        :
+                        (
+                            <h3>No Results to Display</h3>
+                        )}
 
+                    <div className="savedArea"><h3>Saved fashion pics</h3></div>
+                    {this.state.trip.imageObjects.length ? (
+                        <List>
+                            {this.state.trip.imageObjects.map(clicked => (
 
-                                        ) : false}
+                                <ListItem key={clicked.id}>
+                                    <img src={clicked.tumblrImage} />
 
-                                        
-                                        <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
+                                    <DeleteBtn onClick={() => this.deleteImages(clicked.id)} />
 
-                                    </ListItem>
-                                ))}
+                                    Fashion Note:
+                                <Input
+                                        value={clicked.notes}
+                                        onChange={this.handleInputChange}
+                                        name="notes"
+                                        placeholder="Leave a fashion note to yourself"
+                                    />
 
-                            </List>
-                        )
-                            :
-                            (
-                                <h3>No Results to Display</h3>
-                            )}
+                                    <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
+                                        SUBMIT
+      </FormBtn>
+                                    Notes: {clicked.notes}
+                                </ListItem>
 
-                        <div className="savedArea"><h3>Saved fashion pics</h3></div>
-                        {this.state.trip.imageObjects.length ? (
-                            <List>
-                                {this.state.trip.imageObjects.map(clicked => (
+                            ))
+                            }
 
-                                    <ListItem key={clicked._id}>
-                                        <img src={clicked}/>
-                                        <DeleteBtn onClick={() => this.deleteImages(clicked._id)} />
-                                    </ListItem>
+                        </List>
+                    ) :
+                        (
+                            <h3>No Results to Display</h3>
 
-                                ))}
-                            </List>
-                        ) :
-                            (
-                                <h3>No Results to Display</h3>
+                        )}
 
-                            )}
+                </div>
+            }
 
-                    </div>
-                }
-
-            </Container>
-        );
-    }
+        </Container>
+    );
+}
 }
 
 export default TravelAgenda;
