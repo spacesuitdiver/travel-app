@@ -5,11 +5,6 @@ import axios from "axios";
 
 
 
-
-
-
-
-
 class Header extends Component {
 
         constructor(props) {
@@ -17,64 +12,51 @@ class Header extends Component {
             super(props);
         
             this.state = {
-            showModal: false,
-            loading: false,
-            error: null,
-            initialTab: null, //
-            loggedIn: null, //
-            recoverPasswordSuccess: null, //
+                showModal: false,
+                loading: false,
+                error: null,
+                initialTab: null, 
+                loggedIn: null, 
+                recoverPasswordSuccess: null, 
+                email: email, //*
+                password: password, //*
+                firstname: firstname, //*
+                lastname: lastname //*
+
             };
         
+            // this.onLoginSuccess = this.onLoginSuccess.bind(this) //*  LogIn handleSubmit
+            // this.onRegisterSuccess = this.onRegisterSuccess.bind(this) // * REG handleSubmit
+            // this.handleChange = this.handleChange.bind(this) //*  REG
+
+            // this.getUser = this.getUser.bind(this)
+            // this.componentDidMount = this.componentDidMount.bind(this)
+            // this.updateUser = this.updateUser.bind(this)
+ 
+
         } 
+
+        // componentDidMount() {
+        //     this.onLoginSuccess()
+        // }
         
-        handleSubmit = event => {
-            event.preventDefault();
-            var loginURL = "http://localhost:3003/auth/";
-            var registerURL = "http://localhost:3003/auth/";
-         
-            const login = {
-                "email": this.state.email,
-                "password": this.state.password
-
-            }
-
-            const register = {
-                "firstname": this.state.firstname,
-                "lastname": this.state.lastname,
-                "email": this.state.email,
-                "password": this.state.password
-
-            }
+        // updateUser (userObject) {
+        //     this.setState(userObject)
+        // }
         
-            axios.post(loginURL + "/login", { login })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(res.body);
 
-                if (res.data.code == 200) {
-                    console.log("login succesful");
-       
-                }
-            }).catch(function(error){
-                console.log(error);
-            });
-
-            axios.post(registerURL + "/register", { register })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                console.log(res.body);
-                
-                if (res.data.code == 200) {
-                    console.log("login succesful");
-   
-                }
-                
-            }).catch(function(error){
-                console.log(error);
-            });
+        handleRegister(event) { //* REG
+            this.setState({
+                [event.target.name]: event.target.value
+            })
         }
+        
+        handleLogin(event) { //* Log In
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+        }
+ 
     
       onLogin() { //
         console.log('__onLogin__');
@@ -91,7 +73,11 @@ class Header extends Component {
         } else {
           this.onLoginSuccess('');
         }
-      }
+        
+
+
+
+      } 
 
       onRegister() { //
         console.log('__onRegister__');
@@ -110,7 +96,7 @@ class Header extends Component {
             error: true
           })
         } else {
-          this.onLoginSuccess();
+          this.onRegisterSuccess();
         }
       }
     
@@ -149,18 +135,86 @@ class Header extends Component {
       }
      
 
-        onLoginSuccess(method, response) {
+        onLoginSuccess(event) {
+            // event.preventDefault();
+            var loginURL = "/auth";
+            // http://localhost:3000
 
-            this.closeModal();
-            // this.openModal();
-            this.setState({
-            loggedIn: method,
-            loading: false
-
-
+            const login = {
+                "email": this.state.email,
+                "password": this.state.password
+        
+            }
+        
+            axios.post(loginURL + "/login", { 
+                
+                email: this.state.email,
+                password: this.state.password
+                
             })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                console.log(res.body);       
+                if (res.status === 200) {
+                    // update App.js state 
+                    this.props.updateUser ({
+                        loggedIn: true,
+                        email: res.data.email
+                    }) // update the state to redirect to 
+                    
+                    this.setState({
+                        redirectTo: '/travel'
+                    })
+                } 
+            }).catch(error => {
+                console.log(error);
+                window.location = "/"
+            });
+    
         }
 
+        onRegisterSuccess() {
+            // event.preventDefault();
+            var registerURL = "/auth";
+            //http://localhost:3000
+            const register = {
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                password: this.state.password
+        
+            }
+        
+            axios.post(registerURL + "/register", { 
+
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                password: this.state.password
+
+            })
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    console.log(res.body);
+            
+                    if (res.data) {
+                        // window.location = "/login"
+                        this.setState({
+                            // redirectTo: '/login'
+                            
+                        })
+                    } else if (res.data.redirect === '/login') {
+                        // window.location = "/login"
+                        
+                    }
+                }).catch(error => {
+                    console.log(error);
+                    // window.location = "/login"
+                    
+                });
+        }
 
 
 
@@ -205,28 +259,29 @@ class Header extends Component {
         render() {
 
             const loggedIn = this.state.loggedIn
-            // ? <div>
-            //     <p>You are signed in with: {this.state.loggedIn}</p>
-            //   </div>
-            // : <div>
-            //     <p>You are signed out</p>
-            // </div>;
+            ? <div>
+                <p>You are signed in with: {this.state.loggedIn}</p>
+              </div>
+            : <div>
+                <p>You are signed out</p>
+            </div>;
       
             const isLoading = this.state.loading;
             
                 return (
 
                     <header className="masthead text-center text-white d-flex">
+                    
                         <div className="container my-auto">
                         <div className="row">
                             <div className="col-lg-10 mx-auto">
-                            <h1 className="text-uppercase">
+                            <h1 className="headerText text-uppercase">
                                 <strong>The Best Way to Travel is in Style</strong>
                             </h1>
                             <hr></hr>
                             </div>
                             <div className="col-lg-8 mx-auto">
-                            <p className="text-faded mb-5">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
+                            <p className="text-faded mb-5 headerText">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
                             {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about">Get Styled</a> */}
                            
            
@@ -241,6 +296,18 @@ class Header extends Component {
                                    {/* <button className="RML-btn" onClick={() => this.openModal('register')}>Register</button> */}
                                 
                                 <ReactModalLogin 
+                                    // componentDidMount = {this.compHEonentDidMount.bind(this)}
+                                    // updateUser = {this.updateUser.bind(this)}
+                                    onLoginSuccess = {this.onLoginSuccess.bind(this)} //*  LogIn handleSubmit
+                                    handleLogin = {this.handleRegister.bind(this)}
+                                    onRegisterSuccess = {this.onRegisterSuccess.bind(this)} // * REG handleSubmit
+                                    handleRegister = {this.handleRegister.bind(this)} //*  REG
+
+
+
+                                    updateUser = {this.updateUser}
+                                    loggedIn = {this.state.loggedIn}
+
                                     visible={this.state.showModal}  
                                     onCloseModal={this.closeModal.bind(this)} 
                                     // loading={this.state.loading}
@@ -261,11 +328,16 @@ class Header extends Component {
                                     }}
 
                                     form={{
-                                        // onSubmit: { this.handleSubmit },
+
+                                        
+                                        // onLoginSuccess: this.onLoginSuccess.bind(this), //*  LogIn handleSubmit
+                                        // handleLogin: this.handleRegister.bind(this),
+                                        // onRegisterSuccess: this.onRegisterSuccess.bind(this), // * REG handleSubmit
+                                        // handleRegister: this.handleRegister.bind(this), //*  REG
+                                
                                         onLogin: this.onLogin.bind(this),
                                         onRegister: this.onRegister.bind(this),
                                         onRecoverPassword: this.onRecoverPassword.bind(this),
-
                                         recoverPasswordSuccessLabel: this.state.recoverPasswordSuccess
                                         ? {
                                             label: "New password has been sent to your mailbox!"
@@ -274,46 +346,54 @@ class Header extends Component {
                                         recoverPasswordAnchor: {
                                         label: "Forgot your password?"
                                         },
+
                                         loginBtn: {
-                                        label: "Sign in",
+                                        label: "Log in",
                                         method: 'post',
-                                        action: '/travel',
+                                        onClick: this.onLoginSuccess,
                                         type: 'submit'
                                       
                                         },
                                         registerBtn: {
-                                        label: "Sign up",
+                                        label: "Register",
                                         method: 'post',
-                                        action: '/login',
+                                        onClick: this.onRegisterSuccess,
                                         type: 'submit'
-                   
+                                        
                                         },
                                         recoverPasswordBtn: {
                                         label: "Send new password"
                                         },
+
                                         loginInputs: [
                                         {
                                             
                                             containerClass: 'RML-form-group',
+                                            action: "/login",
                                             label: 'email',
                                             type: 'email',
                                             inputClass: 'RML-form-control',
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.email,
+                                            onChange: this.state.onLoginSuccess
+                                        
                                           
 
                                         },
                                         {
                                             containerClass: 'RML-form-group',
+                                            action: "/register",
                                             label: 'password',
                                             type: 'password',
                                             inputClass: 'RML-form-control',
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.password,
+                                            onChange: this.state.onLoginSuccesss
+                                            
                                         }
                                         ], // <form id="signup" name="signup" method="post" action="/signup">
                                         registerInputs: [
@@ -325,7 +405,10 @@ class Header extends Component {
                                             id: 'firstname',
                                             name: 'firstname',
                                             placeholder: 'First Name',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.firstname,
+                                            onChange: this.state.onRegisterSuccess
+                            
+                                          
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -335,7 +418,9 @@ class Header extends Component {
                                             id: 'lastname',
                                             name: 'lastname',
                                             placeholder: 'Last Name',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.lastname,
+                                            onChange: this.state.onRegisterSuccess
+                                           
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -345,7 +430,9 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.email,
+                                            onChange: this.state.onRegisterSuccess
+                                            
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -355,9 +442,13 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
-                                            // onChange: { this.handleChange }
+                                            value: this.state.password,
+                                            onChange: this.state.onRegisterSuccess
+                                            
                                         }
                                         ],
+
+
                                         recoverPasswordInputs: [
                                         {
                                             containerClass: 'RML-form-group',
