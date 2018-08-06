@@ -89,31 +89,31 @@ class InputTravelPage extends Component {
                 </section>
                 </Container>
                 
-                <Jumbotron>
-                    {this.state.trips.length ? (
-                        <List>Your trips
-                        {this.state.trips.map(trip => (
-                                <ListItem key={trip._id}>
+                // <Jumbotron>
+                //     {this.state.trips.length ? (
+                //         <List>Your trips
+                //         {this.state.trips.map(trip => (
+                //                 <ListItem key={trip._id}>
 
-                                    <strong>
-                                        City: {trip.city}<br />
-                                        Country: {trip.country}<br />
-                                        Start Date: {trip.startDate}<br />
-                                        End Date: {trip.endDate}<br />
-                                    </strong>
+                //                     <strong>
+                //                         City: {trip.city}<br />
+                //                         Country: {trip.country}<br />
+                //                         Start Date: {trip.startDate}<br />
+                //                         End Date: {trip.endDate}<br />
+                //                     </strong>
                                     
                 
-                                    {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
-                                    {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
-                                    <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
-                                    <Link to={"/travel/" + trip._id}><TripButton /></Link>
-                                </ListItem> */}
-                           {/* ))} */}
-                       {/* </List> */}
-                     {/* ) : ( */}
-                            {/* <h3>No Results to Display</h3> */}
-                        {/* )} */}
-                {/* </Jumbotron> */}
+                //                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
+                //                     {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
+                //                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
+                //                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
+                //                 </ListItem> */}
+                //            {/* ))} */}
+                //        {/* </List> */}
+                //      {/* ) : ( */}
+                //             {/* <h3>No Results to Display</h3> */}
+                //         {/* )} */}
+                // {/* </Jumbotron> */}
          
 
         );

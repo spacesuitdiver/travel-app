@@ -5,11 +5,6 @@ import axios from "axios";
 
 
 
-
-
-
-
-
 class Header extends Component {
 
         constructor(props) {
@@ -17,16 +12,50 @@ class Header extends Component {
             super(props);
         
             this.state = {
-            showModal: false,
-            loading: false,
-            error: null,
-            initialTab: null, //
-            loggedIn: null, //
-            recoverPasswordSuccess: null, //
+                showModal: false,
+                loading: false,
+                error: null,
+                initialTab: null, 
+                loggedIn: null, 
+                recoverPasswordSuccess: null, 
+                email: email, //*
+                password: password, //*
+                firstname: firstname, //*
+                lastname: lastname //*
+
             };
         
+            // this.onLoginSuccess = this.onLoginSuccess.bind(this) //*  LogIn handleSubmit
+            // this.onRegisterSuccess = this.onRegisterSuccess.bind(this) // * REG handleSubmit
+            // this.handleChange = this.handleChange.bind(this) //*  REG
+
+            // this.getUser = this.getUser.bind(this)
+            // this.componentDidMount = this.componentDidMount.bind(this)
+            // this.updateUser = this.updateUser.bind(this)
+ 
+
         } 
+
+        // componentDidMount() {
+        //     this.onLoginSuccess()
+        // }
         
+        // updateUser (userObject) {
+        //     this.setState(userObject)
+        // }
+        
+
+        handleRegister(event) { //* REG
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+        }
+        
+        handleLogin(event) { //* Log In
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+        }
  
     
       onLogin() { //
@@ -44,7 +73,8 @@ class Header extends Component {
         } else {
           this.onLoginSuccess('');
         }
- 
+        
+
 
 
       } 
@@ -105,10 +135,11 @@ class Header extends Component {
       }
      
 
-        onLoginSuccess() {
+        onLoginSuccess(event) {
             // event.preventDefault();
-            var loginURL = "http://localhost:3000/auth";
- 
+            var loginURL = "/auth";
+            // http://localhost:3000
+
             const login = {
                 "email": this.state.email,
                 "password": this.state.password
@@ -145,8 +176,8 @@ class Header extends Component {
 
         onRegisterSuccess() {
             // event.preventDefault();
-            var registerURL = "http://localhost:3000/auth";
-         
+            var registerURL = "/auth";
+            //http://localhost:3000
             const register = {
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
@@ -240,16 +271,17 @@ class Header extends Component {
                 return (
 
                     <header className="masthead text-center text-white d-flex">
+                    
                         <div className="container my-auto">
                         <div className="row">
                             <div className="col-lg-10 mx-auto">
-                            <h1 className="text-uppercase">
+                            <h1 className="headerText text-uppercase">
                                 <strong>The Best Way to Travel is in Style</strong>
                             </h1>
                             <hr></hr>
                             </div>
                             <div className="col-lg-8 mx-auto">
-                            <p className="text-faded mb-5">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
+                            <p className="text-faded mb-5 headerText">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
                             {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about">Get Styled</a> */}
                            
            
@@ -264,6 +296,18 @@ class Header extends Component {
                                    {/* <button className="RML-btn" onClick={() => this.openModal('register')}>Register</button> */}
                                 
                                 <ReactModalLogin 
+                                    // componentDidMount = {this.compHEonentDidMount.bind(this)}
+                                    // updateUser = {this.updateUser.bind(this)}
+                                    onLoginSuccess = {this.onLoginSuccess.bind(this)} //*  LogIn handleSubmit
+                                    handleLogin = {this.handleRegister.bind(this)}
+                                    onRegisterSuccess = {this.onRegisterSuccess.bind(this)} // * REG handleSubmit
+                                    handleRegister = {this.handleRegister.bind(this)} //*  REG
+
+
+
+                                    updateUser = {this.updateUser}
+                                    loggedIn = {this.state.loggedIn}
+
                                     visible={this.state.showModal}  
                                     onCloseModal={this.closeModal.bind(this)} 
                                     // loading={this.state.loading}
@@ -284,6 +328,12 @@ class Header extends Component {
                                     }}
 
                                     form={{
+
+                                        
+                                        // onLoginSuccess: this.onLoginSuccess.bind(this), //*  LogIn handleSubmit
+                                        // handleLogin: this.handleRegister.bind(this),
+                                        // onRegisterSuccess: this.onRegisterSuccess.bind(this), // * REG handleSubmit
+                                        // handleRegister: this.handleRegister.bind(this), //*  REG
                                 
                                         onLogin: this.onLogin.bind(this),
                                         onRegister: this.onRegister.bind(this),
@@ -298,22 +348,23 @@ class Header extends Component {
                                         },
 
                                         loginBtn: {
-                                        label: "Sign in",
+                                        label: "Log in",
                                         method: 'post',
-                                        // action: '/login',
+                                        onClick: this.onLoginSuccess,
                                         type: 'submit'
                                       
                                         },
                                         registerBtn: {
-                                        label: "Sign up",
+                                        label: "Register",
                                         method: 'post',
-                                        // action: '/register',
+                                        onClick: this.onRegisterSuccess,
                                         type: 'submit'
-                   
+                                        
                                         },
                                         recoverPasswordBtn: {
                                         label: "Send new password"
                                         },
+
                                         loginInputs: [
                                         {
                                             
@@ -325,6 +376,8 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
+                                            value: this.state.email,
+                                            onChange: this.state.onLoginSuccess
                                         
                                           
 
@@ -338,6 +391,8 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
+                                            value: this.state.password,
+                                            onChange: this.state.onLoginSuccesss
                                             
                                         }
                                         ], // <form id="signup" name="signup" method="post" action="/signup">
@@ -350,7 +405,10 @@ class Header extends Component {
                                             id: 'firstname',
                                             name: 'firstname',
                                             placeholder: 'First Name',
-                                           
+                                            value: this.state.firstname,
+                                            onChange: this.state.onRegisterSuccess
+                            
+                                          
                                         },
                                         {
                                             containerClass: 'RML-form-group',
@@ -360,6 +418,8 @@ class Header extends Component {
                                             id: 'lastname',
                                             name: 'lastname',
                                             placeholder: 'Last Name',
+                                            value: this.state.lastname,
+                                            onChange: this.state.onRegisterSuccess
                                            
                                         },
                                         {
@@ -370,6 +430,8 @@ class Header extends Component {
                                             id: 'email',
                                             name: 'email',
                                             placeholder: 'Email',
+                                            value: this.state.email,
+                                            onChange: this.state.onRegisterSuccess
                                             
                                         },
                                         {
@@ -380,9 +442,13 @@ class Header extends Component {
                                             id: 'password',
                                             name: 'password',
                                             placeholder: 'Password',
+                                            value: this.state.password,
+                                            onChange: this.state.onRegisterSuccess
                                             
                                         }
                                         ],
+
+
                                         recoverPasswordInputs: [
                                         {
                                             containerClass: 'RML-form-group',

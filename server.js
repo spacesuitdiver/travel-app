@@ -39,6 +39,7 @@ passport.use(new LocalStrategy(models.User.authenticate()));
 
 const routes = require("./routes")(passport);
 app.use('/', routes);
+
 app.use('/auth', require("./routes/authRoutes")(passport)); // userAutheticated?
 app.use('/', require('./routes'));
 

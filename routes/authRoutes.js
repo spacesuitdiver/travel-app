@@ -14,7 +14,7 @@ module.exports = function (passport) {
 	//Receives request when App.js mounts
 	router.get("/auth", authController.getAuthentication);
 
-	router.post("/register", authController.createNewUser);
+	router.post("/register/", authController.createNewUser);
 
 	// router.post("/login", (req, res, next) => {
 
@@ -36,7 +36,7 @@ module.exports = function (passport) {
 			next();
 		}, 
 
-		passport.autheticate('local'), 
+		passport.authenticate('local'), 
 		(req, res) => {
 			console.log('logged in', req.user);
 				var userInfo = {

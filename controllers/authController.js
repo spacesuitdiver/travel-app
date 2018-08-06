@@ -27,7 +27,7 @@ module.exports = {
 	//
 	createNewUser: (req, res) => {
 		const newUser = req.body;
-		User.register(newUser, newUser.password, (err, user) => {
+		User.register(newUser, newUser.password, (err, user) => { // register
 			if (err) {
 				return res.json(err);
 			}

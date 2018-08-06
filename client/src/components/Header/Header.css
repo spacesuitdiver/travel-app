@@ -11,7 +11,7 @@ body {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: black !important;
 }
 
 hr.light {
@@ -27,6 +27,10 @@ a {
 
 a:hover {
   color: coral;
+}
+
+.headerText {
+  color: white !important;
 }
 
 h1,
@@ -174,14 +178,23 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("/client/src/images/planner.jpg");
+  /* background-image: url("/client/public/images/ams.jpg"); */
+  /* background-image: url("/client/src/images/ams.jpg"); */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0, 0, 0, 0.2) 0%), url("/images/ams.jpg");
   background-color: lightblue; 
   background-position: center center;
+  /* background-image: 0.5; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+/* 
+/* header.container, .my-auto {
+    background-image: url("/client/public/images/ams.jpg");
+
+
+} */ */
 
 header.masthead hr {
   margin-top: 30px;
@@ -208,6 +221,8 @@ header.masthead p {
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
+    /* background-image: url("/client/public/images/ams.jpg"); */
+
   }
   header.masthead h1 {
     font-size: 3rem;
