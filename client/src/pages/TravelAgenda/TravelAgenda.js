@@ -31,11 +31,10 @@ class TravelAgenda extends Component {
     loadUserTravel = () => {
         API.findOneTravel(this.props.match.params.travelId)
             .then(res => this.setState({
-                trip: res.data.travel,
                 weather: res.data.weather,
                 tumblr: res.data.tumblr,
-                trip: { imageObjects: [{ id: res.data.travel.imageObjects.id }, { tumblrImage: res.data.travel.imageObjects.tumblrImage }, { notes: [res.data.travel.imageObjects.notes] }] }
-            }))
+                trip: res.data.travel}))
+                // trip: res.data.travel { imageObjects: [{ id: res.data.travel.imageObjects.id }, { tumblrImage: res.data.travel.imageObjects.tumblrImage }, { notes: [res.data.travel.imageObjects.notes] }
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
         console.log(this.state)
@@ -48,7 +47,6 @@ class TravelAgenda extends Component {
         // .then(res =>this.loadUserTravel());
 
         console.log(id)
-        // .catch(err => console.log(err));
     };
 
     saveImages = (id, tumblrImage) => {
@@ -60,14 +58,9 @@ class TravelAgenda extends Component {
 
         API.editTravel(this.props.match.params.travelId, { trip: { imageObjects: [details] } })
 
-        // this.loadUserTravel();
+        // .then(res => this.loadUserTravel())
 
     }
-
-    // window.location.reload();
-    // this.clickFunction();
-    // .then(this.loadUserTravel())
-    // .catch(err => console.log(err));
 
     handleFormSubmit = event => {
         event.preventDefault()
