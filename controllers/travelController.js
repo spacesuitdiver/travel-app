@@ -71,9 +71,13 @@ const fetchWeatherData = travel => {
         .catch(err => res.status(422).json(err));
     },
     editTravel: function(req, res) {
+		  console.log(req.body) 
       db.Travel
-        .findOneAndUpdate({ id: req.params.id })
-        .then(tumblr => res.json(tumblr))
+        .findOneAndUpdate({ _id: req.params.travelId}, req.body, {new: true} )
+        .then(tumblr => {
+		  console.log(tumblr);
+		  res.json(tumblr);
+	    })
         .catch(err => res.status(422).json(err));
     },
     deleteTravel: function (req, res) {

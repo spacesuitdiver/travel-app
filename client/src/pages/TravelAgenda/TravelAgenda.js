@@ -21,7 +21,9 @@ class TravelAgenda extends Component {
             flightNumber: null,
         },
         weather: null,
-        isLoading: true
+        unfavoritedPics: [],
+        isLoading: true,
+        tumblr: null
     };
 
     componentDidMount() {
@@ -52,27 +54,34 @@ class TravelAgenda extends Component {
     };
 
     saveImages = (id, tumblrImage) => {
+        // const photos = this.state.tumblr.filter(photo => photo.id !== id);
+
+        // this.setState({ unfavoritedPics: photos })
+
+        // API.editTravel(this.props.match.params.travelId, {photos})
+
         const notes = [];
         const details = this.state.trip.imageObjects.concat([{ id, tumblrImage, notes }]);
 
         this.setState({ trip: { imageObjects: details } })
         console.log(this.state)
 
-        API.editTravel(this.props.match.params.travelId, {trip: {...this.state}})
+        API.editTravel(this.props.match.params.travelId, { "imageObjects": [ { "id": id, "tumblrImage": tumblrImage, "notes": notes } ] })
 
-        // .then(res =>
-        //     this.loadUserTravel())
-        //   .catch(err => console.log(err));
+        .then(res =>
+            this.loadUserTravel())
+          .catch(err => console.log(err));
         
     }
     
     handleFormSubmit = event => {
         event.preventDefault()
-        API.createTravel({
-            trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
-    console.log(this.state)
+        // API.createTravel({
+        //     trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
 
-    // .then(this.loadUserTravel())
+            API.editTravel(this.props.match.params.travelId, { "imageObjects": [ { "id": this.state.trip.imageObjects.id, "tumblrImage": this.state.trip.imageObjects.tumblrImage, "notes": this.state.trip.imageObjects.notes } ] })
+
+    .then(this.loadUserTravel())
 };
 
 handleInputChange = event => {
@@ -147,7 +156,7 @@ render() {
                                         value={clicked.notes}
                                         onChange={this.handleInputChange}
                                         name="notes"
-                                        placeholder="Leave a fashion note to yourself"
+                                        placeholder="Leave a fashion note for yourself"
                                     />
 
                                     <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>

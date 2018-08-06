@@ -26,8 +26,8 @@ export default {
         return (axios.get(`/api/travel/${travelId}`))
     },
 
-    editTravel: (id, travelData) => {
-        return (axios.put(`/api/travel/${id}`, travelData))
+    editTravel: (travelId, travelData) => {
+        return (axios.put(`/api/travel/${travelId}`, travelData))
     },
 
     deleteTravel: (travelId) => {
