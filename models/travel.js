@@ -46,12 +46,12 @@ const travelSchema = new Schema({
   },
   imageObjects: [{
     notes: {
-      type: String,
+      type: Array,
       required: false,
       description: []
     },
     id: {
-      type: String,
+      type: Number,
       required: false,
     },
     tumblrImage: {
