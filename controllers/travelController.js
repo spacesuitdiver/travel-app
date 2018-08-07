@@ -70,10 +70,22 @@ const fetchWeatherData = travel => {
         }))
         .catch(err => res.status(422).json(err));
     },
+    // editTravel: function(req, res) {
+    //   console.log(req.body.imageObjects.tumblrImage) 
+
+    //   db.Travel
+    //     .findOneAndUpdate({ _id: req.params.travelId}, {$push: { imageObjects: req.body }}, { 'new': true})
+    //     .then(tumblr => {
+		//   console.log(tumblr);
+		//   res.json(tumblr);
+	  //   })
+    //     .catch(err => res.status(422).json(err));
+    // },
+
     editTravel: function(req, res) {
 		  console.log(req.body) 
       db.Travel
-        .findOneAndUpdate({ _id: req.params.travelId}, req.body, {new: true} )
+        .findOneAndUpdate({ _id: req.params.travelId}, {$push: { imageObjects: req.body }}, {new: true} )
         .then(tumblr => {
 		  console.log(tumblr);
 		  res.json(tumblr);

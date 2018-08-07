@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
 import InputTravelPage from "./pages/InputTravelPage/";
 import HomePage from "./pages/HomePage/";
-import Calendar from "./pages/calendar/index";
+import Calendar from "./pages/Calendar";
 import TravelAgenda from "./pages/TravelAgenda/";
 
 
