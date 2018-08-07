@@ -36,6 +36,8 @@ hr.light {
   border-color: #c6baba;
 }
 
+
+
 a {
   color: #ffccbb;
   -webkit-transition: all 0.2s;
@@ -52,7 +54,7 @@ h3.mb-3{
 
 }
 p.mb-0 {
-  color: #c6baba !important;
+  color: #907878 !important;
 }
 
 h1,
@@ -68,13 +70,15 @@ h6 {
 
 }
 
+
+
 .howWorks {
   height: 90px;
-  padding-bottom: 10px;
+  
 }
 
 .bg-primary {
-  background-color: #ffccbb !important;
+  background-color: white !important;
 }
 
 .bg-dark {
@@ -83,12 +87,13 @@ h6 {
 
 .text-faded {
   font-size: 15px;
-  color: #f87956;
  
 }
 
-section {
-  padding: 8rem 0;
+#services {
+  /* padding: 8rem 0; */
+  background-color: #ffccbb;
+  padding-top: 60px;
 }
 
 .section-heading {
@@ -169,7 +174,7 @@ img::-moz-selection {
     background-color: transparent;
   }
   #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    color: #f87956;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
     color: #fff;
@@ -255,6 +260,7 @@ header.masthead p {
 
 .service-box {
   max-width: 400px;
+  
 }
 
 .portfolio-box {

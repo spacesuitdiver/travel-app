@@ -267,42 +267,47 @@ class Header extends Component {
         render() {
 
             const loggedIn = this.state.loggedIn
-            ? <div>
-                <p>You are signed in with: {this.state.loggedIn}</p>
-              </div>
-            : <div>
-                <p>You are signed out</p>
-            </div>;
+            // ? <div>
+            //     <p>You are signed in with: {this.state.loggedIn}</p>
+            //   </div>
+            // : <div>
+            //     <p>You are signed out</p>
+            // </div>;
       
             const isLoading = this.state.loading;
             
                 return (
 
-                    <header className="masthead text-center text-white d-flex">
-                    
-                        <div className="container my-auto">
+                <header className="masthead text-center text-white d-flex">
+        
+                    <div className="container my-auto">
+                                            
                         <div className="row">
+                        
                             <div className="col-lg-10 mx-auto">
-                            <h1 className="headerText text-uppercase">
-                                <strong>The Best Way to Travel is in Style</strong>
-                            </h1>
-                            <hr></hr>
-                            </div>
-                            <div className="col-lg-8 mx-auto">
-                            <p className="text-faded mb-5 headerText">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p>
-                            {/* <a className="btn btn-primary btn-xl js-scroll-trigger" href="/about">Get Styled</a> */}
-                           
-           
 
+                            <li className="animated fadeInDownBig">
+                                <img class="smt" src="/images/SMT.png" alt="SMT"/>   
+                            </li>
+
+                                
+                            </div>
+                           
+                            <div className="col-lg-8 mx-auto headerDiv">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <button className="RML-btn" onClick={() => this.openModal('login')}>Get Styled</button>
+
+                                {/* <h1 className="headerText text-uppercase"> <strong>The Best Way to Travel is in Style</strong> </h1> */}
+                                {/* <p className="text-faded mb-5 headerText">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p> */}
+                             
+                               
+                               
                             <div>
 
-                              
-
-                                {/* <button className="RML-btn" onClick={() => this.openModal()}>Open Modal</button> */}
-
-                                   <button className="RML-btn" onClick={() => this.openModal('login')}>Get Styled</button>
-                                   {/* <button className="RML-btn" onClick={() => this.openModal('register')}>Register</button> */}
-                                
                                 <ReactModalLogin 
                                     // componentDidMount = {this.compHEonentDidMount.bind(this)}
                                     // updateUser = {this.updateUser.bind(this)}

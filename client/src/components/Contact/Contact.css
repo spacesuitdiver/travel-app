@@ -36,7 +36,7 @@ hr.light {
 }
 
 a {
-  color: #ffccbb;
+  color: rgb(248, 121, 86);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -60,7 +60,7 @@ h6 {
 }
 
 .bg-primary {
-  background-color: #ffccbb !important;
+  background-color: white !important;
 }
 
 .bg-dark {
@@ -69,7 +69,6 @@ h6 {
 
 .text-faded {
   font-size: 15px;
-  color: #f87956;
  
 }
 
@@ -84,10 +83,21 @@ section {
 }
 
 #contact{
-  background-color: #ffccbb;
+  background-color: white;
 }
 
+.social-media {
+  height: 65px;
+  width: 55px;
+  margin: 10px;
+}
+.contactMe {
+  font-family: tokyoRegular;
+}
 
+.phone {
+  color: #f87956;
+}
 ::-moz-selection {
   color: #fff;
   background: #212529;

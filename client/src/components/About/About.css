@@ -35,6 +35,8 @@ hr {
 
 hr.light {
   border-color: #c6baba;
+  /* margin-top: 0px; */
+  /* margin-bottom: 0px; */
 }
 
 a {
@@ -61,8 +63,19 @@ h6 {
 }
 
 .bg-primary {
-  background-color: #ffccbb !important;
+  background-color: white !important;
+  padding-bottom: 0px;
 }
+
+.aboutText {
+
+  font-size: 30px !important;
+  padding-top: 20px;
+}
+
+
+
+
 
 .bg-dark {
   background-color: #ffccbb !important;
@@ -70,7 +83,8 @@ h6 {
 
 .text-faded {
   font-size: 15px;
-  color: white;
+  color: #907878;
+  text-align: center;
  
 }
 
@@ -79,13 +93,23 @@ section {
 }
 
 .section-heading {
-  font-size: 45px;
+  font-size: 41px;
   margin-top: 0;
   color: #f87956 !important;
   font-family: tokyoRegular;
+  /* width: 900px !important; */
+  /* padding-right: 120px; */
+  text-align: center;
   
  
 }
+
+.section-heading1 {
+  font-size: 30px;
+  color: #ffccbb !important;
+  font-family: tokyoRegular;
+}
+
 
 ::-moz-selection {
   color: #fff;

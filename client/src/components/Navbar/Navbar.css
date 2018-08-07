@@ -1,3 +1,21 @@
+@font-face {
+
+  font-family: tokyoMerged;
+  src: url(../../Font/TTF/TokyoMerged-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoMerged-Regular.otf); */
+
+  font-family: tokyoOutline;
+  src: url(../../Font/TTF/TokyoOutline-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoOutline-Regular.otf); */
+
+  font-family: tokyoRegular;
+  src: url(../../Font/TTF/TokyoRegular-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoRegular-Regular.otf); */
+
+
+
+}
+
 body,
 html {
   width: 100%;
@@ -40,9 +58,12 @@ h6 {
   color: black;
 
 }
-
+.smtNav {
+  height: 60px;
+  width: 120px;
+}
 .bg-primary {
-  background-color: coral !important;
+  background-color: white !important;
 }
 
 .bg-dark {
@@ -51,7 +72,6 @@ h6 {
 
 .text-faded {
   font-size: 15px;
-  color: black;
  
 }
 
@@ -95,14 +115,17 @@ img::-moz-selection {
 }
 
 a.nav-link {
-  color: black;
+  color: #f87956 !important;
+  margin-right: 12px;
 }
 
 #mainNav .navbar-brand {
   font-weight: 700;
   text-transform: uppercase;
-  color: #F05F40;
+  color: #f87956 !important;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  padding-left: 15px;
+  
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -149,21 +172,21 @@ a.nav-link {
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: black;
+    color: #f87956;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: black;
+    color: #f87956;
   }
   #mainNav.navbar-shrink {
     border-bottom: 1px solid rgba(33, 37, 41, 0.1);
     background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #F05F40;
+    color: #f87956;
   }
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f05f40;
+    color: #f87956;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -171,7 +194,7 @@ a.nav-link {
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #F05F40;
+    color: #f87956;
   }
 }
 
