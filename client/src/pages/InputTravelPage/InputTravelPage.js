@@ -17,6 +17,7 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
+        imageObjects: []
     };
 
     componentDidMount() {
@@ -83,40 +84,37 @@ class InputTravelPage extends Component {
                             >
                                 SUBMIT
               </FormBtn>
-                        
-            </Container>
+               
+                </Container>
+                
+                // <Jumbotron>
+                //     {this.state.trips.length ? (
+                //         <List>Your trips
+                //         {this.state.trips.map(trip => (
+                //                 <ListItem key={trip._id}>
+
+                //                     <strong>
+                //                         City: {trip.city}<br />
+                //                         Country: {trip.country}<br />
+                //                         Start Date: {trip.startDate}<br />
+                //                         End Date: {trip.endDate}<br />
+                //                     </strong>
+                                    
+                
+                //                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
+                //                     {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
+                //                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
+                //                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
+                //                 </ListItem> */}
+                //            {/* ))} */}
+                //        {/* </List> */}
+                //      {/* ) : ( */}
+                //             {/* <h3>No Results to Display</h3> */}
+                //         {/* )} */}
+                // {/* </Jumbotron> */}
+         
 
         );
     }
 }
-
-
-export default InputTravelPage;
-
-
-              /*  <Jumbotron>
-                    {this.state.trips.length ? (
-                        <List>Your trips
-                        {this.state.trips.map(trip => (
-                                <ListItem key={trip._id}>
-
-                                    <strong>
-                                        City: {trip.city}<br />
-                                        Country: {trip.country}<br />
-                                        Start Date: {trip.startDate}<br />
-                                        End Date: {trip.endDate}<br />
-                                    </strong>
-                          
-                
-                                    {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */
-{/* <EditBtn onClick={() => this.editTravel(trip._id)} />
-                                    <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
-                                    <Link to={"/travel/" + trip._id}><TripButton /></Link>
-                                </ListItem> */}
-{/* ))} */ }
-{/* </List> */ }
-{/* ) : ( */ }
-{/* <h3>No Results to Display</h3> */ }
-{/* )} */ }
-{/* </Jumbotron> */ }
 

@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "axios": "^0.16.2",
     "cookie-parser": "^1.4.3",
     "date-fns": "^1.29.0",

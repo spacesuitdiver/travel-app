@@ -12,34 +12,38 @@ const HowWorks = () => (
     </div>
   </div>
 </div>
-<div className="container">
-  <div className="row">
-    <div className="col-lg-3 col-md-6 text-center">
-      <div className="service-box mt-5 mx-auto">
-        <i className="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i>
-        <h3 className="mb-3">Destination</h3>
-        <p className="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="service-box mt-5 mx-auto">
+        {/* <i class="fa fa-4x fa-diamond text-primary mb-3 sr-icons"></i> */}
+        <img class="howWorks" src="/images/location.png" alt="Destination"/>
+        <h3 class="mb-3">Destination</h3>
+        <p class="text-muted mb-0">Where are you going?</p>
       </div>
     </div>
-    <div className="col-lg-3 col-md-6 text-center">
-      <div className="service-box mt-5 mx-auto">
-        <i className="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i>
-        <h3 className="mb-3">Pick Your Dates</h3>
-        <p className="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="service-box mt-5 mx-auto">
+        {/* <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i> */}
+        <img class="howWorks" src="/images/date.png" alt="Dates"/>
+        <h3 class="mb-3">Dates</h3>
+        <p class="text-muted mb-0">When's are you going?</p>
       </div>
     </div>
-    <div className="col-lg-3 col-md-6 text-center">
-      <div className="service-box mt-5 mx-auto">
-        <i className="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
-        <h3 className="mb-3">Whats the Weather?</h3>
-        <p className="text-muted mb-0">We update dependencies to keep things fresh.</p>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="service-box mt-5 mx-auto">
+        {/* <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i> */}
+        <img class="howWorks" src="/images/wheather.png" alt="Weather"/>
+        <h3 class="mb-3">What's the Weather?</h3>
+        <p class="text-muted mb-0">We'll take your date range & find out the weather in your destination!</p>
       </div>
     </div>
-    <div className="col-lg-3 col-md-6 text-center">
-      <div className="service-box mt-5 mx-auto">
-        <i className="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i>
-        <h3 className="mb-3">Here is Your Outfit!</h3>
-        <p className="text-muted mb-0">You have to make your websites with love these days!</p>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="service-box mt-5 mx-auto">
+        {/* <i class="fa fa-4x fa-heart text-primary mb-3 sr-icons"></i> */}
+        <img class="howWorks" src= "/images/pack.png" alt="Outfit"/>
+        <h3 class="mb-3">Here's Your Outfit!</h3>
+        <p class="text-muted mb-0">We'll give you some inspiration to help you pack for you trip!</p>
       </div>
     </div>
   </div>

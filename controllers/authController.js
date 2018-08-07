@@ -14,7 +14,7 @@ module.exports = {
 		} else { //if user is not authenticated: sends back falsy values for userId, username, authentication false
 			res.json({
 				userId: null,
-				username: null,
+				email: null,
 				isAuthenticated: false
 			});
 		}
@@ -27,12 +27,14 @@ module.exports = {
 	//
 	createNewUser: (req, res) => {
 		const newUser = req.body;
-		User.register(newUser, newUser.password, (err, user) => {
+		User.register(newUser, newUser.password, (err, user) => { // register
 			if (err) {
 				return res.json(err);
 			}
 			res.json({
 				userId: user._id,
+				firstname: user.firstname,
+				lastname: user.lastname,
 				email: user.email,
 				isAuthenticated: true
 			});
