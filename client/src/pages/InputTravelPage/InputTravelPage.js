@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Input, FormBtn, Form } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
+import "../../components/Navbar/Navbar"
 
 
 class InputTravelPage extends Component {
@@ -52,7 +53,7 @@ class InputTravelPage extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         API.createTravel(
-                this.state
+            this.state
         )
             .then(res => this.props.history.push("/calendar")
             )
@@ -63,31 +64,27 @@ class InputTravelPage extends Component {
         return (
 
             <Container>
-            <section id="form">
-            <div className="page">
-                <form>
-                    <Input 
-                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
-                    />
-                    <Input
-                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
-                    />
-                    <Input
-                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
-                    />
-                    <Input
-                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
-                    />
-                    
-                    <FormBtn
-                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
-                        onClick={this.handleFormSubmit}
-                    >
-                        SUBMIT
+                        
+                            <Input
+                                value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
+                            />
+                            <Input
+                                value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
+                            />
+                            <Input
+                                value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
+                            />
+                            <Input
+                                value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
+                            />
+
+                            <FormBtn
+                                disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+                                onClick={this.handleFormSubmit}
+                            >
+                                SUBMIT
               </FormBtn>
-                </form>
-                </div>
-                </section>
+               
                 </Container>
                 
                 // <Jumbotron>
@@ -121,5 +118,3 @@ class InputTravelPage extends Component {
     }
 }
 
-
-export default InputTravelPage;

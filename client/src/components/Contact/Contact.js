@@ -26,8 +26,8 @@ const Contact = () => (
             <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
             <p class="phone">469-456-6789</p>
           </div>
-          <div class="col-lg-4 mr-auto text-center">
-            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+          <div className="col-lg-4 mr-auto text-center">
+            <i className="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
             <p>
               <a href="mailto:your-email@your-domain.com">travel@stylemytravel.com</a>
             </p>

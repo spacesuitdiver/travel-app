@@ -1,5 +1,6 @@
 
 
-#form {
+.container {
     background-color: lightblue;
+    background-image: url("/client/src/images/skyline.jpeg");
 }
