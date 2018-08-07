@@ -38,44 +38,44 @@ class TravelAgenda extends Component {
             }))
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
-        console.log(this.state.trip.imageObjects)
     }
 
     deleteTrip = travelId => {
 
         API.deleteTravel(travelId)
-            .then(res => this.props.history.push('/calendar')
+            .then(res => this.props.history.push('/travel')
             ).catch(err => console.log(err));
     };
 
+
     deleteImages = id => {
+        
+        const images = this.state.trip.imageObjects.filter(image => image !== id);
 
-        const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo._id !== id);
+        this.setState({ trip: { imageObjects: [images] }});
 
-        this.setState({ trip: { imageObjects: featuredPhotos } })
+        // API.editTravel(this.props.match.params.travelId, { "imageObjects": [images]})
 
-        API.editTravel(this.props.match.params.travelId, { featuredPhotos })
-            .then(res =>
-                this.loadUserTravel())
+        console.log(this.state.trip.imageObjects)
+
     };
 
-    saveImages = (id, tumblrImage) => {
+    saveImages = (tumblrImage) => {
 
         const notes = [];
-        const details = this.state.trip.imageObjects.concat([{ id, tumblrImage, notes }]);
+        const details = this.state.trip.imageObjects.concat([{ tumblrImage, notes }]);
 
         this.setState({ trip: { imageObjects: details } })
-        console.log(this.state)
 
-        API.editTravel(this.props.match.params.travelId, { "imageObjects": [{ "id": id, "tumblrImage": tumblrImage, "notes": notes }] })
+        API.editTravel(this.props.match.params.travelId, { "imageObjects": [{ "tumblrImage": tumblrImage, "notes": notes }] })
 
             .then(res =>
                 this.loadUserTravel())
             .catch(err => console.log(err));
     }
 
-    handleFormSubmit = event => {
-        event.preventDefault()
+    handleFormSubmit = (event) => {
+        // event.preventDefault()
         // API.createTravel({
         //     trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
 
@@ -130,7 +130,7 @@ class TravelAgenda extends Component {
 
                                         ) : false}
 
-                                        <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
+                                        <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
 
                                     </ListItem>
                                 ))}
@@ -145,24 +145,22 @@ class TravelAgenda extends Component {
                         <div className="savedArea"><h3>Saved fashion pics</h3></div>
                         {this.state.trip.imageObjects.length ? (
                             <List>
-                                {this.state.trip.imageObjects.map(clicked => (
+                                {this.state.trip.imageObjects.map(saved => (
 
-                                    <ListItem key={clicked._id}>
-                                        <img src={clicked.tumblrImage} />
+                                    <ListItem key={saved._id}>
+                                        <img src={saved.tumblrImage} />
 
-                                        <DeleteBtn onClick={() => this.deleteImages(clicked._id)} />
+                                        <DeleteBtn id={saved._id} onClick={this.deleteImages} />
 
                                         Fashion Note:
                                 <Input
-                                            value={clicked.notes}
+                                            value={saved.notes}
                                             onChange={this.handleInputChange}
                                             name="notes"
                                             placeholder="Leave a fashion note for yourself"
                                         />
 
-
-
-                                        {this.state.trip.imageObjects.notes !== undefined ? (
+                                        {this.state.trip.imageObjects.notes  ? (
 
                                                 <List>
                                                     {this.state.imageObjects.notes.map(note => (
@@ -186,7 +184,7 @@ class TravelAgenda extends Component {
                                         }
                                       
 
-                                        <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
+                                        <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
                                             SUBMIT
       </FormBtn>
 

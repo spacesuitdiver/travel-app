@@ -29,7 +29,6 @@ class InputTravelPage extends Component {
             .then(res =>
                 this.setState({ trips: res.data })
             )
-        // .catch(err => console.log(err));
     }
 
     deleteTravel = travelId => {

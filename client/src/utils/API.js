@@ -14,15 +14,15 @@ export default {
         return (axios.patch(`/api/profile/${userId}`, profileData))
     },
 
-//TRAVEL
-    findAllTravel: () =>{
+    //TRAVEL
+    findAllTravel: () => {
         return (axios.get("/api/travel"))
     },
     createTravel: (travelData) => {
         return (axios.post("/api/travel", travelData))
     },
 
-    findOneTravel: (travelId) =>{
+    findOneTravel: (travelId) => {
         return (axios.get(`/api/travel/${travelId}`))
     },
 
@@ -31,7 +31,7 @@ export default {
     },
 
     deleteTravel: (travelId) => {
-    return (axios.delete(`/api/travel/${travelId}`))
+        return (axios.delete(`/api/travel/${travelId}`))
     }
 
 }

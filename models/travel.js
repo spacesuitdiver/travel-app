@@ -45,15 +45,15 @@ const travelSchema = new Schema({
     description: []
   },
   imageObjects: [{
-    notes: {
-      type: Array,
-      required: false,
-      description: []
-    },
     id: {
       type: Number,
       required: false,
     },
+    notes: {
+      type: Array,
+      required: false,
+      description: []
+  },
     tumblrImage: {
       type: String,
       required: false,
