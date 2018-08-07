@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import moment from 'moment';
 import API from "../../utils/API";
 import { List, ListItem } from "../../components/List";
-import { Col, Container } from "../../components/Grid";
-// import Calendar from '../../components/Calendar';
+import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
-import { Input, FormBtn, Form } from "../../components/TravelForm";
+import {Link} from "react-router-dom";
+import { Input, FormBtn } from "../../components/TravelForm";
 
 
 class TravelAgenda extends Component {
@@ -34,7 +33,8 @@ class TravelAgenda extends Component {
             .then(res => this.setState({
                 weather: res.data.weather,
                 tumblr: res.data.tumblr,
-                trip: res.data.travel
+                trip: res.data.travel,
+                imageObjects: res.data.travel.imageObjects
             }))
             .then(() => this.setState({ isLoading: false }))
             .catch(err => console.log(err));
@@ -50,7 +50,7 @@ class TravelAgenda extends Component {
 
     deleteImages = id => {
 
-        const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo.id !== id);
+        const featuredPhotos = this.state.trip.imageObjects.filter(photo => photo._id !== id);
 
         this.setState({ trip: { imageObjects: featuredPhotos } })
 
@@ -113,6 +113,7 @@ class TravelAgenda extends Component {
                         <h3><strong>Temperature</strong></h3>
                         <p>{this.state.weather.main.temp}</p>
                         <button onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
+                        <button><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
 
                         <h3>Fashion pics</h3>
 
@@ -126,7 +127,6 @@ class TravelAgenda extends Component {
 
                                         {tum.photos && tum.photos.length ? (
                                             <img src={tum.photos[0].original_size.url} />
-
 
                                         ) : false}
 
@@ -147,10 +147,10 @@ class TravelAgenda extends Component {
                             <List>
                                 {this.state.trip.imageObjects.map(clicked => (
 
-                                    <ListItem key={clicked.id}>
+                                    <ListItem key={clicked._id}>
                                         <img src={clicked.tumblrImage} />
 
-                                        <DeleteBtn onClick={() => this.deleteImages(clicked.id)} />
+                                        <DeleteBtn onClick={() => this.deleteImages(clicked._id)} />
 
                                         Fashion Note:
                                 <Input
@@ -160,12 +160,38 @@ class TravelAgenda extends Component {
                                             placeholder="Leave a fashion note for yourself"
                                         />
 
+
+
+                                        {this.state.trip.imageObjects.notes !== undefined ? (
+
+                                                <List>
+                                                    {this.state.imageObjects.notes.map(note => (
+
+
+                                                        <ListItem key={note._id}>
+
+
+                                                            ) : false}
+    
+    
+                                                </ListItem>
+                                                    ))}
+
+                                                </List>
+                                            )
+                                                :
+                                                (
+                                                    <h3>No notes for this fav photo</h3>
+                                                )
+                                        }
+                                      
+
                                         <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
                                             SUBMIT
       </FormBtn>
-                                        Notes: {clicked.notes}
-                                    </ListItem>
 
+
+                                    </ListItem>
                                 ))
                                 }
 
