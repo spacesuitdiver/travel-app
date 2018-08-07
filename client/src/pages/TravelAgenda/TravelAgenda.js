@@ -110,7 +110,7 @@ class TravelAgenda extends Component {
                         Hotel: {this.state.trip.hotel}<br />
                         <h3><strong>Weather details</strong></h3>
                         <p>{this.state.weather.weather[0].description}</p>
-                        <h3><strong>Temperature (celsius)</strong></h3>
+                        <h3><strong>Temperature</strong></h3>
                         <p>{this.state.weather.main.temp}</p>
                         <button onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
