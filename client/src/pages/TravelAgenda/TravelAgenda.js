@@ -6,6 +6,7 @@ import { Col, Container } from "../../components/Grid";
 // import Calendar from '../../components/Calendar';
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
+import {Link} from "react-router-dom";
 import { Input, FormBtn, Form } from "../../components/TravelForm";
 
 
@@ -113,6 +114,7 @@ class TravelAgenda extends Component {
                         <h3><strong>Temperature</strong></h3>
                         <p>{this.state.weather.main.temp}</p>
                         <button onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
+                        <button><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
 
                         <h3>Fashion pics</h3>
 
@@ -160,12 +162,38 @@ class TravelAgenda extends Component {
                                             placeholder="Leave a fashion note for yourself"
                                         />
 
+
+
+                                        {this.state.trip.imageObjects.notes !== undefined ? (
+
+                                                <List>
+                                                    {this.state.imageObjects.notes.map(note => (
+
+
+                                                        <ListItem key={note._id}>
+
+
+                                                            ) : false}
+    
+    
+                                                </ListItem>
+                                                    ))}
+
+                                                </List>
+                                            )
+                                                :
+                                                (
+                                                    <h3>No notes for this fav photo</h3>
+                                                )
+                                        }
+                                      
+
                                         <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
                                             SUBMIT
       </FormBtn>
-                                        Notes: {clicked.notes}
-                                    </ListItem>
 
+
+                                    </ListItem>
                                 ))
                                 }
 
