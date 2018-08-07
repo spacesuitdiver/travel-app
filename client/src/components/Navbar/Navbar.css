@@ -95,7 +95,11 @@ img::-moz-selection {
 }
 
 a.nav-link {
-  color: black;
+  color: coral;
+}
+
+#links{
+  color: coral;
 }
 
 #mainNav .navbar-brand {
