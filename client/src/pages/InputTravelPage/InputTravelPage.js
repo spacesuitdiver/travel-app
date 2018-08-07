@@ -64,57 +64,63 @@ class InputTravelPage extends Component {
         return (
 
             <Container>
-                        
-                            <Input
-                                value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
-                            />
-                            <Input
-                                value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
-                            />
-                            <Input
-                                value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
-                            />
-                            <Input
-                                value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
-                            />
+                <form>
+                    <section>
+                    <Input
+                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
+                    />
+                    <Input
+                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
+                    />
+                </section>
+                <section>
+                    <Input
+                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
+                    />
+                    <Input
+                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
+                    />
 
-                            <FormBtn
-                                disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
-                                onClick={this.handleFormSubmit}
-                            >
-                                SUBMIT
+                    <FormBtn
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+                        onClick={this.handleFormSubmit}
+                    >
+                        SUBMIT
               </FormBtn>
-               
-                </Container>
-                
-                // <Jumbotron>
-                //     {this.state.trips.length ? (
-                //         <List>Your trips
-                //         {this.state.trips.map(trip => (
-                //                 <ListItem key={trip._id}>
+              </section>
+                </form>
 
-                //                     <strong>
-                //                         City: {trip.city}<br />
-                //                         Country: {trip.country}<br />
-                //                         Start Date: {trip.startDate}<br />
-                //                         End Date: {trip.endDate}<br />
-                //                     </strong>
-                                    
-                
-                //                     {/* <TripButton id={trip._id} onClick={this.getCalendar} /> */}
-                //                     {/* <EditBtn onClick={() => this.editTravel(trip._id)} />
-                //                     <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
-                //                     <Link to={"/travel/" + trip._id}><TripButton /></Link>
-                //                 </ListItem> */}
-                //            {/* ))} */}
-                //        {/* </List> */}
-                //      {/* ) : ( */}
-                //             {/* <h3>No Results to Display</h3> */}
-                //         {/* )} */}
-                // {/* </Jumbotron> */}
-         
+            </Container>
+
+          /*  <Jumbotron>
+                {this.state.trips.length ? (
+                    <List>Your trips
+                    {this.state.trips.map(trip => (
+                            <ListItem key={trip._id}>
+
+                                <strong>
+                                    City: {trip.city}<br />
+                                    Country: {trip.country}<br />
+                                    Start Date: {trip.startDate}<br />
+                                    End Date: {trip.endDate}<br />
+                                </strong>
+
+
+                                 <TripButton id={trip._id} onClick={this.getCalendar} /> 
+                                 <EditBtn onClick={() => this.editTravel(trip._id)} />
+                                <DeleteBtn onClick={() => this.deleteTravel(trip._id)} />
+                                <Link to={"/travel/" + trip._id}><TripButton /></Link>
+                            </ListItem> 
+                       ))} 
+                    </List> 
+                  ) : ( 
+                         <h3>No Results to Display</h3> 
+                     )} 
+             </Jumbotron> */
+
 
         );
     }
 }
 
+export default InputTravelPage;
