@@ -3,7 +3,7 @@ import "./TextArea.js";
 
 export const TextArea = props => (
   <div className="form-group">
-    <textarea className="form-control"  {...props} />
+    <textarea className="form-control" {...props} />
   </div>
 );
 

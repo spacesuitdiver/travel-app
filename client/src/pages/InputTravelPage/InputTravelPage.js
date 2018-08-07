@@ -63,27 +63,31 @@ class InputTravelPage extends Component {
         return (
 
             <Container>
-                        
-                            <Input
-                                value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
-                            />
-                            <Input
-                                value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
-                            />
-                            <Input
-                                value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
-                            />
-                            <Input
-                                value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
-                            />
+                <form>
+                    <section>
+                    <Input
+                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
+                    />
+                    <Input
+                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
+                    />
+                </section>
+                <section>
+                    <Input
+                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
+                    />
+                    <Input
+                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
+                    />
 
-                            <FormBtn
-                                disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
-                                onClick={this.handleFormSubmit}
-                            >
-                                SUBMIT
+                    <FormBtn
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+                        onClick={this.handleFormSubmit}
+                    >
+                        SUBMIT
               </FormBtn>
-               
+               </section>
+               </form>
                 </Container>
 
         );
