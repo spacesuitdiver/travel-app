@@ -5,27 +5,16 @@ const TUMBLRAPI = "fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4";
 
 const fetchWeatherData = travel => {
 
-  if (travel.state) {
-    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.state}${travel.country}&appid=${WEATHERAPI}&units=metric`)
+
+    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
       .then(weatherData => {
         return {
           weather: weatherData.data,
           travel: travel
         }
       })
-  }
-  else {
-    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=metric`)
-      .then(weatherData => {
-        return {
-          weather: weatherData.data,
-          travel: travel
-        }
-      })
-  }
-}
-
-
+  
+    }
   const fetchTumblrData = (travelAndWeather) => {
     const searchTerms = [];
     searchTerms.push("fashion");

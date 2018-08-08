@@ -233,7 +233,7 @@ header.masthead {
   /* background-image: url("/client/public/images/ams.jpg"); */
   /* background-image: url("/client/src/images/ams.jpg"); */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0, 0, 0, 0.2) 0%), url("/images/ams.jpg");
-  background-color: lightblue; 
+ /* background-color: lightblue; 
   background-position: center center;
   /* background-image: 0.5; */
   -webkit-background-size: cover;
