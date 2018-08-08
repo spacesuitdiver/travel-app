@@ -1,28 +1,23 @@
-// original //
-import React, { Component } from 'react'; //
-import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"; //
-import Navbar from './components/Navbar/Navbar';
-import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
-import HomePage from "./pages/HomePage/index"; // add /HomePage
-import Calendar from "./pages/calendar/index";
-import TravelAgenda from "./pages/TravelAgenda/index";
-// original //
+// Resuable Navbar
+import React, { Component } from "react";
+import "./components/Navbar/Navbar.css";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
+import InputTravelPage from "./pages/InputTravelPage/InputTravelPage";
+import HomePage from "./pages/HomePage/HomePage";
 
 import LoginPage from './containers/LoginPage.jsx';
 import LogoutFunction from './containers/LogoutFunction.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import Auth from './modules/Auth';
 
-
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 // remove tap delay, essential for MaterialUI to work properly
 injectTapEventPlugin();
-
-
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -57,32 +52,17 @@ const PropsRoute = ({ component: Component, ...rest }) => (
   )}/>
 )
 
+// *********** COMPONENT STARTS *******
 
-// const App = () => (
-//   <Router>
-//     <div>
-//       <Navbar />
-//       <Switch>
-//         <Route exact path="/" component={HomePage} />
-//         <Route exact path="/travel" component={InputTravelPage} />
-//         <Route exact path="/travel/:travelId" component={TravelAgenda} />
-//         <Route exact path="/calendar" component={Calendar} />
-//       </Switch>
-//     </div>
-//   </Router>
-// )
-
-
-class App extends Component {
-
+class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
       authenticated: false,
       userId: null
     }
-
   };
+
 
   componentDidMount() {
     // check if user is logged in on refresh
@@ -124,7 +104,6 @@ class App extends Component {
     <div>
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router>   
-        <Switch>
           <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"> 
           {/* id was navbar */}
           <div className="container">
@@ -141,38 +120,43 @@ class App extends Component {
               {this.state.authenticated ? (
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/"><i className="fas fa-home"></i> Home</Link>
                   </li>
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#services" onClick={this.handleSmoothScrollServices}>Services</a> */}
-                    <Link className="nav-link js-scroll-trigger" to={"/travel/" + this.state.userId}>Travel</Link>
+                    <Link className="nav-link js-scroll-trigger" to="/travel" onClick={this.handleSmoothScrollServices}>Travel</Link>
                   </li>
 
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#contact" onClick={this.handleSmoothScrollContact}>Contact</a> */}
-                    <Link className="nav-link js-scroll-trigger" to={"/calendar/" + this.state.userId}>Calendar</Link>
+                    <Link className="nav-link js-scroll-trigger" to="/calendar" onClick={this.handleSmoothScrollContact}>Calendar</Link>
                   </li>
                   <li className="nav-item">
                       <a className="nav-link" href="/logout"><i className="fas fa-sign-out-alt"></i> Log Out</a>
                   </li>
                 </ul>
 
+
+
+
+
               ):(
-            
+
+             
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#about" onClick={this.handleSmoothScrollAbout}>About</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#about" >About</Link>
+                    <Link className="nav-link js-scroll-trigger" href="#about" onClick={this.handleSmoothScrollAbout}>About</Link>
                   </li>
 
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#services" onClick={this.handleSmoothScrollServices}>Services</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#services">Services</Link>
+                    <Link className="nav-link js-scroll-trigger" href="#services" onClick={this.handleSmoothScrollServices}>Services</Link>
                   </li>
 
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#contact" onClick={this.handleSmoothScrollContact}>Contact</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#contact">Contact</Link>
+                    <Link className="nav-link js-scroll-trigger" href="#contact" onClick={this.handleSmoothScrollContact}>Contact</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/login"><i className="fas fa-sign-in-alt"></i>Log In</Link>
@@ -187,21 +171,13 @@ class App extends Component {
             </div>
           </nav>
 
-          
-
             <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
             <Route path="/logout" component={LogoutFunction}/>
-            {/* <PrivateRoute path="/travel/:userId" component={InputTravelPage}/> */}
+            <PrivateRoute path="/travel/:userId" component={InputTravelPage}/> 
+            {/* ^^ ProfilePage */}
 
-            {/* <Route exact path="/" component={HomePage} />*/}
-            <Route exact path="/travel" component={InputTravelPage} />
-            <Route exact path="/travel/:travelId" component={TravelAgenda} />
-            <Route exact path="/calendar" component={Calendar} /> 
-            
-            </Switch>
-      
         </Router> 
       </MuiThemeProvider>
     </div> 
@@ -211,4 +187,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;

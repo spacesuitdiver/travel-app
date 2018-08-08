@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@material-ui/core": "^1.4.3",
     "animate.css": "^3.7.0",
     "animation.css": "^0.1.0",
     "axios": "^0.18.0",
@@ -7,16 +8,23 @@
     "elemental": "^0.6.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.3.0",
+    "material-ui": "^0.20.2",
     "mongod": "^2.0.0",
     "mongoose": "^5.2.5",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-materialize": "^2.3.3",
     "react-modal": "^3.5.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-tap-event-plugin": "^3.0.3",
+    "validator": "^10.5.0",
     "yarn": "^1.9.2"
   },
   "name": "travel-app",
@@ -24,6 +32,7 @@
   "description": "Travel app for final project - input your travel plans and let the app be your personal style planner",
   "main": "server.js",
   "scripts": {
+    "bundle": "webpack",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
@@ -38,7 +47,13 @@
   "author": "Andrea, Leslie, Laura, Mayra",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "concurrently": "^3.5.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.18.3",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   }
 }
