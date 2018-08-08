@@ -15,7 +15,7 @@ const Selectable = props => {
       ...trip,
       start: new Date(moment(trip.startDate)),
       end: new Date(moment(trip.endDate)),
-      title: trip.city
+      title: trip.city,
     }
   }
   )

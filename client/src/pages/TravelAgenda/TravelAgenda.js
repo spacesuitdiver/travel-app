@@ -49,25 +49,45 @@ class TravelAgenda extends Component {
 
 
     deleteImages = id => {
-        
-        const images = this.state.trip.imageObjects.filter(image => image !== id);
+        const imageObjects = this.state.trip.imageObjects.filter(image => {
+            // console.log(image);
+            return image._id !== id;
+        });
+        console.log(id, this.state.trip.imageObjects, imageObjects)
 
-        this.setState({ trip: { imageObjects: [images] }});
+        // console.log(images);
 
-        // API.editTravel(this.props.match.params.travelId, { "imageObjects": [images]})
+        // let existingTrip = this.state.trip;
+        // existingTrip.imageObjects = images;
+        // console.log(existingTrip);
 
-        console.log(this.state.trip.imageObjects)
+        this.setState({
+            trip: {
+                ...this.state.trip,
+                imageObjects,
+            }
+        });
+
+        API.editTravel(this.props.match.params.travelId, { imageObjects })
 
     };
 
     saveImages = (tumblrImage) => {
 
         const notes = [];
-        const details = this.state.trip.imageObjects.concat([{ tumblrImage, notes }]);
+        const imageObjects = this.state.trip.imageObjects.concat([{ tumblrImage, notes }]);
 
-        this.setState({ trip: { imageObjects: details } })
+        console.log(imageObjects);
 
-        API.editTravel(this.props.match.params.travelId, { "imageObjects": [{ "tumblrImage": tumblrImage, "notes": notes }] })
+        this.setState({
+            trip: {
+                ...this.state.trip,
+                imageObjects,
+            }
+        });
+
+
+        API.editTravel(this.props.match.params.travelId, { imageObjects })
 
             .then(res =>
                 this.loadUserTravel())
@@ -95,6 +115,17 @@ class TravelAgenda extends Component {
         });
     };
 
+    renderTumblrItem(tum) {
+        if (!tum.photos) return false;
+
+        return (
+            <ListItem key={tum.id}>
+                <img src={tum.photos[0].original_size.url} style={{ width: 50, }}/> 
+                <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
+            </ListItem>
+        );
+    }
+
     render() {
 
         return (
@@ -120,21 +151,7 @@ class TravelAgenda extends Component {
                         {this.state.tumblr.length ? (
 
                             <List>
-                                {this.state.tumblr.map(tum => (
-
-
-                                    <ListItem key={tum.id}>
-
-                                        {tum.photos && tum.photos.length ? (
-                                            <img src={tum.photos[0].original_size.url} />
-
-                                        ) : false}
-
-                                        <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
-
-                                    </ListItem>
-                                ))}
-
+                                {this.state.tumblr.map(tum =>  this.renderTumblrItem(tum))}
                             </List>
                         )
                             :
@@ -148,9 +165,9 @@ class TravelAgenda extends Component {
                                 {this.state.trip.imageObjects.map(saved => (
 
                                     <ListItem key={saved._id}>
-                                        <img src={saved.tumblrImage} />
+                                        <img src={saved.tumblrImage} style={{ width: 50}} />
 
-                                        <DeleteBtn id={saved._id} onClick={this.deleteImages} />
+                                        <DeleteBtn onClick={() => this.deleteImages(saved._id)} />
 
                                         Fashion Note:
                                 <Input

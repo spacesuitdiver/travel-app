@@ -95,4 +95,3 @@ class InputTravelPage extends Component {
 }
 
 export default InputTravelPage;
-
