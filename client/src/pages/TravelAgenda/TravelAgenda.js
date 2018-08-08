@@ -4,14 +4,9 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
-=======
 import "./TravelAgenda.css";
-import {Link} from "react-router-dom";
->>>>>>> 70c3df81509d7125ce06b09a93167383a8c81241
 import { Input, FormBtn } from "../../components/TravelForm";
-
 
 class TravelAgenda extends Component {
     state = {
@@ -203,7 +198,6 @@ class TravelAgenda extends Component {
                                             id={saved.id}
                                             image={saved.tumblrImage}
                                             placeholder="Leave a fashion note for yourself"
-<<<<<<< HEAD
                                             onChange={(event) => this.handleInputChange(saved.id, saved.tumblrImage, event)} />
 
                                         <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
@@ -219,39 +213,6 @@ class TravelAgenda extends Component {
                                             (
                                                 <h3>No Notes to Display</h3>
                                             )}
-=======
-                                        />
-
-                                        {this.state.trip.imageObjects.notes  ? (
-
-                                                <List>
-                                                    {this.state.imageObjects.notes.map(note => (
-
-
-                                                        <ListItem key={note._id}>
-
-
-                                                            ) : false}
-    
-    
-                                                </ListItem>
-                                                    ))}
-
-                                                </List>
-                                            )
-                                                :
-                                                (
-                                                    <h3>No notes for this fav photo</h3>
-                                                )
-                                        }
-                                      
-                          
-
-                                        <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
-                                            SUBMIT
-                                        </FormBtn>
-
->>>>>>> 70c3df81509d7125ce06b09a93167383a8c81241
 
                                     </ListItem>
                                 ))
