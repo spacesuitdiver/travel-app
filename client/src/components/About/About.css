@@ -71,6 +71,8 @@ h6 {
 
   font-size: 30px !important;
   padding-top: 20px;
+  font-family: 'Playfair Display', serif;
+  
 }
 
 
@@ -310,7 +312,7 @@ header.masthead p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
   font-size: 14px;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {

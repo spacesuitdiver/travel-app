@@ -7,6 +7,7 @@ import { Col, Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Input, FormBtn, Form } from "../../components/TravelForm";
+import "./TravelAgenda.css";
 
 
 class TravelAgenda extends Component {
@@ -100,6 +101,12 @@ render() {
     return (
         <Container>
             {!this.state.isLoading &&
+            
+
+
+
+
+            <section class="travelDeets">
                 <div>
                     <h3><strong>Your trip details</strong></h3>
                     City: {this.state.trip.city}<br />
@@ -112,72 +119,90 @@ render() {
                     <p>{this.state.weather.weather[0].description}</p>
                     <h3><strong>Temperature (celsius)</strong></h3>
                     <p>{this.state.weather.main.temp}</p>
-                    <h3>Fashion pics</h3>
-
-
-                    {this.state.tumblr.length ? (
-
-                        <List>
-                            {this.state.tumblr.map(tum => (
-
-                                <ListItem key={tum.id}>
-
-
-                                    {tum.photos && tum.photos.length ? (
-
-                                        <img src={tum.photos[0].original_size.url} />
-
-                                    ) : false}
-
-                                    <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
-
-                                </ListItem>
-                            ))}
-
-                        </List>
-                    )
-                        :
-                        (
-                            <h3>No Results to Display</h3>
-                        )}
-
-                    <div className="savedArea"><h3>Saved fashion pics</h3></div>
-                    {this.state.trip.imageObjects.length ? (
-                        <List>
-                            {this.state.trip.imageObjects.map(clicked => (
-
-                                <ListItem key={clicked.id}>
-                                    <img src={clicked.tumblrImage} />
-
-                                    <DeleteBtn onClick={() => this.deleteImages(clicked.id)} />
-
-                                    Fashion Note:
-                                <Input
-                                        value={clicked.notes}
-                                        onChange={this.handleInputChange}
-                                        name="notes"
-                                        placeholder="Leave a fashion note for yourself"
-                                    />
-
-                                    <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
-                                        SUBMIT
-      </FormBtn>
-                                    Notes: {clicked.notes}
-                                </ListItem>
-
-                            ))
-                            }
-
-                        </List>
-                    ) :
-                        (
-                            <h3>No Results to Display</h3>
-
-                        )}
 
                 </div>
-            }
 
+                    <div class='ui grid'>
+                        <div class='row'>
+                            <div class='left floated six wide column'>
+                                <h3>Fashion pics</h3>
+
+                                    {this.state.tumblr.length ? (
+
+                                        <List>
+                                            {this.state.tumblr.map(tum => (
+
+                                                <ListItem key={tum.id}>
+
+
+                                                    {tum.photos && tum.photos.length ? (
+
+                                                        <img src={tum.photos[0].original_size.url} />
+
+                                                    ) : false}
+
+                                                    <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
+
+                                                </ListItem>
+                                            ))}
+
+                                        </List>
+                                    )
+                                        :(
+                                         <h3>No Results to Display</h3>
+                                        )
+                                    }
+                            </div>            
+                        </div>
+                   
+
+
+
+                    
+                        <div class='row'>
+                            <div class='right floated six wide column'>  
+
+                                <div className="savedArea"><h3>Saved fashion pics</h3></div>
+                                {this.state.trip.imageObjects.length ? (
+                                    <List>
+                                        {this.state.trip.imageObjects.map(clicked => (
+
+                                            <ListItem key={clicked.id}>
+                                                <img src={clicked.tumblrImage} />
+
+                                                <DeleteBtn onClick={() => this.deleteImages(clicked.id)} />
+
+                                                Fashion Note:
+                                            <Input
+                                                    value={clicked.notes}
+                                                    onChange={this.handleInputChange}
+                                                    name="notes"
+                                                    placeholder="Leave a fashion note for yourself"
+                                                />
+
+                                                <FormBtn onClick={this.handleFormSubmit} disabled={!(clicked.notes)}>
+                                                    SUBMIT
+                                                </FormBtn>
+
+                                                Notes: {clicked.notes}
+                                            </ListItem>
+
+                                        ))
+                                        }
+
+                                    </List>
+                                ) : (
+                                     <h3>No Results to Display</h3>
+                                     )}
+
+                            </div>            
+                        </div>
+                    </div>
+
+                
+            </section> 
+            }
+       
         </Container>
     );
 }
