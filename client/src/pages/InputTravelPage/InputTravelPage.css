@@ -7,10 +7,15 @@ input.form-control {
     color: black;
     background-color: lightblue;
 }
+
+/* form {
+ /* background-color: rgb(240, 235, 238); */
+/* }  */ */
+
 section {
-    background-image: url("/images/greece.jpeg");
-   
+    background: url("/images/greece.jpg") center 200%;
 }
+
 
 .main-section {
     background:  #ffccbb;

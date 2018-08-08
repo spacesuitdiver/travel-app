@@ -4,7 +4,7 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Input, FormBtn } from "../../components/TravelForm";
 
 
@@ -50,16 +50,9 @@ class TravelAgenda extends Component {
 
     deleteImages = id => {
         const imageObjects = this.state.trip.imageObjects.filter(image => {
-            // console.log(image);
-            return image._id !== id;
+            return image.id !== id;
         });
         console.log(id, this.state.trip.imageObjects, imageObjects)
-
-        // console.log(images);
-
-        // let existingTrip = this.state.trip;
-        // existingTrip.imageObjects = images;
-        // console.log(existingTrip);
 
         this.setState({
             trip: {
@@ -72,10 +65,10 @@ class TravelAgenda extends Component {
 
     };
 
-    saveImages = (tumblrImage) => {
+    saveImages = (id, tumblrImage) => {
 
         const notes = [];
-        const imageObjects = this.state.trip.imageObjects.concat([{ tumblrImage, notes }]);
+        const imageObjects = this.state.trip.imageObjects.concat([{ id, tumblrImage, notes }]);
 
         console.log(imageObjects);
 
@@ -86,30 +79,39 @@ class TravelAgenda extends Component {
             }
         });
 
-
         API.editTravel(this.props.match.params.travelId, { imageObjects })
-
             .then(res =>
                 this.loadUserTravel())
             .catch(err => console.log(err));
     }
 
-    handleFormSubmit = (event) => {
-        // event.preventDefault()
-        // API.createTravel({
-        //     trip: { imageObjects: [{ notes: [this.state.trip.imageObjects.notes], id: this.state.trip.imageObjects.id, tumblrImage: {} }]}})
+    handleFormSubmit = event => {
+        event.preventDefault();
 
-        API.editTravel(this.props.match.params.travelId, { "imageObjects": [{ "id": this.state.trip.imageObjects.id }, { "tumblrImage": this.state.trip.imageObjects.tumblrImage }, { "notes": this.state.trip.imageObjects.notes }] })
+        const imageObjects = this.state.trip.imageObjects
 
-            .then(this.loadUserTravel())
-    };
+        this.setState({
+            trip: {
+                ...this.state.trip, imageObjects
+            }
+        });
 
-    handleInputChange = event => {
+        API.editTravel(this.props.match.params.travelId, { imageObjects })
+            .then(res =>
+                this.loadUserTravel())
+        console.log(imageObjects)
+    }
+
+
+    handleInputChange = (id, tumblrImage, event) => {
         const { name, value } = event.target;
         this.setState({
             trip: {
+                ...this.state.trip,
                 imageObjects: [{
-                    [name]: value
+                    [name]: value,
+                    id: id,
+                    tumblrImage: tumblrImage
                 }]
             }
         });
@@ -120,8 +122,18 @@ class TravelAgenda extends Component {
 
         return (
             <ListItem key={tum.id}>
-                <img src={tum.photos[0].original_size.url} style={{ width: 50, }}/> 
-                <FavBtn onClick={() => this.saveImages(tum.photos[0].original_size.url)} />
+                <img src={tum.photos[0].original_size.url} style={{ width: 50, }} />
+                <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
+            </ListItem>
+        );
+    }
+
+    renderNotes(notes) {
+        if (!notes.notes) return false;
+
+        return (
+            <ListItem key={notes.id}>
+                {notes.notes}
             </ListItem>
         );
     }
@@ -151,7 +163,7 @@ class TravelAgenda extends Component {
                         {this.state.tumblr.length ? (
 
                             <List>
-                                {this.state.tumblr.map(tum =>  this.renderTumblrItem(tum))}
+                                {this.state.tumblr.map(tum => this.renderTumblrItem(tum))}
                             </List>
                         )
                             :
@@ -164,47 +176,31 @@ class TravelAgenda extends Component {
                             <List>
                                 {this.state.trip.imageObjects.map(saved => (
 
-                                    <ListItem key={saved._id}>
-                                        <img src={saved.tumblrImage} style={{ width: 50}} />
+                                    <ListItem key={saved.id}>
+                                        <img src={saved.tumblrImage} style={{ width: 50 }} />
 
-                                        <DeleteBtn onClick={() => this.deleteImages(saved._id)} />
+                                        <DeleteBtn onClick={() => this.deleteImages(saved.id)} />
 
-                                        Fashion Note:
-                                <Input
+                                        <Input name="notes"
                                             value={saved.notes}
-                                            onChange={this.handleInputChange}
-                                            name="notes"
+                                            id={saved.id}
+                                            image={saved.tumblrImage}
                                             placeholder="Leave a fashion note for yourself"
-                                        />
-
-                                        {this.state.trip.imageObjects.notes  ? (
-
-                                                <List>
-                                                    {this.state.imageObjects.notes.map(note => (
-
-
-                                                        <ListItem key={note._id}>
-
-
-                                                            ) : false}
-    
-    
-                                                </ListItem>
-                                                    ))}
-
-                                                </List>
-                                            )
-                                                :
-                                                (
-                                                    <h3>No notes for this fav photo</h3>
-                                                )
-                                        }
-                                      
+                                            onChange={(event) => this.handleInputChange(saved.id, saved.tumblrImage, event)} />
 
                                         <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
                                             SUBMIT
-      </FormBtn>
+                                                </FormBtn>
 
+                                        {this.state.trip.imageObjects.length ? (
+                                            <List>
+                                                {this.state.trip.imageObjects.map(notes => this.renderNotes(notes))}
+                                            </List>
+                                        )
+                                            :
+                                            (
+                                                <h3>No Notes to Display</h3>
+                                            )}
 
                                     </ListItem>
                                 ))
