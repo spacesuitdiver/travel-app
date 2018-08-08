@@ -1,6 +1,9 @@
 {
   "name": "mern",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.9.4"
+  },
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
@@ -9,6 +12,7 @@
     "bcrypt": "^3.0.0",
     "cookie-parser": "^1.4.3",
     "date-fns": "^1.29.0",
+    "elemental": "^0.6.1",
     "express-session": "^1.15.6",
     "globalize": "^1.4.0",
     "jsonwebtoken": "^8.3.0",

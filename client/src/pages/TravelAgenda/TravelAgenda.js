@@ -4,7 +4,12 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import "./TravelAgenda.css";
+import {Link} from "react-router-dom";
+>>>>>>> 70c3df81509d7125ce06b09a93167383a8c81241
 import { Input, FormBtn } from "../../components/TravelForm";
 
 
@@ -143,6 +148,8 @@ class TravelAgenda extends Component {
         return (
             <Container>
                 {!this.state.isLoading &&
+
+            <section class="travelDeets">
                     <div>
                         <h3><strong>Your trip details</strong></h3>
                         City: {this.state.trip.city}<br />
@@ -157,7 +164,10 @@ class TravelAgenda extends Component {
                         <p>{this.state.weather.main.temp}</p>
                         <button onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
                         <button><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
-
+                    </div>
+            <div class='ui grid'>
+                <div class='row'>
+                    <div class='left floated six wide column'>
                         <h3>Fashion pics</h3>
 
                         {this.state.tumblr.length ? (
@@ -170,6 +180,13 @@ class TravelAgenda extends Component {
                             (
                                 <h3>No Results to Display</h3>
                             )}
+
+                </div>
+                </div>
+
+                <div class='row'>
+                    <div class='right floated six wide column'>  
+
 
                         <div className="savedArea"><h3>Saved fashion pics</h3></div>
                         {this.state.trip.imageObjects.length ? (
@@ -186,6 +203,7 @@ class TravelAgenda extends Component {
                                             id={saved.id}
                                             image={saved.tumblrImage}
                                             placeholder="Leave a fashion note for yourself"
+<<<<<<< HEAD
                                             onChange={(event) => this.handleInputChange(saved.id, saved.tumblrImage, event)} />
 
                                         <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
@@ -201,6 +219,39 @@ class TravelAgenda extends Component {
                                             (
                                                 <h3>No Notes to Display</h3>
                                             )}
+=======
+                                        />
+
+                                        {this.state.trip.imageObjects.notes  ? (
+
+                                                <List>
+                                                    {this.state.imageObjects.notes.map(note => (
+
+
+                                                        <ListItem key={note._id}>
+
+
+                                                            ) : false}
+    
+    
+                                                </ListItem>
+                                                    ))}
+
+                                                </List>
+                                            )
+                                                :
+                                                (
+                                                    <h3>No notes for this fav photo</h3>
+                                                )
+                                        }
+                                      
+                          
+
+                                        <FormBtn onClick={this.handleFormSubmit} disabled={!(saved.notes)}>
+                                            SUBMIT
+                                        </FormBtn>
+
+>>>>>>> 70c3df81509d7125ce06b09a93167383a8c81241
 
                                     </ListItem>
                                 ))
@@ -214,6 +265,12 @@ class TravelAgenda extends Component {
                             )}
 
                     </div>
+                </div>
+
+            </div>
+
+            </section>
+
                 }
             </Container>
         );

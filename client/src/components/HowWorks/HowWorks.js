@@ -27,7 +27,7 @@ const HowWorks = () => (
         {/* <i class="fa fa-4x fa-paper-plane text-primary mb-3 sr-icons"></i> */}
         <img class="howWorks" src="/images/date.png" alt="Dates"/>
         <h3 class="mb-3">Dates</h3>
-        <p class="text-muted mb-0">When's are you going?</p>
+        <p class="text-muted mb-0">When are you going?</p>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 text-center">
