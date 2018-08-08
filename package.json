@@ -3,7 +3,6 @@
     "animate.css": "^3.7.0",
     "animation.css": "^0.1.0",
     "axios": "^0.18.0",
-    "concurrently": "^3.5.0",
     "body-parser": "^1.18.3",
     "elemental": "^0.6.1",
     "express": "^4.16.3",
@@ -11,7 +10,6 @@
     "mongod": "^2.0.0",
     "mongoose": "^5.2.5",
     "morgan": "^1.9.0",
-    "nodemon": "^1.11.0",
     "passport": "^0.4.0",
     "passport-local-mongoose": "^5.0.1",
     "path": "^0.12.7",
@@ -25,6 +23,9 @@
   "version": "1.0.0",
   "description": "Travel app for final project - input your travel plans and let the app be your personal style planner",
   "main": "server.js",
+  "engines": {
+    "node": "9.4.0"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -38,5 +39,9 @@
   },
   "repository": "git@github.com:laurawilsone/travel-app.git",
   "author": "Andrea, Leslie, Laura, Mayra",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  }
 }
