@@ -4,6 +4,7 @@ import { List, ListItem } from "../../components/List";
 import { Container } from "../../components/Grid";
 import FavBtn from "../../components/FavBtn";
 import DeleteBtn from "../../components/DeleteBtn";
+import FinalPageJumbotron from "../../components/FinalPageJumbotron";
 import { Link } from "react-router-dom";
 import "./TravelAgenda.css";
 import { Input, FormBtn } from "../../components/TravelForm";
@@ -98,49 +99,47 @@ class TravelAgenda extends Component {
         this.setState({
             packingList: packingListById
         })
-        this.state.packingList.splice(-1,1)
+        this.state.packingList.splice(-1, 1)
         API.editTravel(this.props.match.params.travelId, { packingList: packingListById })
-        .then(res =>
-            this.setState({
-
-                trip: {
-                    ...this.state.trip,
-                    packingList: res.data
-                }}))
-
-                console.log(this.state.packingList)
-
+            .then(res =>
+                this.setState({
+                    trip: {
+                        ...this.state.trip,
+                        packingList: res.data
+                    }
+                }))
+        console.log(this.state.packingList)
     }
 
     handleFormSubmit = (list, event) => {
 
         event.preventDefault();
 
-            const packingList = this.state.packingList.concat([{packingList:  list }]);
+        const packingList = this.state.packingList.concat([{ packingList: list }]);
 
-            packingList.splice(-1,1)
+        packingList.splice(-1, 1)
 
-            packingList.push(list)
+        packingList.push(list)
 
-            this.setState({ packingList: [...this.state.packingList, list] })
+        this.setState({ packingList: [...this.state.packingList, list] })
 
-            API.editTravel(this.props.match.params.travelId, {packingList: packingList})
+        API.editTravel(this.props.match.params.travelId, { packingList: packingList })
 
             .then(res =>
 
-            this.setState({
+                this.setState({
 
-                trip: {
-                    ...this.state.trip,
-                    packingList: res.data
-                }
-            }))
+                    trip: {
+                        ...this.state.trip,
+                        packingList: res.data
+                    }
+                }))
 
             .catch(err => console.log(err));
 
-            console.log(packingList)
+        console.log(packingList)
 
-        }
+    }
 
 
     handleInputChange = event => {
@@ -166,67 +165,93 @@ class TravelAgenda extends Component {
 
         return (
             <Container>
+                <FinalPageJumbotron className="FinalPageJumbotron" />
+
+
                 {!this.state.isLoading &&
 
                     <section className="travelDeets">
-                        <div>
-                            <h3><strong>Your Travel Itinerary</strong></h3>
-                            City: {this.state.trip.city}<br />
-                            Country: {this.state.trip.country}<br />
-                            Start Date: {this.state.trip.startDate}<br />
-                            End Date: {this.state.trip.endDate}<br />
-                            Flight: {this.state.trip.flightNumber}<br />
-                            Hotel: {this.state.trip.hotel}<br />
-                            <h3><strong>Weather details</strong></h3>
-                            <p>{this.state.weather.weather[0].description}</p>
-                            <h3><strong>Temperature</strong></h3>
-                            <p>{this.state.weather.main.temp}</p>
-                            
-                            <button className="deleteTripButton" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
-                            <button><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
-                        </div>
+                    <div className="buttons center">
+                        <button className="deleteTripButton" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
+
+                        <button className="addTripButton"><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
+                    </div>
+
                         <div className='ui grid'>
-                                <div className='picsRow left floated six wide column'>
-                                    <h3>Fashion pics</h3>
-                                    {this.state.tumblr.length ? (
+                            <div className='detailsRow left floated six wide column'>
 
-                                        <List>
-                                            {this.state.tumblr.map(tum => this.renderTumblrItem(tum))}
-                                        </List>
-                                    )
-                                        :
-                                        (
-                                            <h3>No Results to Display</h3>
-                                        )}
+                                <h3><strong>City: </strong></h3>{this.state.trip.city}<br />
 
+                                <h3><strong>Country:</strong></h3> {this.state.trip.country}<br />
+
+                                <h3><strong>Start Date:
+                                    </strong></h3> {this.state.trip.startDate}<br />
+
+                                <h3><strong>End Date:
+                                    </strong></h3>{this.state.trip.endDate}<br />
+                            </div>
+                            <div className='ui grid'>
+                                <div className='detailsRow right floated six wide column'>
+
+                                    <h3><strong>Flight:
+                                    </strong></h3> {this.state.trip.flightNumber}<br />
+
+                                    <h3><strong>Hotel:
+                                    </strong></h3> {this.state.trip.hotel}
+                                    <br />
+
+                                    <h3><strong>Weather details</strong></h3>
+                                    <p>{this.state.weather.weather[0].description}</p>
+                                    <h3><strong>Temperature</strong></h3>
+                                    <p>{this.state.weather.main.temp}</p>
                                 </div>
-
-                                <div className='right floated six wide column'>
-
-                                    <div className="savedArea"><h3>Saved fashion pics</h3></div>
-                                    {this.state.trip.imageObjects.length ? (
-                                        <List>
-                                            {this.state.trip.imageObjects.map(saved => (
-
-                                                <ListItem key={saved.id}>
-                                                    <img src={saved.tumblrImage} alt="favedtumblrimg" style={{ width: 50 }} />
-
-                                                    <DeleteBtn onClick={() => this.deleteImages(saved.id)} />
+                            </div>
 
 
-                                                </ListItem>
-                                            ))
-                                            }
+                        </div>
 
-                                        </List>
-                                    ) :
-                                        (
-                                            <h3>No Results to Display</h3>
+                        <div className='ui grid'>
+                            <div className='picsRow left floated six wide column'>
+                                <h3>Fashion pics</h3>
+                                {this.state.tumblr.length ? (
 
-                                        )}
+                                    <List>
+                                        {this.state.tumblr.map(tum => this.renderTumblrItem(tum))}
+                                    </List>
+                                )
+                                    :
+                                    (
+                                        <h3>No Results to Display</h3>
+                                    )}
 
-                                </div>
+                            </div>
+
+                            <div className='right floated six wide column'>
+
+                                <div className="savedArea"><h3>Saved fashion pics</h3></div>
+                                {this.state.trip.imageObjects.length ? (
+                                    <List>
+                                        {this.state.trip.imageObjects.map(saved => (
+
+                                            <ListItem key={saved.id}>
+                                                <img src={saved.tumblrImage} alt="favedtumblrimg" style={{ width: 50 }} />
+
+                                                <DeleteBtn onClick={() => this.deleteImages(saved.id)} />
+
+
+                                            </ListItem>
+                                        ))
+                                        }
+
+                                    </List>
+                                ) :
+                                    (
+                                        <h3>No Results to Display</h3>
+
+                                    )}
+
+                            </div>
 
                         </div>
 
@@ -236,7 +261,7 @@ class TravelAgenda extends Component {
                                 name="inputText"
                                 value={this.state.inputText}
                                 placeholder="What should you pack?"
-                                onChange={this.handleInputChange}/>
+                                onChange={this.handleInputChange} />
 
                             <FormBtn disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
                                 Submit new item to packing list
@@ -246,7 +271,7 @@ class TravelAgenda extends Component {
                                     {this.state.packingList.map(listItem => (
                                         <ListItem key={listItem}>
                                             <strong>
-                                                    {listItem}
+                                                {listItem}
                                             </strong>
                                             <DeleteBtn onClick={() => this.deletePackingListItem(listItem)} />
                                         </ListItem>
