@@ -7,7 +7,6 @@ import DeleteBtn from "../../components/DeleteBtn";
 import { Link } from "react-router-dom";
 import "./TravelAgenda.css";
 import { Input, FormBtn } from "../../components/TravelForm";
-import { join } from "path";
 
 class TravelAgenda extends Component {
     state = {
