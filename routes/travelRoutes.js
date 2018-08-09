@@ -13,5 +13,6 @@ router.put("/travel/:travelId", travelController.editTravel);
 //Delete travel
 router.delete("/travel/:travelId", travelController.deleteTravel);
 return router;
+
 }
 

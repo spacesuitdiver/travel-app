@@ -3,6 +3,7 @@ const express = require('express');
 const router = new express.Router();
 
 const db = require("../models/User");
+const travelController = require("../controllers/travelController");
 
 
 
@@ -37,7 +38,15 @@ router.get("/users", (req, res) => {
 })
 
 
-
-
+//Get all travel from user 
+router.get("/travel", travelController.findAllTravel);
+//When one travel log is clicked
+router.get("/travel/:travelId", travelController.findOneTravel);
+//When submit new travel is clicked
+router.post("/travel", travelController.createTravel);
+//Edit travel
+router.put("/travel/:travelId", travelController.editTravel);
+//Delete travel
+router.delete("/travel/:travelId", travelController.deleteTravel);
 
 module.exports = router;
