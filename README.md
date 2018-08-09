@@ -56,6 +56,7 @@ Style My Travel a full-stack React app where jetsetters can get some seriously f
    * You can also create a packing list
 
 **Mock Photos for Planning Phase:**
+
 ![new wireframe 1](https://user-images.githubusercontent.com/34491285/42727904-50dd0cd0-8774-11e8-9e3c-4cb186a0f6f4.png)
 ![new wireframe 1 copy](https://user-images.githubusercontent.com/34491285/42727903-50d0d000-8774-11e8-85de-d39d5ad2988f.png)
 ![new wireframe 1 copy 2](https://user-images.githubusercontent.com/34491285/42727902-50c1c8d0-8774-11e8-82bb-bcf9978240cc.png)
