@@ -1,8 +1,6 @@
 import React from "react";
-import FormBtn from "./FormBtn";
 
 import "./Input.css";
-
 
 export const Form = props => (
 <section id="form">
