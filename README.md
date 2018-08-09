@@ -9,6 +9,8 @@ Style My Travel a full-stack web app where jetsetters can get some seriously fab
 **Technologies Used:**
 * React
 * React-Big-Calendar
+* Tumblr API
+* Weather API
 * MongoDB
 * Mongoose
 * Express
