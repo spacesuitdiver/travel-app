@@ -10,9 +10,17 @@ Style My Travel a full-stack React app where jetsetters can get some seriously f
 * React
 * React-Big-Calendar
 * Tumblr API
-* Weather API
+* OpenWeatherMap API
+* Animate CSS
+* Elemental-UI
+* Semantic-UI
+* Material-UI
+* BcryptJS
+* JsonWebToken
+* Babel
 * MongoDB
 * Mongoose
+* Axios
 * Express
 * Node.js
 * Javascript
