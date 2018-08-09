@@ -25,21 +25,27 @@ Style My Travel a full-stack web app where jetsetters can get some seriously fab
 
 **INSTRUCTIONS:**
 
-* Sign up to create an account / Login to your account
+* **ON THE MAIN PAGE:** 
+  * Learn about the app (and its awesome developers!)
+  * Sign up to create an account / Login to your account
 
-* The app will take you to a travel form, where you will input your travel plans, including your location, timeline, hotel, and flight
+* **ON THE TRAVEL FORM:** 
+  * The app will take you to a travel form, where you will input your travel plans, including your location, timeline, hotel, and flight
 
-* After you've inputted your travel plans, your trip is posted to the travel calendar, where you can also view any other travel plans previously inputted
+* **ON THE CALENDAR:**
+  * After you've inputted your travel plans, your trip is posted to the travel calendar, where you can also view any other travel plans previously inputted
 
-* Simply click any date and you'll be taken to your customized itinerary for that trip
+  * Simply click any date and you'll be taken to your customized itinerary for that trip
 
- * On your customized travel itinerary, you'll see your travel info, the weather for your trip, plus fashion photos from the Tumblr API specific to the city you're travelling to that are ideal for the weather in your city.
- 
-  * You can ❤ any photo to add it to your favorites to access it at any time from your itinerary (or delete it from your Favorites if you change your mind).
- 
-  * In your itinerary, there is the ability to add another trip or delete this trip
- 
-  * You can also create a packing list on this itinerary
+* **ON THE CUSTOMIZED ITINERARY:**
+
+  * On your customized travel itinerary, you'll see your travel info, the weather for your trip, plus fashion photos from the Tumblr API specific to the city you're travelling to that are ideal for the weather in your city.
+
+   * You can ❤ any photo to add it to your favorites to access it at any time from your itinerary (or delete it from your Favorites if you change your mind).
+
+   * There is the ability to add another trip or delete this trip
+
+   * You can also create a packing list
 
 **Mock Photos for Planning Phase:**
 ![new wireframe 1](https://user-images.githubusercontent.com/34491285/42727904-50dd0cd0-8774-11e8-9e3c-4cb186a0f6f4.png)
