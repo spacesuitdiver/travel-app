@@ -5,18 +5,21 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require('express-session');
 const PORT = process.env.PORT || 3001;
-const models = require("./models");
 const express = require('express');
-const LocalStrategy = require('passport-local').Strategy;
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
 const path = require('path');
-const cookieSession = require('cookie-session');
 const app = express();
+
+const config = require('./config')
+const models = require("./models");
+const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const LocalStrategy = require('passport-local').Strategy;
 
 // Static assets
 app.use(express.static("./client/build"));
-app.use(express.static('./client/public')); // client/dist
+app.use(express.static('./client/public'));
+app.use(express.static('./client/dist/'));
 
 
 // Sets up the Express app to handle data parsing - AZ

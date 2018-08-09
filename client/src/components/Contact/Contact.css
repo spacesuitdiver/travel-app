@@ -106,19 +106,24 @@ h6 {
 
 section#email {
   background-color: #ffccbb;
-  padding-bottom: 6rem 0;
-  padding-top: 4rem 0 !important;
+  padding: 4rem 0;
+  
   
   
 
 }
 
+p.emailText {
+  text-align: center;
+  color: #907878;
+}
 section#contact {
   padding-bottom: 0px;
 
 }
 .contactMe {
   font-family: tokyoRegular;
+  font-size: 30px;
 }
 button.ui.button {
   padding: 10px;

@@ -32,11 +32,17 @@ const path = require('path');
 //   // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes
 //   watch: true
 // };
+
+
+
 module.exports = {
 	entry: path.join(__dirname, '/client/src/index.js'), 
 	output: {
-		filename: 'app.js',
+		
 		path: path.join(__dirname, '/client/dist/js'),
+		filename: 'app.js',
+		// path: path.join(__dirname, '/client/build/static/js'),
+		// filename: 'main.6ee1bc48.js',
 	},
 	module: {
 		rules: [
@@ -46,7 +52,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['babel-preset-env', 'react'],
+						presets: ['babel-preset-env', 'react', 'es2015'],
 					},
 				},
 			},

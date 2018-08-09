@@ -16027,13 +16027,13 @@ exports.default = Main;
 /* 195 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: /Users/paulrose/Desktop/react-passport-example/client/src/components/davidcomponents/SearchForm/SearchForm.css Unexpected token (1:12)\nYou may need an appropriate loader to handle this file type.\n| form.search {\n|   overflow: auto;\n|   margin-bottom: 10px;");
+throw new Error("Module parse failed: ");
 
 /***/ }),
 /* 196 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: /Users/paulrose/Desktop/react-passport-example/client/src/components/davidcomponents/SearchResults/SearchResults.css Unexpected token (1:18)\nYou may need an appropriate loader to handle this file type.\n| ul.search-results img {\n|   margin: 0 auto;\n| }");
+throw new Error("Module parse failed: ");
 
 /***/ }),
 /* 197 */
@@ -17113,7 +17113,7 @@ var LoginForm = function LoginForm(_ref) {
     { className: 'container' },
     _react2.default.createElement(
       'form',
-      { action: '/', onSubmit: onSubmit },
+      { action: '/travel/:userID', onSubmit: onSubmit },
       _react2.default.createElement(
         'h2',
         { className: 'card-heading' },
@@ -17225,7 +17225,7 @@ var SignUpForm = function SignUpForm(_ref) {
     { className: 'container' },
     _react2.default.createElement(
       'form',
-      { action: '/', onSubmit: onSubmit },
+      { action: '/login', onSubmit: onSubmit },
       _react2.default.createElement(
         'h2',
         { className: 'card-heading' },
@@ -17419,50 +17419,7 @@ __webpack_require__(195);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Using the datalist element we can create autofill suggestions based on the props.breeds array
-var SearchForm = function SearchForm(props) {
-  return _react2.default.createElement(
-    "form",
-    { className: "search" },
-    _react2.default.createElement(
-      "div",
-      { className: "form-group" },
-      _react2.default.createElement(
-        "label",
-        { htmlFor: "breed" },
-        "Developer Name or Specific Skill(s):"
-      ),
-      _react2.default.createElement("input", {
-        value: props.search,
-        onChange: props.handleInputChange,
-        name: "breed",
-        list: "breeds",
-        type: "text",
-        className: "form-control",
-        placeholder: "ex: Jane Smith OR javascript, css, html",
-        id: "breed"
-      }),
-      _react2.default.createElement(
-        "datalist",
-        { id: "breeds" },
-        props.breeds.map(function (breed) {
-          return _react2.default.createElement("option", { value: breed, key: breed });
-        })
-      ),
-      _react2.default.createElement(
-        "button",
-        {
-          type: "submit",
-          onClick: props.handleFormSubmit,
-          className: "btn btn-success"
-        },
-        "Search"
-      )
-    )
-  );
-};
 
-exports.default = SearchForm;
 
 /***/ }),
 /* 226 */
@@ -17505,21 +17462,8 @@ __webpack_require__(196);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SearchResults = function SearchResults(props) {
-  return _react2.default.createElement(
-    "ul",
-    { className: "list-group search-results" },
-    props.results.map(function (result) {
-      return _react2.default.createElement(
-        "li",
-        { key: result, className: "list-group-item" },
-        _react2.default.createElement("img", { alt: "Dev", src: result, className: "img-fluid" })
-      );
-    })
-  );
-};
 
-exports.default = SearchResults;
+
 
 /***/ }),
 /* 228 */
@@ -17933,23 +17877,24 @@ var ProfilePage = function (_React$Component) {
   /**
    * This method will be executed after initial rendering.
    */
-  //   componentDidMount() {
-  //     const xhr = new XMLHttpRequest();
-  //     xhr.open('get', '/api/me');
-  //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  //     // set the authorization HTTP header
-  //     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-  //     xhr.responseType = 'json';
-  //     xhr.addEventListener('load', () => {
-  //       if (xhr.status === 200) {
-  //         this.setState({
-  //           secretData: xhr.response.message,
-  //           user: xhr.response.user
-  //         });
-  //       }
-  //     });
-  //     xhr.send();
-  //   }
+
+    // componentDidMount() {
+    //   const xhr = new XMLHttpRequest();
+    //   xhr.open('get', '/apt/me');
+    //   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //   // set the authorization HTTP header
+    //   xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    //   xhr.responseType = 'json';
+    //   xhr.addEventListener('load', () => {
+    //     if (xhr.status === 200) {
+    //       this.setState({
+    //         secretData: xhr.response.message,
+    //         user: xhr.response.user
+    //       });
+    //     }
+    //   });
+    //   xhr.send();
+    // };
 
   /**
    * Render the component.
@@ -18038,91 +17983,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Search = function (_Component) {
-  _inherits(Search, _Component);
 
-  function Search() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, Search);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Search.__proto__ || Object.getPrototypeOf(Search)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      search: "",
-      breeds: [],
-      results: [],
-      error: ""
-    }, _this.handleInputChange = function (event) {
-      _this.setState({ search: event.target.value });
-    }, _this.handleFormSubmit = function (event) {
-      event.preventDefault();
-      _API2.default.getDogsOfBreed(_this.state.search).then(function (res) {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        _this.setState({ results: res.data.message, error: "" });
-      }).catch(function (err) {
-        return _this.setState({ error: err.message });
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(Search, [{
-    key: "componentDidMount",
-
-
-    // When the component mounts, get a list of all available skills and update this.state.breeds
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      _API2.default.getBaseBreedsList().then(function (res) {
-        return _this2.setState({ breeds: res.data.message });
-      }).catch(function (err) {
-        return console.log(err);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          _Container2.default,
-          { style: { minHeight: "80%" } },
-          _react2.default.createElement(
-            "h1",
-            { className: "text-center" },
-            "Find a Developer to Rate or Hire!"
-          ),
-          _react2.default.createElement(
-            _Alert2.default,
-            {
-              type: "danger",
-              style: { opacity: this.state.error ? 1 : 0, marginBottom: 10 }
-            },
-            this.state.error
-          ),
-          _react2.default.createElement(_SearchForm2.default, {
-            handleFormSubmit: this.handleFormSubmit,
-            handleInputChange: this.handleInputChange,
-            breeds: this.state.breeds
-          }),
-          _react2.default.createElement(_SearchResults2.default, { results: this.state.results })
-        )
-      );
-    }
-  }]);
-
-  return Search;
-}(_react.Component);
-
-exports.default = Search;
 
 /***/ }),
 /* 234 */
@@ -18300,17 +18161,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Export an object containing methods we'll use for accessing the Dog.Ceo API
 
-exports.default = {
-  getRandomDog: function getRandomDog() {
-    return _axios2.default.get("https://dog.ceo/api/breeds/image/random");
-  },
-  getDogsOfBreed: function getDogsOfBreed(breed) {
-    return _axios2.default.get("https://dog.ceo/api/breed/" + breed + "/images");
-  },
-  getBaseBreedsList: function getBaseBreedsList() {
-    return _axios2.default.get("https://dog.ceo/api/breeds/list");
-  }
-};
+// exports.default = {
+//   getRandomDog: function getRandomDog() {
+//     return _axios2.default.get("https://dog.ceo/api/breeds/image/random");
+//   },
+//   getDogsOfBreed: function getDogsOfBreed(breed) {
+//     return _axios2.default.get("https://dog.ceo/api/breed/" + breed + "/images");
+//   },
+//   getBaseBreedsList: function getBaseBreedsList() {
+//     return _axios2.default.get("https://dog.ceo/api/breeds/list");
+//   }
+// };
 
 /***/ }),
 /* 236 */

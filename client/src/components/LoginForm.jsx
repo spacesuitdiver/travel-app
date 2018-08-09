@@ -5,9 +5,6 @@ import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
-
-
-
 const LoginForm = ({
   onSubmit,
   onChange,
@@ -16,8 +13,20 @@ const LoginForm = ({
   user,
   toggleAuthenticateStatus
 }) => (
-  <Card className="container">
-    <form action="/" onSubmit={onSubmit}>
+
+  <Card className="container" style = {{
+    position: 'relative',
+    left: '30px',
+    top: '150px',
+    fontFamily: 'tokyoRegular',
+    height: '350px',
+    width: '630px',
+  }} >
+    <form action="/travel/:userId" onSubmit={onSubmit} style= {{
+      position: 'relative',
+      top: '20px',
+      textAlign: 'center',
+    }} >
       <h2 className="card-heading">Login</h2>
 
       {successMessage && <p className="success-message">{successMessage}</p>}

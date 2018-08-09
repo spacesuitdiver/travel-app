@@ -26,12 +26,14 @@ const Contact = () => (
         <br/>
 
       <section id="email">
+        <p class="emailText"> Sign up to receive news & updates!</p>
         <div class="container">
-          <div class="row">
+          <div class="row">   
             <div class="col-lg-8 mx-auto text-center emailBar">
               <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
 
               <div class='ui action input'>
+              
                 <input type='email' placeholder='Email' />
                   <button type="submit" class='ui button' role='button'>
                   {/* <i aria-hidden='true' class='white envelope outline icon' />  */}

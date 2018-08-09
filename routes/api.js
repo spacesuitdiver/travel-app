@@ -2,11 +2,11 @@ const express = require('express');
 
 const router = new express.Router();
 
-const db = require("../models/User");
+const db = require("../models/user");
 
 
 
-router.get('/me', (req, res) => {
+router.get('/travel', (req, res) => {
 	console.log(req.user._id)
 	res.status(200).json({
 		message: "You're authorized to see this secret message.",

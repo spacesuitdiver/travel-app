@@ -1,13 +1,14 @@
 // original //
 import React, { Component } from 'react'; //
 import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"; //
-import Navbar from './components/Navbar/Navbar';
+
 import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
 import HomePage from "./pages/HomePage/index"; // add /HomePage
 import Calendar from "./pages/calendar/index";
 import TravelAgenda from "./pages/TravelAgenda/index";
 // original //
 
+import "./components/Navbar/Navbar.css"
 
 import LoginPage from './containers/LoginPage.jsx';
 import LogoutFunction from './containers/LogoutFunction.jsx';
@@ -73,7 +74,7 @@ const PropsRoute = ({ component: Component, ...rest }) => (
 // )
 
 
-class App extends Component {
+class Main extends Component {
 
   constructor(props) {
     super(props);
@@ -124,7 +125,7 @@ class App extends Component {
     <div>
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router>   
-        <Switch>
+        <div>
           <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"> 
           {/* id was navbar */}
           <div className="container">
@@ -162,23 +163,23 @@ class App extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#about" onClick={this.handleSmoothScrollAbout}>About</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#about" >About</Link>
+                    <Link className="nav-link js-scroll-trigger" to="#about" onClick={this.handleSmoothScrollAbout} >About</Link>
                   </li>
 
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#services" onClick={this.handleSmoothScrollServices}>Services</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#services">Services</Link>
+                    <Link className="nav-link js-scroll-trigger" to="#services" onClick={this.handleSmoothScrollServices}>Services</Link>
                   </li>
 
                   <li className="nav-item">
                     {/* <a className="nav-link js-scroll-trigger" href="#contact" onClick={this.handleSmoothScrollContact}>Contact</a> */}
-                    <Link className="nav-link js-scroll-trigger" to="#contact">Contact</Link>
+                    <Link className="nav-link js-scroll-trigger" to="#contact" onClick={this.handleSmoothScrollContact}>Contact</Link>
                   </li>
                   <li className="nav-item">
                     <Link className="nav-link" to="/login"><i className="fas fa-sign-in-alt"></i>Log In</Link>
                   </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/signup"><i className="fas fa-user-plus"></i>Sign Up</Link>
+                      <Link className="nav-link signUp" to="/signup"><i className="fas fa-user-plus"></i>Sign Up</Link>
                     </li>
                 </ul>
 
@@ -193,14 +194,15 @@ class App extends Component {
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
             <Route path="/logout" component={LogoutFunction}/>
-            {/* <PrivateRoute path="/travel/:userId" component={InputTravelPage}/> */}
+            <PrivateRoute path="/travel/:userId" component={InputTravelPage}/>
+     
 
             {/* <Route exact path="/" component={HomePage} />*/}
-            <Route exact path="/travel" component={InputTravelPage} />
+            {/* <Route exact path="/travel" component={InputTravelPage} /> */}
             <Route exact path="/travel/:travelId" component={TravelAgenda} />
             <Route exact path="/calendar" component={Calendar} /> 
             
-            </Switch>
+           </div>
       
         </Router> 
       </MuiThemeProvider>
@@ -211,4 +213,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
