@@ -54,7 +54,4 @@ A travel app that helps you pick your flight, hotel, activities, and outfit!
 - Andrea Hotel/ Flight APi,  API User Authentation 
 - Laura Lead Front End Api Front Page/ Layout, Hotel/ Flight APi,  API User Authentation 
 
-<<<<<<< HEAD
-=======
->>>>>>> 45cc33bf407cd73df953efc2c1ab1b7fbf4c2d8d
->>>>>>> 4e9cf3fc40beadeb9adb294bb37197239bf8b41e
+
