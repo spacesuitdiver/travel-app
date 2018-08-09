@@ -17,10 +17,29 @@ Style My Travel a full-stack web app where jetsetters can get some seriously fab
 * Node.js
 * Javascript
 * Bootstrap
+* Passport
 * HTML
 * CSS
 
 **Screenshots (Coming Soon):**
+
+**INSTRUCTIONS:**
+
+* Sign up to create an account / Login to your account
+
+* The app will take you to a travel form, where you will input your travel plans, including your location, timeline, hotel, and flight
+
+* After you've inputted your travel plans, your trip is posted to the travel calendar, where you can also view any other travel plans previously inputted
+
+* Simply click any date and you'll be taken to your customized itinerary for that trip
+
+ * On your customized travel itinerary, you'll see your travel info, the weather for your trip, plus fashion photos from the Tumblr API specific to the city you're travelling to that are ideal for the weather in your city. 
+ 
+ * You can ❤ any photo to add it to your favorites to access it at any time from your itinerary (or delete it from your Favorites if you change your mind).
+ 
+ * In your itinerary, there is the ability to add another trip or delete this trip
+ 
+ * You can also create a packing list on this itinerary
 
 **Mock Photos for Planning Phase:**
 ![new wireframe 1](https://user-images.githubusercontent.com/34491285/42727904-50dd0cd0-8774-11e8-9e3c-4cb186a0f6f4.png)
@@ -30,28 +49,13 @@ Style My Travel a full-stack web app where jetsetters can get some seriously fab
 ![new wireframe 1 copy 5](https://user-images.githubusercontent.com/34491285/42727900-50a19f6a-8774-11e8-9915-7010130cc58b.png)
 
 # Timeline
-## Phase 1 Where are you going? What Dates?
-* What you should wear if you are headed to Paris— pair with Weather
-* Like what you see??
+## Phase 1
+* Choose your already planned travel
+* What you should wear if you are headed to Paris — pair with Weather API
 
 ## Phase 2
-* Ready to book your trip? — hotel, air, restaurants, experiences
-* Is this fashionista ready to fly away?
-
-### Step 1
-* Where are you going to go? When are you going to go?
-
-### Step 2
-* Book your flight
-* Book your hotel
-
-### Step 3
-* What are you going to wear?
-
-### Step 4
-* What are you to do/eat?
-* airbnb for experiences and food
-* trip advisor
+* We'll book the trip for you
+* Add additional experiences like airbnb, trip advisor, food options, etc
 
 # Roles
 - Leslie: Lead Backend Developer
