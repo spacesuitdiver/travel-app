@@ -173,9 +173,9 @@ class TravelAgenda extends Component {
                     <section className="travelDeets">
 
                         {/* <div className="buttons center"> */}
-                        <button className="deleteTripButton" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
+                        <button className="deleteTripButton btn" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
-                        <button className="addTripButton"><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
+                        <button className="addTripButton btn"><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
                         {/* </div> */}
 
                         <div className='ui grid'>
@@ -254,7 +254,7 @@ class TravelAgenda extends Component {
 
                         </div>
 
-                        <div className="packingArea">
+                        <div className="packingArea twelve wide column">
                             <div className="row">
                                 <div className='twelve wide column packingArea align-content-center'>
 
