@@ -8,13 +8,13 @@ module.exports = {
 		if (req.isAuthenticated()) {
 			res.json({
 				userId: req.user._id,
-				username: req.user.username,
+				email: req.user.email,
 				isAuthenticated: true
 			});
 		} else { //if user is not authenticated: sends back falsy values for userId, username, authentication false
 			res.json({
 				userId: null,
-				username: null,
+				email: null,
 				isAuthenticated: false
 			});
 		}
@@ -27,13 +27,15 @@ module.exports = {
 	//
 	createNewUser: (req, res) => {
 		const newUser = req.body;
-		User.register(newUser, newUser.password, (err, user) => {
+		User.register(newUser, newUser.password, (err, user) => { // register
 			if (err) {
 				return res.json(err);
 			}
 			res.json({
 				userId: user._id,
-				username: user.username,
+				firstname: user.firstname,
+				lastname: user.lastname,
+				email: user.email,
 				isAuthenticated: true
 			});
 		});
@@ -45,7 +47,7 @@ module.exports = {
 	signInUser: (req, res) => {
 		res.json({
 			userId: req._id,
-			username: req.username,
+			email: req.email,
 			isAuthenticated: true
 		});
 	},

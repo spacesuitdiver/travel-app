@@ -1,5 +1,6 @@
 .form-control:valid {
-    background-color: #000000;
+    background-color:white;
+    color: black;
 }
 *::-webkit-input-placeholder {
     color: #dc6f68!important;
@@ -18,5 +19,25 @@
 }
 
 .form-control {
-    color: #dc6f68!important;
+    color: #af605b!important;
+}
+
+input.form-control {
+    color: black;
+    background-color: lightblue;
+}
+
+form {
+/*background-color: rgb(240, 235, 238);*/
+} 
+
+
+.main-section {
+    padding: 30px;
+    margin: 150px 0 0 20%;
+    width: 100%;
+    max-width: 650px;
+    border: 1px solid black;
+    border-radius: 10px;
+    
 }

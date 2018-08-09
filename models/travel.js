@@ -44,11 +44,21 @@ const travelSchema = new Schema({
     required: false,
     description: []
   },
-  days: [{
-    date: Date
-  }],
-
-  imageObject: {}
+  imageObjects: [{
+    id: {
+      type: Number,
+      required: false,
+    },
+    notes: {
+      type: Array,
+      required: false,
+      description: []
+  },
+    tumblrImage: {
+      type: String,
+      required: false,
+    }
+  }]
 }
 )
 

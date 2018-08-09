@@ -14,10 +14,12 @@ hr {
   border-color: #F05F40;
 }
 
+hr.light {
+  border-color: #fff;
+}
 
 a {
-  color: #f05f40;
-  font-size: 25px;
+  color: #F05F40;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -83,10 +85,6 @@ img::-moz-selection {
   background: transparent;
 }
 
-#navbar-brand {
-    color: coral;
-}
-
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
   background-color: #fff;
@@ -96,13 +94,15 @@ img::-moz-selection {
   transition: all 0.2s;
 }
 
+a.nav-link {
+  color: coral;
+}
+
 #mainNav .navbar-brand {
   font-weight: 700;
-  font-size: 20px;
   text-transform: uppercase;
   color: #F05F40;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -138,38 +138,26 @@ img::-moz-selection {
     border-color: transparent;
     background-color: transparent;
   }
-  /* Get Started */
   #mainNav .navbar-brand {
-    float: left;
-    margin-left: 50px;
-    margin-top: 45px;
-    color: coral;
+    color: black;
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: coral;
+    color: black;
   }
-
-  /* Menu Links */
-  #mainNav  a.nav-link {
-    float: right;
+  #mainNav .navbar-nav > li.nav-item > a.nav-link {
     padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: coral;    
-    margin-top: 3%;
-    text-emphasis: bold;
-    margin-right: 3%;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
-    color: coral;
+    color: black;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: coral;
+    color: black;
   }
   #mainNav.navbar-shrink {
     border-bottom: 1px solid rgba(33, 37, 41, 0.1);
-    background-color: coral;
+    background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
     color: #F05F40;
@@ -190,7 +178,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../../images/planner.jpg");
+  background-image: url("/client/src/images/planner.jpg");
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -304,7 +292,6 @@ header.masthead p {
 
 .text-primary {
   color: #F05F40 !important;
-  text-decoration: none;
 }
 
 .btn {
@@ -313,8 +300,6 @@ header.masthead p {
   border: none;
   border-radius: 300px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-decoration: none;
-
 }
 
 .btn-xl {
@@ -324,7 +309,6 @@ header.masthead p {
 .btn-primary {
   background-color: coral;
   border-color: coral;
-
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
@@ -335,4 +319,3 @@ header.masthead p {
 .btn-primary:active, .btn-primary:focus {
   box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important;
 }
-  

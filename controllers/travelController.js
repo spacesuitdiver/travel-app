@@ -5,27 +5,16 @@ const TUMBLRAPI = "fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4";
 
 const fetchWeatherData = travel => {
 
-  if (travel.state) {
-    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.state}${travel.country}&appid=${WEATHERAPI}&units=metric`)
+
+    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
       .then(weatherData => {
         return {
           weather: weatherData.data,
           travel: travel
         }
       })
-  }
-  else {
-    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=metric`)
-      .then(weatherData => {
-        return {
-          weather: weatherData.data,
-          travel: travel
-        }
-      })
-  }
-}
-
-
+  
+    }
   const fetchTumblrData = (travelAndWeather) => {
     const searchTerms = [];
     searchTerms.push("fashion");
@@ -59,7 +48,7 @@ const fetchWeatherData = travel => {
         .create(req.body)
         .then(travel => res.json(travel))
         .catch(err => res.status(422).json(err));
-    },
+    },  
     findOneTravel: function (req, res) {
       db.Travel
         .findOne({ _id: req.params.travelId })
@@ -70,10 +59,15 @@ const fetchWeatherData = travel => {
         }))
         .catch(err => res.status(422).json(err));
     },
-    editTravel: (req, res) => {
-      db.Travel.update(req.body)
-        .then(response => res.json(response))
-        .catch(err => res.status(422).json(err))
+    editTravel: function(req, res) {
+		  console.log(req.body) 
+      db.Travel
+        .findOneAndUpdate({ _id: req.params.travelId}, req.body, {new: true} )
+        .then(tumblr => {
+		  console.log(tumblr);
+		  res.json(tumblr);
+	    })
+        .catch(err => res.status(422).json(err));
     },
     deleteTravel: function (req, res) {
       db.Travel

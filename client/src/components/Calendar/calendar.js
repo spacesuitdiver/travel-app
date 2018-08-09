@@ -1,30 +1,47 @@
+
+
+import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-import React from 'react';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './calendar.css';
-import dates from '../../utils/dates'
+import events from './eventslist'
+
 
 BigCalendar.momentLocalizer(moment);
 
-const Calendar = props => (
-  
-  <BigCalendar
+const Selectable = props => {
+  const formattedTrips = props.trips.map((trip) => {
+    console.log(trip)
+    return {
+      ...trip,
+      start: new Date(moment(trip.startDate)),
+      end: new Date(moment(trip.endDate)),
+      title: trip.city,
+    }
+  }
+  )
+  console.log(formattedTrips)
+
+
+  return < BigCalendar
+    style={{height: 500}}
     selectable
-    events={props.travel}
+    events={formattedTrips}
     defaultView="month"
     views={['month', 'week', 'day']}
-    startAccessor={((e) => {return new Date(e.start)})}
-    endAccessor={((e) => {return new Date(e.end)})}
+    scrollToTime={new Date(1970, 1, 1, 6)}
     onSelectEvent={event => {
-      props.travel(event);
-      }
+      props.history.push("/travel/" + event._id) 
+    }}
+    onSelectSlot={
+      slotInfo =>
+        alert(
+          `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
+          `\nend: ${slotInfo.end.toLocaleString()}` +
+          `\naction: ${slotInfo.action}`
+        )
     }
-    showMultiDayTimes
-    defaultDate={new Date()}
-
   />
+}
 
-)
-
-export default Calendar;
+export default Selectable

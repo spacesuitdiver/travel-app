@@ -1,27 +1,52 @@
+const router = require('express').Router();
 const User = require("../models").User;
 const authController = require("../controllers/authController");
+const path = require("path");
+
+
+
 
 module.exports = function (passport) {
-	const path = require("path");
 
-	const router = require('express').Router();
-
+    router.get('/', function(req, res) {
+		res.render('index', {user: req.user});
+	  });
 	//Receives request when App.js mounts
-	router.get("/userAuthenticated", authController.getAuthentication);
+	router.get("/auth", authController.getAuthentication);
 
-	router.post("/signup", authController.createNewUser);
+	router.post("/register/", authController.createNewUser);
 
-	router.post("/signin", (req, res) => {
-		passport.authenticate('local', (err, user, info) => {
-			if (!user) {
-				res.json(info);
-			}
-			else{
-				authController.signInUser(user, res)
-			}
+	// router.post("/login", (req, res, next) => {
 
-	})(req, res)});
+	// 	passport.authenticate('local', (err, user, info) => {
+	// 		if (!user) {
+	// 			res.json(info);
+	// 		}
 
+	// 		else{
+	// 			authController.signInUser(user, res)
+	// 			var redir = { redirect: '/travel'}
+	// 		}
+	// 	})
+	//  (req, res)
+	// });
+
+	router.post("/login", (req, res, next) => {
+			console.log(req.body)
+			next();
+		}, 
+
+		passport.authenticate('local'), 
+		(req, res) => {
+			console.log('logged in', req.user);
+				var userInfo = {
+					email: req.user.email
+				};
+				
+			res.send(userInfo);
+		}
+	)
+	  
 	router.get('/logout', authController.logoutUser);
 
 	return router;

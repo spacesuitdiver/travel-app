@@ -1,32 +1,49 @@
+@font-face {
+
+  font-family: tokyoMerged;
+  src: url(../../Font/TTF/TokyoMerged-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoMerged-Regular.otf); */
+
+  font-family: tokyoOutline;
+  src: url(../../Font/TTF/TokyoOutline-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoOutline-Regular.otf); */
+
+  font-family: tokyoRegular;
+  src: url(../../Font/TTF/TokyoRegular-Regular.ttf);
+  /* src: url(/client/public/Font/OTF/TokyoRegular-Regular.otf); */
+
+
+}
+
 body,
 html {
   width: 100%;
   height: 100%;
 }
 
-body {
+/* body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
-}
+} */
 
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: #c6baba;
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: #c6baba;
 }
 
 a {
-  color: #F05F40;
+  color: rgb(248, 121, 86);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 a:hover {
-  color: coral;
+  color: #ffccbb;
 }
 
 h1,
@@ -35,23 +52,23 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Playfair Display', serif;
- /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: tokyoRegular; */
+  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
   color: black;
 
 }
 
 .bg-primary {
-  background-color: coral !important;
+  background-color: white !important;
 }
 
 .bg-dark {
-  background-color: coral !important;
+  background-color: #ffccbb !important;
 }
 
 .text-faded {
   font-size: 15px;
-  color: black;
  
 }
 
@@ -61,8 +78,26 @@ section {
 
 .section-heading {
   margin-top: 0;
+  color: #f87956 !important;
+
 }
 
+#contact{
+  background-color: white;
+}
+
+.social-media {
+  height: 65px;
+  width: 55px;
+  margin: 10px;
+}
+.contactMe {
+  font-family: tokyoRegular;
+}
+
+.phone {
+  color: #f87956;
+}
 ::-moz-selection {
   color: #fff;
   background: #212529;
@@ -97,12 +132,12 @@ img::-moz-selection {
 #mainNav .navbar-brand {
   font-weight: 700;
   text-transform: uppercase;
-  color: #F05F40;
+  color: #ffccbb;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #f05f40;
+  color: #ffccbb;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link,
@@ -115,35 +150,18 @@ img::-moz-selection {
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-  color: #F05F40;
+  color: #ffccbb;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-  color: #F05F40 !important;
+  color: #ffccbb !important;
   background-color: transparent;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active:hover {
   background-color: transparent;
-}
-
-#contact {
-    background-color: coral;
-}
-
-.mb-5 {
-    text-align: center;
-}
-
-#phone {
-    text-align: center;
-}
-
-#email {
-    text-align: center;
-    color: white;
 }
 
 @media (min-width: 992px) {
@@ -173,10 +191,10 @@ img::-moz-selection {
     background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #F05F40;
+    color: #ffccbb;
   }
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f05f40;
+    color: #ffccbb;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -184,14 +202,14 @@ img::-moz-selection {
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #F05F40;
+    color: #ffccbb;
   }
 }
 
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../../images/planner.jpg");
+  /* background-image: url("/client/src/images/planner.jpg"); */
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -304,7 +322,7 @@ header.masthead p {
 }
 
 .text-primary {
-  color: #F05F40 !important;
+  color: #ffccbb !important;
 }
 
 .btn {
@@ -320,8 +338,8 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: coral;
-  border-color: coral;
+  background-color: #ffccbb;
+  border-color: #ffccbb;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

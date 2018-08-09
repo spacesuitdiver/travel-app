@@ -3,17 +3,26 @@ import "./Input.css";
 
 
 export const Input = props => (
-<section id="form">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-12 text-center">
-            <div className="form-group">
-              <input className="form-control" {...props} />
-            </div>       
+  <div id="form">
+    <div className="container">
+        <div className="main-section">
+        <label className="title" htmlFor={props.htmlFor}>{props.valuehtml}</label>
+        <br></br>
+        <br></br>
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <div className="form-group">
+                <input className="form-control"
+                  // {...props} 
+                  {...props}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-</section>
+  </div>
+
 );
 
 export default Input;
