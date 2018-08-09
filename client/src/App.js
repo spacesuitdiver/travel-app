@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-rou
 
 import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
 import HomePage from "./pages/HomePage/index"; // add /HomePage
-import Calendar from "./pages/calendar/index";
+import Calendar from "./pages/Calendar/index";
 import TravelAgenda from "./pages/TravelAgenda/index";
 // original //
 
