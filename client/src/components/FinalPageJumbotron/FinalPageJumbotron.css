@@ -29,7 +29,7 @@ h1 {
 }
 
 .FinalPageJumbotron .FinalPageJumbotroncontainer {
-    background: url("/images/sunset.JPG");
+    background: url("/images/sunset.JPG") 100%;
     padding-bottom: 50px;
 
 }
