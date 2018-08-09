@@ -54,7 +54,7 @@ Style My Travel a full-stack web app where jetsetters can get some seriously fab
 # Roles
 - Leslie: Lead Backend Developer
 - Mayra: Javascript, Weather API
-- Andrea: User Authentation, Frontend
+- Andrea: User Authentication, Frontend
 - Laura: Lead Frontend 
 
 
