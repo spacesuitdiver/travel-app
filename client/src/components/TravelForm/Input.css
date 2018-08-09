@@ -27,10 +27,13 @@ input.form-control {
     background-color: lightblue;
 }
 
+<<<<<<< HEAD
 form {
 /*background-color: rgb(240, 235, 238);*/
 } 
 
+=======
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 .main-section {
     padding: 30px;
@@ -40,4 +43,12 @@ form {
     border: 1px solid black;
     border-radius: 10px;
     
+<<<<<<< HEAD
 }
+=======
+}
+
+section {
+    background: url("/images/greece.jpg" );
+}
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5

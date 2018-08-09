@@ -71,6 +71,11 @@ h6 {
 
   font-size: 30px !important;
   padding-top: 20px;
+<<<<<<< HEAD
+=======
+  font-family: 'Playfair Display', serif;
+  
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 
@@ -78,12 +83,20 @@ h6 {
 
 
 .bg-dark {
+<<<<<<< HEAD
   background-color: #ffccbb !important;
+=======
+  background-color: rgb(255, 204, 187) !important;
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 .text-faded {
   font-size: 15px;
+<<<<<<< HEAD
   color: #907878;
+=======
+  color: rgb(144, 120, 120);
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
   text-align: center;
  
 }
@@ -310,7 +323,7 @@ header.masthead p {
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
   font-size: 14px;
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {

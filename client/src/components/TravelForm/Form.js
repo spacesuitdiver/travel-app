@@ -1,9 +1,15 @@
 import React from "react";
+<<<<<<< HEAD
 import FormBtn from "./FormBtn";
 
 import "./Input.css";
 
 
+=======
+
+import "./Input.css";
+
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 export const Form = props => (
 <section id="form">
       <div className="container">

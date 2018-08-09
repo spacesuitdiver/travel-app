@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+<<<<<<< HEAD
 import { Input, FormBtn, Form } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
 import "../../components/Navbar/Navbar"
+=======
+import { Input, FormBtn } from "../../components/TravelForm";
+import { Container } from "../../components/Grid";
+import "./InputTravelPage.css";
+import "../../components/Navbar/Navbar"
+import Auth from '../../modules/Auth';
+
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 
 class InputTravelPage extends Component {
@@ -17,12 +26,39 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
+<<<<<<< HEAD
         imageObjects: []
+=======
+        imageObjects: [],
+        secretDate: ""
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
     };
 
     componentDidMount() {
         this.loadTravel();
+<<<<<<< HEAD
     }
+=======
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', '/api/dashboard');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // set the authorization HTTP header
+        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            this.setState({
+              secretData: xhr.response.message
+            });
+          }
+        });
+        xhr.send();
+      }
+
+    // componentDidMount() {
+    //     this.loadTravel();
+    // }
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
     loadTravel = () => {
         API.findAllTravel()
@@ -59,6 +95,7 @@ class InputTravelPage extends Component {
             .catch(err => console.log(err));
     }
 
+<<<<<<< HEAD
 
     render() {
         return (
@@ -102,6 +139,32 @@ class InputTravelPage extends Component {
 
                     <FormBtn
                         disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country && this.state.flightNumber && this.state.hotel)}
+=======
+    render() {
+        return (
+           
+            <Container>
+                <Input secretData={this.state.secretData} />
+                <form>
+                    <section>
+                    <Input
+                        value={this.state.city} onChange={this.handleInputChange} name="city" placeholder="Where are you going?"
+                    />
+                    <Input
+                        value={this.state.startDate} onChange={this.handleInputChange} name="startDate" placeholder="When are you leaving?"
+                    />
+                </section>
+                <section>
+                    <Input
+                        value={this.state.endDate} onChange={this.handleInputChange} name="endDate" placeholder="When are you getting back?"
+                    />
+                    <Input
+                        value={this.state.country} onChange={this.handleInputChange} name="country" placeholder="What country are you going to?"
+                    />
+
+                    <FormBtn
+                        disabled={!(this.state.city && this.state.startDate && this.state.endDate && this.state.country)}
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                         onClick={this.handleFormSubmit}
                     >
                         SUBMIT

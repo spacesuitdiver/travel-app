@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import ReactModalLogin from 'react-modal-login';
 import "./Header.css";
 import axios from "axios";
@@ -11,15 +12,34 @@ class Header extends Component {
 
             super(props);
         
+=======
+import "./Header.css";
+import axios from "axios";
+import Auth from '../../modules/Auth';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+
+class Header extends Component {
+
+        constructor(props) {
+        
+            super(props);
+           
+
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             this.state = {
                 showModal: false,
                 loading: false,
                 error: null,
+<<<<<<< HEAD
                 initialTab: null, 
+=======
+                activeTab: 0, 
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                 loggedIn: null, 
                 recoverPasswordSuccess: null, 
 
                 
+<<<<<<< HEAD
                 
                 firstname: " ", //*
                 lastname: " ", //*
@@ -36,10 +56,21 @@ class Header extends Component {
             // this.getUser = this.getUser.bind(this)
             // this.componentDidMount = this.componentDidMount.bind(this)
             // this.updateUser = this.updateUser.bind(this)
+=======
+                firstname: "", 
+                lastname: "", 
+                email: "", 
+                password: "", 
+
+            };
+        
+         
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
  
 
         } 
 
+<<<<<<< HEAD
         // componentDidMount() {
         //     this.onLoginSuccess()
         // }
@@ -145,6 +176,26 @@ class Header extends Component {
 
         onLoginSuccess() {
             // event.preventDefault();
+=======
+    
+
+        // handleInputChange(event) { //* REG
+
+        // console.log(event);
+       
+           
+        //     const { name, value } = event.target;
+        //         this.setState({
+                   
+        //             [name]: value
+                
+        //         });       
+        // }
+        
+
+        onLoginSuccess() {
+           
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             var loginURL = "/auth";
             // http://localhost:3000
 
@@ -182,6 +233,7 @@ class Header extends Component {
     
         }
 
+<<<<<<< HEAD
         onRegisterSuccess() {
             // event.preventDefault();
             var registerURL = "/auth";
@@ -194,11 +246,77 @@ class Header extends Component {
         
             }
         
+=======
+        // onRegisterSuccess() {
+        
+            // var registerURL = "/auth";
+            // //http://localhost:3000
+            // const register = {
+            //     firstname: this.state.firstname,
+            //     lastname: this.state.lastname,
+            //     email: this.state.email,
+            //     password: this.state.password
+        
+            // }
+        
+            // axios.post(registerURL + "/register", { 
+
+            //     firstname: this.state.firstname,
+            //     lastname: this.state.lastname,
+            //     email: this.state.email,
+            //     password: this.state.password
+
+            // })
+            //     .then(res => {
+            //         console.log(res);
+            //         console.log(res.data);
+            //         console.log(res.body);
+            
+            //         if (res.data) {
+            //             // window.location = "/login"
+            //             this.setState({
+            //                 // redirectTo: '/login'
+                            
+            //             })
+            //         } else if (res.data.redirect === '/login') {
+            //             // window.location = "/login"
+                        
+            //         }
+            //     }).catch(error => {
+            //         console.log(error);
+            //         // window.location = "/login"
+                    
+            //     });
+        // }
+
+    
+    //   onLogin(yo) { //
+    //     console.log('__onLogin__');
+    
+    //     console.log(yo);
+    //     // this.onLoginSuccess('');
+
+    //   } 
+
+    //   goToTab(index) {
+    //     this.setState({ activeTab: index });
+    //   }
+
+      onRegister() { //
+        console.log('__onRegister__');
+       
+        var registerURL = "/auth";
+ 
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             axios.post(registerURL + "/register", { 
 
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
+<<<<<<< HEAD
                 email: this.state.email,
+=======
+                username: this.state.email,
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                 password: this.state.password
 
             })
@@ -208,11 +326,24 @@ class Header extends Component {
                     console.log(res.body);
             
                     if (res.data) {
+<<<<<<< HEAD
                         // window.location = "/login"
                         this.setState({
                             // redirectTo: '/login'
                             
                         })
+=======
+                         
+                        this.setState({
+                             redirectTo: '/login'
+                             
+                            
+                            
+                        })
+
+                        console.log('success!')
+                        // window.location = "/login"
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                     } else if (res.data.redirect === '/login') {
                         // window.location = "/login"
                         
@@ -222,6 +353,7 @@ class Header extends Component {
                     // window.location = "/login"
                     
                 });
+<<<<<<< HEAD
         }
 
 
@@ -267,16 +399,86 @@ class Header extends Component {
         render() {
 
             const loggedIn = this.state.loggedIn
+=======
+        
+        // this.onRegisterSuccess();
+      }
+    
+     
+
+
+    //   openModal(initialTab) { //
+    //     this.setState({
+    //             showModal: true,
+    //         });
+    //   }
+     
+    //     onLoginFail(method, response) {
+
+    //         this.setState({
+    //         loading: false,
+    //         error: response
+    //         })
+    //     }
+    
+     
+    //     startLoading() {
+    //      this.setState({
+    //       loading: true
+    //      })
+    //     }
+     
+    //   finishLoading() {
+    //     this.setState({
+    //       loading: false
+    //     })
+    //   }
+     
+
+    //     afterTabsChange() {
+    //         this.setState({
+    //         error: null,
+    //         recoverPasswordSuccess: false,
+    //         });
+    //     }
+
+
+    //     closeModal() {
+    //         this.setState({
+    //           showModal: false,
+    //           error: null
+    //         });
+    //     }
+          
+        
+        
+        // handleSelect(key) { //tab
+        //     alert(`selected ${key}`);
+        //     this.setState({ key });
+        // }
+
+
+        render() {
+            return (
+
+            // const loggedIn = this.state.loggedIn
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             // ? <div>
             //     <p>You are signed in with: {this.state.loggedIn}</p>
             //   </div>
             // : <div>
             //     <p>You are signed out</p>
             // </div>;
+<<<<<<< HEAD
       
             const isLoading = this.state.loading;
             
                 return (
+=======
+            // const isLoading = this.state.loading;
+            
+
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
                 <header className="masthead text-center text-white d-flex">
         
@@ -286,11 +488,17 @@ class Header extends Component {
                         
                             <div className="col-lg-10 mx-auto">
 
+<<<<<<< HEAD
                             <li className="animated fadeInDownBig">
                                 <img class="smt" src="/images/SMT.png" alt="SMT"/>   
                             </li>
 
                                 
+=======
+                                <li className="animated fadeInDownBig">
+                                    <img className="smt" src="/images/SMT.png" alt="SMT"/>   
+                                </li>           
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                             </div>
                            
                             <div className="col-lg-8 mx-auto headerDiv">
@@ -299,6 +507,7 @@ class Header extends Component {
                                 <br/>
                                 <br/>
                                 <br/>
+<<<<<<< HEAD
                                 <button className="RML-btn" onClick={() => this.openModal('login')}>Get Styled</button>
 
                                 {/* <h1 className="headerText text-uppercase"> <strong>The Best Way to Travel is in Style</strong> </h1> */}
@@ -493,6 +702,66 @@ class Header extends Component {
             
                 
                 );
+=======
+                                {/* <button className="RML-btn" onClick={() => this.setState({ show:true })}>Get Styled</button>  */}
+                                <Card className="container" style= {{
+                                        background:'transparent',
+                                }}>
+                                    {Auth.isUserAuthenticated() ? (
+                                        <CardText style={{ fontSize: '16px', color: 'white' }}>Welcome! You are logged in.</CardText>
+                                    ) : (
+                                        <CardText style={{ fontSize: '16px', color: 'white' }}>You are not logged in.</CardText>
+                                    )}
+                                </Card>
+                            </div>
+
+
+
+
+
+
+                                
+                                   
+{/*                                 
+                                <div>
+
+                                    <div style={{
+                                            display: this.state.showModal ? 'block' : 'none',
+                                            position: 'fixed',
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%)',
+                                            background: 'white',
+                                            width: 300,
+                                            height: 300,
+                                            color: 'black',
+                                        }}>
+                                            <div onClick={() => this.goToTab(0)}>Login</div>
+                                            <div onClick={() => this.goToTab(1)}>Register</div>
+
+                                            <div style={{
+                                                display: this.state.activeTab === 0 ? 'block' : 'none'
+                                                }}><h1>Login</h1>
+
+                                            </div>
+                                            
+                                            <div style={{
+                                                display: this.state.activeTab === 1 ? 'block' : 'none'
+                                                }}><h1>Register</h1>
+
+                                            </div>
+
+                                    </div>
+                                   
+                                </div> */}
+                             </div>
+                        </div> 
+                   
+                </header>
+            
+                
+            );
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
         } 
 }
 

@@ -1,12 +1,17 @@
 
 .form-control {
+<<<<<<< HEAD
     color: #f3c5e0!important;
+=======
+    color: #dc6f68!important;
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 input.form-control {
     color: black;
     background-color: lightblue;
 }
+<<<<<<< HEAD
 form {
     background-color: rgb(243, 227, 242);
 }
@@ -36,6 +41,20 @@ form {
 
 .main-section {
     background:  #ebcedc;
+=======
+
+/* form {
+ /* background-color: rgb(240, 235, 238); */
+/* }  */ */
+
+section {
+    background: url("/images/greece.jpg") center 200%;
+}
+
+
+.main-section {
+    background:  #ffccbb;
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
     padding: 30px;
     margin: 150px 0 0 20%;
     width: 100%;

@@ -72,9 +72,9 @@ h6 {
  
 }
 
-section {
+/* section {
   padding: 8rem 0;
-}
+} */
 
 .section-heading {
   margin-top: 0;
@@ -86,6 +86,7 @@ section {
   background-color: white;
 }
 
+<<<<<<< HEAD
 .social-media {
   height: 65px;
   width: 55px;
@@ -95,6 +96,55 @@ section {
   font-family: tokyoRegular;
 }
 
+=======
+.socialMediaCol {
+  margin-bottom: 40px;
+
+}
+.social-media {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.social-mediaF{
+  height: 40px;
+  width: 25px;
+  margin: 10px;
+ 
+  
+}
+
+section#email {
+  background-color: #ffccbb;
+  padding: 4rem 0;
+  
+  
+  
+
+}
+
+p.emailText {
+  text-align: center;
+  color: #907878;
+}
+section#contact {
+  padding-bottom: 0px;
+
+}
+.contactMe {
+  font-family: tokyoRegular;
+  font-size: 30px;
+}
+button.ui.button {
+  padding: 10px;
+}
+#arrow {
+  align-content: center !important;
+  position: relative;
+  right: 5px;
+}
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 .phone {
   color: #f87956;
 }

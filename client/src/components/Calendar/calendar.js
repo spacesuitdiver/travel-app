@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import events from './eventslist'
+<<<<<<< HEAD
 
+=======
+>>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 BigCalendar.momentLocalizer(moment);
 
