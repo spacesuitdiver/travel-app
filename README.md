@@ -72,9 +72,9 @@ Style My Travel a full-stack React app where jetsetters can get some seriously f
 * Add additional experiences like airbnb, trip advisor, food options, etc
 
 # Roles
-- Leslie: Lead Backend Developer
-- Mayra: Javascript, Weather API
-- Andrea: User Authentication, Frontend
-- Laura: Lead Frontend 
+- Leslie: Lead Backend Developer– Full Stack Developer
+- Andrea: User Authentication, Back-end, Front-end UI
+- Laura: Lead Front-end
+- Mayra: Javascript, OpenWeatherMap API, Slide Deck
 
 
