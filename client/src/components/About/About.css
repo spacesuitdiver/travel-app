@@ -80,12 +80,12 @@ h6 {
 
 
 .bg-dark {
-  background-color: #ffccbb !important;
+  background-color: rgb(255, 204, 187) !important;
 }
 
 .text-faded {
   font-size: 15px;
-  color: #907878;
+  color: rgb(144, 120, 120);
   text-align: center;
  
 }
