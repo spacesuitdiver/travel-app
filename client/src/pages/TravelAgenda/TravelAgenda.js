@@ -146,7 +146,7 @@ class TravelAgenda extends Component {
 
         return (
             <ListItem key={tum.id}>
-                <img src={tum.photos[0].original_size.url} style={{ width: 50, }} />
+                <img src={tum.photos[0].original_size.url} alt="tumblrImg" style={{ width: 50, }} />
                 <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
             </ListItem>
         );
@@ -159,9 +159,9 @@ class TravelAgenda extends Component {
             <Container>
                 {!this.state.isLoading &&
 
-                    <section class="travelDeets">
+                    <section className="travelDeets">
                         <div>
-                            <h3><strong>Your trip details</strong></h3>
+                            <h3><strong>Your Travel Itinerary</strong></h3>
                             City: {this.state.trip.city}<br />
                             Country: {this.state.trip.country}<br />
                             Start Date: {this.state.trip.startDate}<br />
@@ -172,15 +172,14 @@ class TravelAgenda extends Component {
                             <p>{this.state.weather.weather[0].description}</p>
                             <h3><strong>Temperature</strong></h3>
                             <p>{this.state.weather.main.temp}</p>
+                            
+                            <button className="deleteTripButton" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
-                            <button onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
                             <button><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
                         </div>
-                        <div class='ui grid'>
-                            <div class='row'>
-                                <div class='left floated six wide column'>
+                        <div className='ui grid'>
+                                <div className='picsRow left floated six wide column'>
                                     <h3>Fashion pics</h3>
-
                                     {this.state.tumblr.length ? (
 
                                         <List>
@@ -193,11 +192,8 @@ class TravelAgenda extends Component {
                                         )}
 
                                 </div>
-                            </div>
 
-                            <div class='row'>
-                                <div class='right floated six wide column'>
-
+                                <div className='right floated six wide column'>
 
                                     <div className="savedArea"><h3>Saved fashion pics</h3></div>
                                     {this.state.trip.imageObjects.length ? (
@@ -205,7 +201,7 @@ class TravelAgenda extends Component {
                                             {this.state.trip.imageObjects.map(saved => (
 
                                                 <ListItem key={saved.id}>
-                                                    <img src={saved.tumblrImage} style={{ width: 50 }} />
+                                                    <img src={saved.tumblrImage} alt="favedtumblrimg" style={{ width: 50 }} />
 
                                                     <DeleteBtn onClick={() => this.deleteImages(saved.id)} />
 
@@ -222,11 +218,10 @@ class TravelAgenda extends Component {
                                         )}
 
                                 </div>
-                            </div>
 
                         </div>
 
-                        <div class='twelve wide column'>
+                        <div className='twelve wide column'>
 
                             <Input
                                 name="inputText"
@@ -235,7 +230,7 @@ class TravelAgenda extends Component {
                                 onChange={this.handleInputChange} />
 
                             <FormBtn disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
-                                SUBMIT NEW ITEM TO PACKING LIST
+                                Submit new item to packing list
                                                 </FormBtn>
                             {this.state.packingList.length ? (
                                 <List>

@@ -10,7 +10,6 @@ export const Input = props => (
             <div className="col-md-12 text-center">
               <div className="form-group">
                 <input className="form-control"
-                  // {...props} 
                   {...props}
                 />
               </div>

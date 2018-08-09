@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "./Header.css";
 import axios from "axios";
 
-
-
 class Header extends Component {
 
         constructor(props) {
@@ -24,7 +22,6 @@ class Header extends Component {
                 lastname: "", 
                 email: "", 
                 password: "", 
-                
 
             };
         
@@ -262,7 +259,7 @@ class Header extends Component {
                             <div className="col-lg-10 mx-auto">
 
                                 <li className="animated fadeInDownBig">
-                                    <img class="smt" src="/images/SMT.png" alt="SMT"/>   
+                                    <img className="smt" src="/images/SMT.png" alt="SMT"/>   
                                 </li>           
                             </div>
                            

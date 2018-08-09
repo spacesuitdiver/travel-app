@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom'
 import API from "../../utils/API";
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import Selectable from '../../components/Calendar'
@@ -21,7 +20,6 @@ loadTravel = () => {
       this.setState({ trips: res.data })
     )
   console.log(this.state.trips)
-  // .catch(err => console.log(err));
 }
 
 
