@@ -34,7 +34,7 @@ Style My Travel a full-stack React app where jetsetters can get some seriously f
 **INSTRUCTIONS:**
 
 * **ON THE MAIN PAGE:** 
-  * Learn about the app (and its awesome developers!)
+  * Learn about the app
   * Sign up to create an account / Login to your account
 
 * **ON THE TRAVEL FORM:** 
