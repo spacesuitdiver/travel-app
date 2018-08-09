@@ -98,8 +98,17 @@ class TravelAgenda extends Component {
         this.setState({
             packingList: packingListById
         })
+        this.state.packingList.splice(-1,1)
+        API.editTravel(this.props.match.params.travelId, { packingList: packingListById })
+        .then(res =>
+            this.setState({
 
-        API.editTravel(this.props.match.params.travelId, { packingListById })
+                trip: {
+                    ...this.state.trip,
+                    packingList: res.data
+                }}))
+
+                console.log(this.state.packingList)
 
     }
 
@@ -227,7 +236,7 @@ class TravelAgenda extends Component {
                                 name="inputText"
                                 value={this.state.inputText}
                                 placeholder="What should you pack?"
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange}/>
 
                             <FormBtn disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
                                 Submit new item to packing list
