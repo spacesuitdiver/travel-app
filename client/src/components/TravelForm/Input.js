@@ -4,7 +4,7 @@ import "./Input.css";
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 
-export const Input = props => (
+export const Input = ({props, secretData}) => (
 
   <Card className="container">
     <CardTitle
