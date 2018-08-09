@@ -2,12 +2,12 @@ import React from "react";
 import"./About.css";
 
 const About = () => (
-            <section class="bg-primary" id="about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto text-center">
-                        <h1 class="section-heading text-white">The Best Way to Travel is in Style</h1>
-                        <hr class="light my-4"></hr>
+            <section className="bg-primary" id="about">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 mx-auto text-center">
+                        <h1 className="section-heading text-white">The Best Way to Travel is in Style</h1>
+                        <hr className="light my-4"></hr>
                         <h1 className="section-heading1 text-white"> We've got what you need!</h1>
                         <br />
                         

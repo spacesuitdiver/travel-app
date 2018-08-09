@@ -4,6 +4,7 @@ import "./Input.css";
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 
+
 export const Input = ({props, secretData}) => (
 
   <Card className="container">
@@ -24,6 +25,18 @@ export const Input = ({props, secretData}) => (
                     {...props}
                   />
                 </div>
+
+export const Input = props => (
+  <div id="form">
+    <div className="container">
+        <div className="main-section">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <div className="form-group">
+                <input className="form-control"
+                  {...props}
+                />
+
               </div>
             </div>
           </div>

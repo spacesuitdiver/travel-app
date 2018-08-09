@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Input, FormBtn, Form } from "../../components/TravelForm";
+import { Input, FormBtn } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
 import "../../components/Navbar/Navbar"
