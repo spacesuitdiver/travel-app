@@ -154,7 +154,7 @@ class TravelAgenda extends Component {
 
         return (
             <ListItem key={tum.id}>
-                <img src={tum.photos[0].original_size.url} alt="tumblrImg" style={{ width: 50, }} />
+                <img src={tum.photos[0].original_size.url} alt="tumblrImg" style={{ width: 200, }} />
                 <FavBtn onClick={() => this.saveImages(tum.id, tum.photos[0].original_size.url)} />
             </ListItem>
         );
@@ -172,11 +172,11 @@ class TravelAgenda extends Component {
 
                     <section className="travelDeets">
 
-                    <div className="buttons center">
+                        {/* <div className="buttons center"> */}
                         <button className="deleteTripButton" onClick={() => this.deleteTrip(this.state.trip._id)} >DELETE TRIP</button>
 
                         <button className="addTripButton"><Link to={"/travel/"}>ADD ANOTHER TRIP</Link></button>
-                    </div>
+                        {/* </div> */}
 
                         <div className='ui grid'>
                             <div className='detailsRow left floated six wide column'>
@@ -227,7 +227,7 @@ class TravelAgenda extends Component {
 
                             </div>
 
-                            <div className='right floated six wide column'>
+                            <div className='savedAreaPics right floated six wide column'>
 
                                 <div className="savedArea"><h3>Saved fashion pics</h3></div>
                                 {this.state.trip.imageObjects.length ? (
@@ -235,10 +235,9 @@ class TravelAgenda extends Component {
                                         {this.state.trip.imageObjects.map(saved => (
 
                                             <ListItem key={saved.id}>
-                                                <img src={saved.tumblrImage} alt="favedtumblrimg" style={{ width: 50 }} />
+                                                <img src={saved.tumblrImage} alt="favedtumblrimg" style={{ width: 200 }} />
 
                                                 <DeleteBtn onClick={() => this.deleteImages(saved.id)} />
-
 
                                             </ListItem>
                                         ))
@@ -255,33 +254,46 @@ class TravelAgenda extends Component {
 
                         </div>
 
-                        <div className='twelve wide column'>
+                        <div className="packingArea">
+                            <div className="row">
+                                <div className='twelve wide column packingArea align-content-center'>
 
-                            <Input
-                                name="inputText"
-                                value={this.state.inputText}
-                                placeholder="What should you pack?"
-                                onChange={this.handleInputChange} />
+                                    <Input
+                                        name="inputText"
+                                        value={this.state.inputText}
+                                        placeholder="What should you pack?"
+                                        onChange={this.handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="row">
 
-                            <FormBtn disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
-                                Submit new item to packing list
+                                <div className='twelve wide column packingArea formBtn'>
+
+                                    <FormBtn className="formButton" disabled={!(this.state.inputText)} onClick={(event) => this.handleFormSubmit(this.state.inputText, event)}>
+                                        Submit new item to packing list
                                                 </FormBtn>
-                            {this.state.packingList.length ? (
-                                <List>
-                                    {this.state.packingList.map(listItem => (
-                                        <ListItem key={listItem}>
-                                            <strong>
-                                                {listItem}
-                                            </strong>
-                                            <DeleteBtn onClick={() => this.deletePackingListItem(listItem)} />
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            ) : (
-                                    <h3>No Results to Display</h3>
-                                )}
-                        </div>
+                                </div>
+                            </div>
+                            <div className="row">
 
+                                <div className='twelve wide column packingArea'>
+                                    {this.state.packingList.length ? (
+                                        <List>
+                                            {this.state.packingList.map(listItem => (
+                                                <ListItem key={listItem}>
+                                                    <strong>
+                                                        {listItem}
+                                                    </strong>
+                                                    <DeleteBtn onClick={() => this.deletePackingListItem(listItem)} />
+                                                </ListItem>
+                                            ))}
+                                        </List>
+                                    ) : (
+                                            <h3>No Results to Display</h3>
+                                        )}
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                 }

@@ -3,15 +3,15 @@ import "./FinalPageJumbotron.css";
 
 export const FinalPageJumbotron = props => (
   <div
-    style={{ height: 300, clear: "both", marginBottom: 300, textAlign: "center" }}
-    className="jumbotron"
+    style={{ clear: "both", textAlign: "center" }}
+    className="FinalPageJumbotron"
   >
-    <div className="jumbotron">
-      <div className="container">
+    <div className="FinalPageJumbotron">
+      <div className="FinalPageJumbotroncontainer">
         <h1>
-          Your Itinerary <i className="fa fa-calendar" />
-        </h1>
-        <p>Get Stylin'!</p>
+          Your Trips <i className="fa fa-calendar" />
+        </h1><br/><br/>
+        <p className="getStylin">Get Stylin'!</p>
       </div>
     </div>
   </div>
