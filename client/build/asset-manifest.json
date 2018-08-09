@@ -1,8 +1,9 @@
 {
-  "main.css": "static/css/main.837c7502.css",
-  "main.css.map": "static/css/main.837c7502.css.map",
-  "main.js": "static/js/main.76232a41.js",
-  "main.js.map": "static/js/main.76232a41.js.map",
-  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg",
-  "static/media/planner.jpg": "static/media/planner.bb3350f0.jpg"
+  "main.css": "static/css/main.f7042edb.css",
+  "main.css.map": "static/css/main.f7042edb.css.map",
+  "main.js": "static/js/main.6ee1bc48.js",
+  "main.js.map": "static/js/main.6ee1bc48.js.map",
+  "static/media/TokyoMerged-Regular.ttf": "static/media/TokyoMerged-Regular.f783aef2.ttf",
+  "static/media/TokyoOutline-Regular.ttf": "static/media/TokyoOutline-Regular.03c09f83.ttf",
+  "static/media/TokyoRegular-Regular.ttf": "static/media/TokyoRegular-Regular.35e85c0c.ttf"
 }

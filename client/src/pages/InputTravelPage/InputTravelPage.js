@@ -4,6 +4,8 @@ import { Input, FormBtn } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
 import "../../components/Navbar/Navbar"
+import Auth from '../../modules/Auth';
+
 
 
 class InputTravelPage extends Component {
@@ -17,12 +19,31 @@ class InputTravelPage extends Component {
         hotel: "",
         weatherDescriptions: "",
         trips: [],
-        imageObjects: []
+        imageObjects: [],
+        secretDate: ""
     };
 
     componentDidMount() {
         this.loadTravel();
-    }
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', '/api/dashboard');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // set the authorization HTTP header
+        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            this.setState({
+              secretData: xhr.response.message
+            });
+          }
+        });
+        xhr.send();
+      }
+
+    // componentDidMount() {
+    //     this.loadTravel();
+    // }
 
     loadTravel = () => {
         API.findAllTravel()
@@ -61,8 +82,9 @@ class InputTravelPage extends Component {
 
     render() {
         return (
-
+           
             <Container>
+                <Input secretData={this.state.secretData} />
                 <form>
                     <section>
                     <Input

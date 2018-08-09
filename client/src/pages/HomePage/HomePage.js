@@ -5,15 +5,23 @@ import HowWorks from "../../components/HowWorks/HowWorks";
 import Contact from "../../components/Contact/Contact";
 import { Container } from "../../components/Grid";
 
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+import Auth from '../../modules/Auth';
+
+
 
 class Intro extends Component {
 
+    componentDidMount() {
+        // update authenticated state on logout
+        this.props.toggleAuthenticateStatus()
+    }
+ 
     render() {
         return (
             <Container>
-                <Header />
-                <About />
-                {/* <Creative /> */}
+                <Header/>
+                <About />         
                 <HowWorks />
                 <Contact />
             </Container>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Header.css";
 import axios from "axios";
+import Auth from '../../modules/Auth';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 class Header extends Component {
 
@@ -269,7 +271,16 @@ class Header extends Component {
                                 <br/>
                                 <br/>
                                 <br/>
-                                <button className="RML-btn" onClick={() => this.setState({ show:true })}>Get Styled</button> 
+                                {/* <button className="RML-btn" onClick={() => this.setState({ show:true })}>Get Styled</button>  */}
+                                <Card className="container" style= {{
+                                        background:'transparent',
+                                }}>
+                                    {Auth.isUserAuthenticated() ? (
+                                        <CardText style={{ fontSize: '16px', color: 'white' }}>Welcome! You are logged in.</CardText>
+                                    ) : (
+                                        <CardText style={{ fontSize: '16px', color: 'white' }}>You are not logged in.</CardText>
+                                    )}
+                                </Card>
                             </div>
 
 
