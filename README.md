@@ -1,6 +1,6 @@
 
  
-# 💼 Style My Travel - Your personal travel stylist in a full-stack app 👗
+# 💼 Style My Travel 👗 -- Your personal travel stylist in a full-stack app
 
 View the completed app on Heroku: <a>LINK COMING SOON</a>.
 
