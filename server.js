@@ -11,27 +11,10 @@ const app = express();
 
 const config = require('./config')
 const models = require("./models");
-<<<<<<< HEAD
-const express = require('express');
-const LocalStrategy = require('passport-local').Strategy;
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const path = require('path');
-const cookieSession = require('cookie-session');
-const app = express();
-// Sets up the Express app to handle data parsing - AZ
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(logger('dev')); //
-app.use(cookieParser()); // 
-app.use(cookieSession({keys: ['secretkey1', 'secretkey2', '...']})); // 
-app.use(express.static(path.join(__dirname, 'public')));//
-=======
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const LocalStrategy = require('passport-local').Strategy;
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 // Static assets
 app.use(express.static("./client/build"));
@@ -43,17 +26,6 @@ app.use(express.static('./client/dist/'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
-<<<<<<< HEAD
-app.use(passport.session());
-
-passport.serializeUser(models.User.serializeUser());
-passport.deserializeUser(models.User.deserializeUser());
-
-// Configure passport-local to use account model for authentication
-
-passport.use(new LocalStrategy(models.User.authenticate()));
-// Register routes
-=======
 
 // app.use(logger('dev')); 
 // app.use(cookieParser()); 
@@ -83,16 +55,10 @@ app.use('/auth', authRoutes);
 app.use('/apt', apiRoutes); //api
 
 //Leslie's
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 const routes = require("./routes")(passport);
 app.use('/', routes);
 
-<<<<<<< HEAD
-app.use('/auth', require("./routes/authRoutes")(passport)); // userAutheticated?
-app.use('/', require('./routes'));
-
-=======
 // AZ 
 
 // app.get("*", (req, res) => {
@@ -102,7 +68,6 @@ app.use('/', require('./routes'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mongo DataBase
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 mongoose.Promise = global.Promise;
 if (process.env.MONGODB_URI) {

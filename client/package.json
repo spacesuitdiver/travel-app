@@ -4,16 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-<<<<<<< HEAD
-    "animate.css": "^3.7.0",
-    "axios": "^0.16.2",
-    "bcrypt": "^3.0.0",
-    "cookie-parser": "^1.4.3",
-    "date-fns": "^1.29.0",
-    "express-session": "^1.15.6",
-    "globalize": "^1.4.0",
-    "jsonwebtoken": "^8.3.0",
-=======
     "@material-ui/core": "^1.4.3",
     "animate.css": "^3.7.0",
     "axios": "^0.16.2",
@@ -34,16 +24,12 @@
     "globalize": "^1.4.0",
     "jsonwebtoken": "^8.3.0",
     "material-ui": "^0.20.2",
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
     "moment": "^2.22.2",
     "mongod": "^2.0.0",
     "mongoose": "^5.2.6",
     "morgan": "^1.9.0",
     "passport-local": "^1.0.0",
-<<<<<<< HEAD
-=======
     "prop-types": "^15.6.2",
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
     "react": "^16.4.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-big-calendar": "^0.19.2",
@@ -52,13 +38,6 @@
     "react-infinite-calendar": "^2.3.1",
     "react-materialize": "^2.3.3",
     "react-modal": "^3.5.1",
-<<<<<<< HEAD
-    "react-modal-login": "^1.3.1",
-    "react-responsive-modal": "^3.2.0",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.0.14",
-    "start": "^5.1.0"
-=======
     "react-responsive-modal": "^3.2.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -66,7 +45,6 @@
     "react-tap-event-plugin": "^3.0.3",
     "start": "^5.1.0",
     "style-loader": "^0.22.0"
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
   },
   "scripts": {
     "start": "react-scripts start",

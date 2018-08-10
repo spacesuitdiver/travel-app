@@ -1,18 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import ReactModalLogin from 'react-modal-login';
-import "./Header.css";
-import axios from "axios";
-
-
-
-class Header extends Component {
-
-        constructor(props) {
-
-            super(props);
-        
-=======
 import "./Header.css";
 import axios from "axios";
 import Auth from '../../modules/Auth';
@@ -25,38 +11,15 @@ class Header extends Component {
             super(props);
            
 
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             this.state = {
                 showModal: false,
                 loading: false,
                 error: null,
-<<<<<<< HEAD
-                initialTab: null, 
-=======
                 activeTab: 0, 
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                 loggedIn: null, 
                 recoverPasswordSuccess: null, 
 
                 
-<<<<<<< HEAD
-                
-                firstname: " ", //*
-                lastname: " ", //*
-                email: " ", //*
-                password: "  ", //*
-                
-
-            };
-        
-            // this.onLoginSuccess = this.onLoginSuccess.bind(this) //*  LogIn handleSubmit
-            // this.onRegisterSuccess = this.onRegisterSuccess.bind(this) // * REG handleSubmit
-            // this.handleChange = this.handleChange.bind(this) //*  REG
-
-            // this.getUser = this.getUser.bind(this)
-            // this.componentDidMount = this.componentDidMount.bind(this)
-            // this.updateUser = this.updateUser.bind(this)
-=======
                 firstname: "", 
                 lastname: "", 
                 email: "", 
@@ -65,118 +28,10 @@ class Header extends Component {
             };
         
          
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
  
 
         } 
 
-<<<<<<< HEAD
-        // componentDidMount() {
-        //     this.onLoginSuccess()
-        // }
-        
-        // updateUser (userObject) {
-        //     this.setState(userObject)
-        // }
-        
-
-        handleInputChange(event) { //* REG
-            this.setState({
-                firstname: event.target.value,
-                lastname: event.target.value,
-                email: event.target.value,
-                password: event.target.value
-
-            })
-        }
-        
-
-            
-    
-      onLogin() { //
-        console.log('__onLogin__');
-        console.log('email: ' + document.querySelector('#email').value);
-        console.log('password: ' + document.querySelector('#password').value);
-    
-        // const email = document.querySelector('#email').value;
-        // const password = document.querySelector('#password').value;
-    
-        // if (!email || !password) {
-        //   this.setState({
-        //     error: true
-        //   })
-        // } else {
-        //   this.onLoginSuccess('');
-        // }
-
-        this.onLoginSuccess('');
-        
-
-
-
-      } 
-
-      onRegister() { //
-        console.log('__onRegister__');
-        console.log('first name: ' + document.querySelector('#firstname').value);
-        console.log('last name: ' + document.querySelector('#lastname').value);
-        console.log('email: ' + document.querySelector('#email').value);
-        console.log('password: ' + document.querySelector('#password').value);
-    
-        // const firstname = document.querySelector('#firstname').value;
-        // const lastname = document.querySelector('#lastname').value;
-        // const email = document.querySelector('#email').value;
-        // const password = document.querySelector('#password').value;
-    
-        // if (!firstname|| !lastname || !email || !password) {
-        //   this.setState({
-        //     error: true
-        //   })
-        // } else {
-        //   this.onRegisterSuccess();
-        // }
-        
-        this.onRegisterSuccess();
-      }
-    
-      onRecoverPassword() { //
-        console.log('__onFotgottenPassword__');
-        console.log('email: ' + document.querySelector('#email').value);
-    
-        const email = document.querySelector('#email').value;
-    
-    
-        if (!email) {
-          this.setState({
-            error: true,
-            recoverPasswordSuccess: false
-          })
-        } else {
-          this.setState({
-            error: null,
-            recoverPasswordSuccess: true
-          });
-        }
-      }
-
-
-
-
-      openModal(initialTab) { //
-        this.setState({
-          initialTab: initialTab
-        }, () => {  
-            this.setState({
-                showModal: true,
-            })
-
-        });
-      }
-     
-
-        onLoginSuccess() {
-            // event.preventDefault();
-=======
     
 
         // handleInputChange(event) { //* REG
@@ -195,7 +50,6 @@ class Header extends Component {
 
         onLoginSuccess() {
            
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             var loginURL = "/auth";
             // http://localhost:3000
 
@@ -233,20 +87,6 @@ class Header extends Component {
     
         }
 
-<<<<<<< HEAD
-        onRegisterSuccess() {
-            // event.preventDefault();
-            var registerURL = "/auth";
-            //http://localhost:3000
-            const register = {
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                email: this.state.email,
-                password: this.state.password
-        
-            }
-        
-=======
         // onRegisterSuccess() {
         
             // var registerURL = "/auth";
@@ -307,16 +147,11 @@ class Header extends Component {
        
         var registerURL = "/auth";
  
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             axios.post(registerURL + "/register", { 
 
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
-<<<<<<< HEAD
-                email: this.state.email,
-=======
                 username: this.state.email,
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                 password: this.state.password
 
             })
@@ -326,13 +161,6 @@ class Header extends Component {
                     console.log(res.body);
             
                     if (res.data) {
-<<<<<<< HEAD
-                        // window.location = "/login"
-                        this.setState({
-                            // redirectTo: '/login'
-                            
-                        })
-=======
                          
                         this.setState({
                              redirectTo: '/login'
@@ -343,7 +171,6 @@ class Header extends Component {
 
                         console.log('success!')
                         // window.location = "/login"
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                     } else if (res.data.redirect === '/login') {
                         // window.location = "/login"
                         
@@ -353,53 +180,6 @@ class Header extends Component {
                     // window.location = "/login"
                     
                 });
-<<<<<<< HEAD
-        }
-
-
-
-        onLoginFail(method, response) {
-
-            this.setState({
-            loading: false,
-            error: response
-            })
-        }
-    
-     
-        startLoading() {
-         this.setState({
-          loading: true
-         })
-        }
-     
-      finishLoading() {
-        this.setState({
-          loading: false
-        })
-      }
-     
-
-        afterTabsChange() {
-            this.setState({
-            error: null,
-            recoverPasswordSuccess: false,
-            });
-        }
-
-
-        closeModal() {
-            this.setState({
-              showModal: false,
-              error: null
-            });
-        }
-          
-        
-        render() {
-
-            const loggedIn = this.state.loggedIn
-=======
         
         // this.onRegisterSuccess();
       }
@@ -462,23 +242,15 @@ class Header extends Component {
             return (
 
             // const loggedIn = this.state.loggedIn
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
             // ? <div>
             //     <p>You are signed in with: {this.state.loggedIn}</p>
             //   </div>
             // : <div>
             //     <p>You are signed out</p>
             // </div>;
-<<<<<<< HEAD
-      
-            const isLoading = this.state.loading;
-            
-                return (
-=======
             // const isLoading = this.state.loading;
             
 
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
                 <header className="masthead text-center text-white d-flex">
         
@@ -488,17 +260,9 @@ class Header extends Component {
                         
                             <div className="col-lg-10 mx-auto">
 
-<<<<<<< HEAD
-                            <li className="animated fadeInDownBig">
-                                <img class="smt" src="/images/SMT.png" alt="SMT"/>   
-                            </li>
-
-                                
-=======
                                 <li className="animated fadeInDownBig">
                                     <img className="smt" src="/images/SMT.png" alt="SMT"/>   
                                 </li>           
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
                             </div>
                            
                             <div className="col-lg-8 mx-auto headerDiv">
@@ -507,202 +271,6 @@ class Header extends Component {
                                 <br/>
                                 <br/>
                                 <br/>
-<<<<<<< HEAD
-                                <button className="RML-btn" onClick={() => this.openModal('login')}>Get Styled</button>
-
-                                {/* <h1 className="headerText text-uppercase"> <strong>The Best Way to Travel is in Style</strong> </h1> */}
-                                {/* <p className="text-faded mb-5 headerText">Going somewhere exciting? Not sure what to wear? We will help you pick out the perfect outfit for where ever you are going.</p> */}
-                             
-                               
-                               
-                            <div>
-
-                                <ReactModalLogin 
-                                    // componentDidMount = {this.compHEonentDidMount.bind(this)}
-                                    // updateUser = {this.updateUser.bind(this)}
-                                    onLoginSuccess = {this.onLoginSuccess.bind(this)} //*  LogIn handleSubmit
-                                    handleInputChange = {this.handleInputChange.bind(this)}
-                                    onRegisterSuccess = {this.onRegisterSuccess.bind(this)} // * REG handleSubmit
-                                    handleInputChange = {this.handleInputChange.bind(this)} //*  REG
-
-
-
-                                    updateUser = {this.updateUser}
-                                    loggedIn = {this.state.loggedIn}
-
-                                    visible={this.state.showModal}  
-                                    onCloseModal={this.closeModal.bind(this)} 
-                                    // loading={this.state.loading}
-                                    loading={isLoading}
-                                    initialTab={this.state.initialTab}
-                                    error={this.state.error}
-                                    tabs={{
-                                        afterChange: this.afterTabsChange.bind(this)
-                                    }}
-                                    startLoading={this.startLoading.bind(this)}
-                                    finishLoading={this.finishLoading.bind(this)}
-                
-                                    loginError={{
-                                        label: "Couldn't sign in, please try again."
-                                    }}
-                                    registerError={{
-                                        label: "Couldn't sign up, please try again."
-                                    }}
-
-                                    form={{
-
-                                        
-                                        // onLoginSuccess: this.onLoginSuccess.bind(this), //*  LogIn handleSubmit
-                                        // handleLogin: this.handleRegister.bind(this),
-                                        // onRegisterSuccess: this.onRegisterSuccess.bind(this), // * REG handleSubmit
-                                        // handleRegister: this.handleRegister.bind(this), //*  REG
-                                
-                                        onLogin: this.onLogin.bind(this),
-                                        onRegister: this.onRegister.bind(this),
-                                        onRecoverPassword: this.onRecoverPassword.bind(this),
-                                        recoverPasswordSuccessLabel: this.state.recoverPasswordSuccess
-                                        ? {
-                                            label: "New password has been sent to your mailbox!"
-                                            }
-                                        : null,
-                                        recoverPasswordAnchor: {
-                                        label: "Forgot your password?"
-                                        },
-
-                                        loginBtn: {
-                                        label: "Log in",
-                                        method: 'post',
-                                        // onClick: this.onLoginSuccess,
-                                        onClick: this.onLogin,
-                                        type: 'submit'
-                                      
-                                        },
-                                        registerBtn: {
-                                        label: "Register",
-                                        method: 'post',
-                                        onClick: this.onRegisterSuccess,
-                                        onClick: this.onRegister,
-                                        type: 'submit'
-                                        
-                                        },
-                                        recoverPasswordBtn: {
-                                        label: "Send new password"
-                                        },
-
-                                        loginInputs: [
-                                        {
-                                            
-                                            containerClass: 'RML-form-group',
-                                            action: "/login",
-                                            label: 'email',
-                                            type: 'email',
-                                            inputClass: 'RML-form-control',
-                                            id: 'email',
-                                            name: 'email',
-                                            placeholder: 'Email',
-                                            value: this.state.email,
-                                            // onChange: this.onLoginSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-
-
-                                        
-                                        },
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            action: "/register",
-                                            label: 'password',
-                                            type: 'password',
-                                            inputClass: 'RML-form-control',
-                                            id: 'password',
-                                            name: 'password',
-                                            placeholder: 'Password',
-                                            value: this.state.password,
-                                            // onChange: this.onLoginSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-                                            
-                                        }
-                                        ], // <form id="signup" name="signup" method="post" action="/signup">
-                                        registerInputs: [
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            label: 'First Name',
-                                            type: 'text',
-                                            inputClass: 'RML-form-control',
-                                            id: 'firstname',
-                                            name: 'firstname',
-                                            placeholder: 'First Name',
-                                            value: this. state.firstname,
-                                            // onChange: this.onRegisterSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-                            
-                                          
-                                        },
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            label: 'Last Name',
-                                            type: 'text',
-                                            inputClass: 'RML-form-control',
-                                            id: 'lastname',
-                                            name: 'lastname',
-                                            placeholder: 'Last Name',
-                                            value: this.state.lastname,
-                                            // onChange: this.onRegisterSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-                                           
-                                        },
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            label: 'email',
-                                            type: 'email',
-                                            inputClass: 'RML-form-control',
-                                            id: 'email',
-                                            name: 'email',
-                                            placeholder: 'Email',
-                                            value: this.state.email,
-                                            // onChange: this.onRegisterSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-                                            
-                                        },
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            label: 'password',
-                                            type: 'password',
-                                            inputClass: 'RML-form-control',
-                                            id: 'password',
-                                            name: 'password',
-                                            placeholder: 'Password',
-                                            value: this.state.password,
-                                            // onChange: this.onRegisterSuccess.bind(this)
-                                            onChange: this.handleInputChange.bind(this)
-                                            
-                                        }
-                                        ],
-
-
-                                        recoverPasswordInputs: [
-                                        {
-                                            containerClass: 'RML-form-group',
-                                            label: 'email',
-                                            type: 'email',
-                                            inputClass: 'RML-form-control',
-                                            id: 'email',
-                                            name: 'email',
-                                            placeholder: 'Email',
-                                        },
-                                        ],
-                                    }}
-                                
-                                    />
-                                    {loggedIn}
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                 </header>
-            
-                
-                );
-=======
                                 {/* <button className="RML-btn" onClick={() => this.setState({ show:true })}>Get Styled</button>  */}
                                 <Card className="container" style= {{
                                         background:'transparent',
@@ -761,7 +329,6 @@ class Header extends Component {
             
                 
             );
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
         } 
 }
 

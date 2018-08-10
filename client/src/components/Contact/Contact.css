@@ -86,17 +86,6 @@ h6 {
   background-color: white;
 }
 
-<<<<<<< HEAD
-.social-media {
-  height: 65px;
-  width: 55px;
-  margin: 10px;
-}
-.contactMe {
-  font-family: tokyoRegular;
-}
-
-=======
 .socialMediaCol {
   margin-bottom: 40px;
 
@@ -144,7 +133,6 @@ button.ui.button {
   position: relative;
   right: 5px;
 }
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 .phone {
   color: #f87956;
 }

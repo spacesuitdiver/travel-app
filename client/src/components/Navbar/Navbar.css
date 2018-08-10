@@ -98,10 +98,6 @@ img::-moz-selection {
   transition: all 0.2s;
 }
 
-<<<<<<< HEAD
-a.nav-link {
-  color: coral;
-=======
 img.smtNav {
   height: 100px;
   width: 200px;
@@ -113,7 +109,6 @@ a.nav-link {
   padding-right: 10px !important;
   margin-right: 10px !important;
 
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 #mainNav .navbar-brand {
@@ -165,12 +160,8 @@ a.nav-link {
     color: black;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
-<<<<<<< HEAD
-    padding: 0.5rem 1rem;
-=======
     padding: 0.5rem 1.2rem;
     margin-right: 15px;
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link,
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -332,13 +323,8 @@ header.masthead p {
 }
 
 .btn-primary {
-<<<<<<< HEAD
-  background-color: coral;
-  border-color: coral;
-=======
   background-color: #f87956;
   border-color: #f87956;
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
