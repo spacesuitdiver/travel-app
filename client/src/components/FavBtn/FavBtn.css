@@ -1,10 +1,6 @@
 .fave-button {
   float: right;
-<<<<<<< HEAD
-  background-color:#dc6f68;
-=======
   background-color:coral;
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 }
 
 .fave-button:hover {

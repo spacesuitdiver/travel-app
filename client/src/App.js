@@ -1,34 +1,10 @@
-<<<<<<< HEAD
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar';
-import InputTravelPage from "./pages/InputTravelPage/";
-import HomePage from "./pages/HomePage/";
-import Calendar from "./pages/Calendar";
-import TravelAgenda from "./pages/TravelAgenda/";
-
-
-const App = () => (
-  <Router>
-    <div>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/travel" component={InputTravelPage} />
-        <Route exact path="/travel/:travelId" component={TravelAgenda} />
-        <Route exact path="/calendar" component={Calendar} />
-      </Switch>
-    </div>
-  </Router>
-);
-=======
 // original //
 import React, { Component } from 'react'; //
 import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom"; //
 
 import InputTravelPage from "./pages/InputTravelPage/index"; // add /InputTravelPage
 import HomePage from "./pages/HomePage/index"; // add /HomePage
-import Calendar from "./pages/Calendar/index";
+import Calendar from "./pages/calendar/index";
 import TravelAgenda from "./pages/TravelAgenda/index";
 // original //
 
@@ -236,6 +212,5 @@ class App extends Component {
     );
   }
 }
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
 export default App;
