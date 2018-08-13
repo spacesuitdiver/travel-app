@@ -38,12 +38,8 @@ const travelSchema = new Schema({
   packingList: [{
     type: String,
     required: false,
-<<<<<<< HEAD
     description: []
-  },
-=======
   }],
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
   imageObjects: [{
     id: {
       type: Number,
