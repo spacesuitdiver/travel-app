@@ -13,7 +13,7 @@ import "./components/Navbar/Navbar.css"
 import LoginPage from './containers/LoginPage.jsx';
 import LogoutFunction from './containers/LogoutFunction.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
-import Auth from './modules/Auth';
+import Auth from './utils/Auth';
 
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';

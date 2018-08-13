@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Header.css";
 import axios from "axios";
-import Auth from '../../modules/Auth';
+import Auth from '../../utils/Auth';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 class Header extends Component {

@@ -4,7 +4,7 @@ import { Input, FormBtn } from "../../components/TravelForm";
 import { Container } from "../../components/Grid";
 import "./InputTravelPage.css";
 import "../../components/Navbar/Navbar"
-import Auth from '../../modules/Auth';
+import Auth from '../../utils/Auth';
 
 
 
@@ -25,25 +25,7 @@ class InputTravelPage extends Component {
 
     componentDidMount() {
         this.loadTravel();
-        const xhr = new XMLHttpRequest();
-        xhr.open('get', '/api/dashboard');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // set the authorization HTTP header
-        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-          if (xhr.status === 200) {
-            this.setState({
-              secretData: xhr.response.message
-            });
-          }
-        });
-        xhr.send();
-      }
-
-    // componentDidMount() {
-    //     this.loadTravel();
-    // }
+    }
 
     loadTravel = () => {
         API.findAllTravel()
