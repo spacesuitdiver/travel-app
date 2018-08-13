@@ -1,4 +1,5 @@
 import axios from "axios";
+import Auth from './Auth';
 
 export default {
     //USER TRAVEL PROFILE
@@ -16,14 +17,22 @@ export default {
 
     //TRAVEL
     findAllTravel: () => {
-        return axios.get("/api/travel")
+        return axios.get("/api/travel", {
+            headers: {
+                'Authorization': `Bearer ${Auth.getToken()}`,
+            },
+        });
     },
     createTravel: (travelData) => {
         return axios.post("/api/travel", travelData)
     },
 
     findOneTravel: (travelId) => {
-        return axios.get(`/api/travel/${travelId}`)
+        return axios.get(`/api/travel/${travelId}`, {
+            headers: {
+                'Authorization': `Bearer ${Auth.getToken()}`,
+            },
+        })
     },
 
     editTravel: (travelId, travelData) => {
