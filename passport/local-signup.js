@@ -1,7 +1,7 @@
 const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
 const jwt = require('jsonwebtoken');
-const config = require('../../config');
+const config = require('../config');
 
 /**
  * Return the Passport Local Strategy object.
