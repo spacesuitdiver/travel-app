@@ -4,15 +4,14 @@ const WEATHERAPI = "a385e638a6477656f3b41b4c0cdf8219";
 const TUMBLRAPI = "fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4";
 
 const fetchWeatherData = travel => {
-    return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
-      .then(weatherData => {
-        return {
-          weather: weatherData.data,
-          travel: travel
-        }
-      })
-    }
-}
+  return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
+    .then(weatherData => {
+      return {
+        weather: weatherData.data,
+        travel: travel
+      }
+    })
+  }
 
 const fetchTumblrData = (travelAndWeather) => {
   const searchTerms = [];
