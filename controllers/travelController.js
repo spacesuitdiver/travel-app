@@ -4,9 +4,6 @@ const WEATHERAPI = "a385e638a6477656f3b41b4c0cdf8219";
 const TUMBLRAPI = "fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4";
 
 const fetchWeatherData = travel => {
-
-<<<<<<< HEAD
-
     return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
       .then(weatherData => {
         return {
@@ -14,27 +11,13 @@ const fetchWeatherData = travel => {
           travel: travel
         }
       })
-  
     }
-  const fetchTumblrData = (travelAndWeather) => {
-    const searchTerms = [];
-    searchTerms.push("fashion");
-    searchTerms.push(travelAndWeather.travel.city);
-=======
-  return axios(`http://api.openweathermap.org/data/2.5/weather?q=${travel.city},${travel.country}&appid=${WEATHERAPI}&units=imperial`)
-    .then(weatherData => {
-      return {
-        weather: weatherData.data,
-        travel: travel
-      }
-    })
-
 }
+
 const fetchTumblrData = (travelAndWeather) => {
   const searchTerms = [];
   searchTerms.push("fashion");
   searchTerms.push(travelAndWeather.travel.city);
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
 
   // searchTerms.push(travelAndWeather.weather.weather[0].description)
   console.log(searchTerms.toString().split(/[ ,]+/).join("+"))
@@ -63,7 +46,7 @@ module.exports = {
       .create(req.body)
       .then(travel => res.json(travel))
       .catch(err => res.status(422).json(err));
-  },
+  },  
   findOneTravel: function (req, res) {
     db.Travel
       .findOne({ _id: req.params.travelId })
@@ -74,60 +57,14 @@ module.exports = {
       }))
       .catch(err => res.status(422).json(err));
   },
-  editTravel: function (req, res) {
-    console.log(req.body)
+  editTravel: function(req, res) {
+	  console.log(req.body) 
     db.Travel
-      .findOneAndUpdate({ _id: req.params.travelId }, req.body, { new: true })
+      .findOneAndUpdate({ _id: req.params.travelId}, req.body, {new: true} )
       .then(tumblr => {
-        console.log(tumblr);
-        res.json(tumblr);
-      })
-<<<<<<< HEAD
-  };
-
-  module.exports = {
-    findAllTravel: (req, res) => {
-      db.Travel
-        .find(req.query)
-        .sort({ date: -1 })
-        .then(travels => res.json(travels))
-        .catch(err => res.status(422).json(err));
-    },
-    createTravel: function (req, res) {
-      db.Travel
-        .create(req.body)
-        .then(travel => res.json(travel))
-        .catch(err => res.status(422).json(err));
-    },  
-    findOneTravel: function (req, res) {
-      db.Travel
-        .findOne({ _id: req.params.travelId })
-        .then(fetchWeatherData)
-        .then(fetchTumblrData)
-        .then(({ travel, weather, tumblr }) => res.json({
-          travel, weather, tumblr
-        }))
-        .catch(err => res.status(422).json(err));
-    },
-    editTravel: function(req, res) {
-		  console.log(req.body) 
-      db.Travel
-        .findOneAndUpdate({ _id: req.params.travelId}, req.body, {new: true} )
-        .then(tumblr => {
-		  console.log(tumblr);
-		  res.json(tumblr);
-	    })
-        .catch(err => res.status(422).json(err));
-    },
-    deleteTravel: function (req, res) {
-      db.Travel
-        .findById({ _id: req.params.travelId })
-        .then(travel => travel.remove())
-        .then(travel => res.json(travel))
-        .catch(err => res.status(422).json(err));
-    }
-  }
-=======
+	  console.log(tumblr);
+	  res.json(tumblr);
+    })
       .catch(err => res.status(422).json(err));
   },
   deleteTravel: function (req, res) {
@@ -137,5 +74,4 @@ module.exports = {
       .then(travel => res.json(travel))
       .catch(err => res.status(422).json(err));
   }
-}
->>>>>>> b88281d9ecb065ec4a49f950579af2fd347280c5
+};
