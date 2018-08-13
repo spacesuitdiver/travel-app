@@ -47,6 +47,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },  
   findOneTravel: function (req, res) {
+    console.log(req.user);
+
     db.Travel
       .findOne({ _id: req.params.travelId })
       .then(fetchWeatherData)

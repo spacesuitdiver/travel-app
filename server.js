@@ -33,9 +33,6 @@ const localLoginStrategy = require('./passport/local-login');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
 
-// const authCheckMiddleware = require('./middleware/auth-check'); //controllers
-// app.use('/api', authCheckMiddleware); // api
-
 //routes
 const routes = require("./routes")(passport);
 app.use(routes);
